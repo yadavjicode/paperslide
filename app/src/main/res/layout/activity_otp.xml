@@ -21,14 +21,16 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="200dp"
-        android:layout_marginBottom="0dp"
+        android:layout_marginEnd="172dp"
         android:text="OTP"
+
+
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/tvSub"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/tvSub"
@@ -146,8 +148,8 @@
         android:layout_height="wrap_content"
         android:text="Resend"
         android:textColor="@color/white"
-        tools:layout_editor_absoluteX="70dp"
-        tools:layout_editor_absoluteY="436dp" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="351dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

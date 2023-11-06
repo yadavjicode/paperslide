@@ -13,14 +13,23 @@
         android:theme="@style/Theme.Paper_slide"
         tools:targetApi="31">
         <activity
-            android:name=".home.Home"
-            android:exported="true" >
+            android:name=".scandocument.ScanDocument"
+            android:exported="false" />
+        <activity
+            android:name=".Signature.Signature"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".presentation.Presentation"
+            android:exported="false" />
+        <activity
+            android:name=".home.Home"
+            android:exported="true" />
         <activity
             android:name=".otp.Otp"
             android:exported="false" />
@@ -32,9 +41,7 @@
             android:exported="false" />
         <activity
             android:name=".splash.Splash"
-            android:exported="true"/>
-
-
+            android:exported="true" />
     </application>
 
 </manifest>
