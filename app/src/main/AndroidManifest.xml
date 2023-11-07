@@ -13,17 +13,24 @@
         android:theme="@style/Theme.Paper_slide"
         tools:targetApi="31">
         <activity
-            android:name=".scandocument.ScanDocument"
-            android:exported="false" />
-        <activity
-            android:name=".Signature.Signature"
-            android:exported="true">
+            android:name=".preview.preview"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".textscannertranslate.Text_Scanner_Translate"
+            android:exported="true"/>
+
+        <activity
+            android:name=".scandocument.ScanDocument"
+            android:exported="false" />
+        <activity
+            android:name=".Signature.Signature"
+            android:exported="true" />
         <activity
             android:name=".presentation.Presentation"
             android:exported="false" />

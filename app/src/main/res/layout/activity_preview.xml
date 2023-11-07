@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".preview.preview">
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:background="@color/blue"
+       android:paddingVertical="10dp"
+      >
+
+      <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:src="@drawable/baseline_arrow_back_24"
+         />
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Preview"
+          android:textColor="@color/white"
+          android:layout_centerVertical="true"
+          android:layout_centerHorizontal="true"
+         android:textStyle="bold"
+         android:textSize="18dp" />
+
+      <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:src="@drawable/language"
+          android:layout_marginEnd="10dp"
+          android:layout_alignParentEnd="true"
+          />
+      <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+         android:src="@drawable/material"
+          android:layout_alignParentEnd="true"
+          android:layout_marginEnd="70dp"
+         />
+
+   </RelativeLayout>
+   <com.google.android.material.tabs.TabLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/tablayout"
+       android:background="@color/blue"
+       app:tabIndicatorColor="@color/white"
+       app:tabTextAppearance="@style/TabLayoutTextStyle"
+       app:tabSelectedTextColor="@color/white"
+       app:tabTextColor="@color/black"/>
+
+      <androidx.viewpager.widget.ViewPager
+          android:id="@+id/viewpage"
+          android:layout_width="match_parent"
+          android:layout_height="600dp"
+         android:background="@color/white"
+          android:layout_marginStart="10dp"
+          android:layout_marginEnd="10dp"
+          android:layout_marginTop="15dp"
+        />
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal"
+       android:paddingVertical="5dp"
+      >
+
+      <Button
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="cancel"
+          android:layout_marginEnd="10dp"
+          android:layout_marginStart="5dp"
+          android:layout_gravity="start"
+          android:layout_weight="1"/>
+
+
+      <Button
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Summarize"
+          android:layout_marginEnd="10dp"
+          android:layout_gravity="start"
+          android:layout_weight="1"
+          android:layout_marginStart="20dp"/>
+
+
+   </LinearLayout>
+
+
+</LinearLayout>
+

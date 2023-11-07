@@ -6,4 +6,10 @@
     </style>
 
     <style name="Theme.Paper_slide" parent="Base.Theme.Paper_slide" />
+
+    <style name="TabLayoutTextStyle">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
 </resources>
