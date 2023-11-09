@@ -13,18 +13,23 @@
         android:theme="@style/Theme.Paper_slide"
         tools:targetApi="31">
         <activity
+            android:name=".signup.SignUp"
+            android:exported="false" />
+        <activity
+            android:name=".resetpassword.ResetPassword"
+            android:exported="false" />
+        <activity
+            android:name=".result.Result"
+            android:exported="false" />
+        <activity
+            android:name=".summarize.Summarize"
+            android:exported="false" />
+        <activity
             android:name=".preview.preview"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".textscannertranslate.Text_Scanner_Translate"
-            android:exported="true"/>
-
+            android:exported="true" />
         <activity
             android:name=".scandocument.ScanDocument"
             android:exported="false" />
@@ -36,7 +41,8 @@
             android:exported="false" />
         <activity
             android:name=".home.Home"
-            android:exported="true" />
+            android:exported="true"/>
+
         <activity
             android:name=".otp.Otp"
             android:exported="false" />
@@ -45,7 +51,13 @@
             android:exported="false" />
         <activity
             android:name=".signin.Login"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".splash.Splash"
             android:exported="true" />
