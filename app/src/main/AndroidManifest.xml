@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Paper_slide"
         tools:targetApi="31">
         <activity
+            android:name=".ui.pastelink.PasteLink"
+            android:exported="false" />
+        <activity
             android:name=".signup.SignUp"
             android:exported="false" />
         <activity
@@ -37,11 +40,17 @@
             android:name=".Signature.Signature"
             android:exported="true" />
         <activity
-            android:name=".presentation.Presentation"
+            android:name=".ui.createpresentation.Presentation"
             android:exported="false" />
         <activity
             android:name=".home.Home"
-            android:exported="true"/>
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".otp.Otp"
@@ -51,13 +60,8 @@
             android:exported="false" />
         <activity
             android:name=".signin.Login"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="true"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".splash.Splash"
             android:exported="true" />
