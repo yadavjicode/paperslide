@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission
+        android:name="com.google.android.gms.permission.AD_ID"
+        tools:node="remove" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,6 +17,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Paper_slide"
         tools:targetApi="31">
+        <activity
+            android:name=".ui.uploadsignature.UploadSinature"
+            android:exported="false" />
+        <activity
+            android:name=".ui.createasignature.CreateASignature"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Create_a_signature"
+            android:exported="false" />
+        <activity
+            android:name=".ui.signin.profile"
+            android:exported="false" />
         <activity
             android:name=".ui.pastelink.PasteLink"
             android:exported="false" />
@@ -44,7 +61,19 @@
             android:exported="false" />
         <activity
             android:name=".home.Home"
-            android:exported="true" >
+            android:exported="true" />
+        <activity
+            android:name="ui.otp.Otp"
+            android:exported="false" />
+        <activity
+            android:name=".forgotpassword.ForgotPassword"
+            android:exported="false" />
+        <activity
+            android:name=".ui.signin.Login"
+            android:exported="true" />
+        <activity
+            android:name=".splash.Splash"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -52,19 +81,12 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".otp.Otp"
-            android:exported="false" />
-        <activity
-            android:name=".forgotpassword.ForgotPassword"
-            android:exported="false" />
-        <activity
-            android:name=".signin.Login"
-            android:exported="true"/>
-
-        <activity
-            android:name=".splash.Splash"
-            android:exported="true" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.gms.auth.api.signin.CLIENT_ID"
+            android:value="990156368364-heapt9j35b2cu3kgeh89u1jmd5ol6r95.apps.googleusercontent.com" />
     </application>
 
 </manifest>

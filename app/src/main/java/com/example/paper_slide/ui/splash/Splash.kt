@@ -9,7 +9,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
 import com.example.paper_slide.R
 import com.example.paper_slide.databinding.ActivitySplashBinding
-import com.example.paper_slide.signin.Login
+//import com.example.paper_slide.signin.Login
+import com.example.paper_slide.ui.signin.Login
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 

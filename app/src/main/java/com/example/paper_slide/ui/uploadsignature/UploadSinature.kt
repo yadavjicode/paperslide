@@ -1,12 +1,12 @@
-package com.example.paper_slide.ui.otp
+package com.example.paper_slide.ui.uploadsignature
 
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
 import com.example.paper_slide.R
 
-class Otp : AppCompatActivity() {
+class UploadSinature : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_otp)
+        setContentView(R.layout.activity_upload_sinature)
     }
 }
