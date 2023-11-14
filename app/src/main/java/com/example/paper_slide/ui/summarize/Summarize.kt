@@ -1,4 +1,4 @@
-package com.example.paper_slide.summarize
+package com.example.paper_slide.ui.summarize
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:background="#E91E63"
     android:layout_height="match_parent"
-    tools:context=".preview.TextFragment">
+    tools:context=".ui.preview.TextFragment">
 
     <TextView
         android:layout_width="match_parent"

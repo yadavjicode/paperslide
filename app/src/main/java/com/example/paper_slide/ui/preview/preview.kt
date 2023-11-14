@@ -1,4 +1,4 @@
-package com.example.paper_slide.preview
+package com.example.paper_slide.ui.preview
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

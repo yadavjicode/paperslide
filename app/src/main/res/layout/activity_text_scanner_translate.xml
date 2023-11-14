@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:background="@color/white"
     android:layout_height="match_parent"
-    tools:context=".textscannertranslate.Text_Scanner_Translate">
+    tools:context=".ui.textscannertranslate.Text_Scanner_Translate">
 
     <RelativeLayout
         android:id="@+id/relativeLayout5"

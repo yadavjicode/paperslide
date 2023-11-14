@@ -1,4 +1,4 @@
-package com.example.paper_slide.splash
+package com.example.paper_slide.ui.splash
 
 import android.content.Intent
 import android.os.Bundle

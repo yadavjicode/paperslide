@@ -8,7 +8,7 @@
     android:background="@color/white"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".preview.preview">
+    tools:context=".ui.preview.preview">
 
    <RelativeLayout
        android:layout_width="match_parent"

@@ -1,4 +1,4 @@
-package com.example.paper_slide.scandocument
+package com.example.paper_slide.ui.scandocument
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

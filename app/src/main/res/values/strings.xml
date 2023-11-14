@@ -5,4 +5,6 @@
     <string name="close">Close</string>
     <string name="web_client_id">990156368364-op5sku3d33pf18g465abgkaj9e3b5npt.apps.googleusercontent.com</string>
     <string name="your_web_client_id" />
+    <string name="required" />
+    <string name="invalid">"inavalid "</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.paper_slide.Signature
+package com.example.paper_slide.ui.Signature
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

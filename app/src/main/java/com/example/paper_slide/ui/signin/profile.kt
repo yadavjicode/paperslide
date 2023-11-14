@@ -19,7 +19,6 @@ class profile : AppCompatActivity() {
     private lateinit var gImage:ImageView
     private lateinit var gName:TextView
     private lateinit var gEmail:TextView
-
     private lateinit var gid:TextView
     private lateinit var  gsignout:Button
     private lateinit var gso:GoogleSignInOptions

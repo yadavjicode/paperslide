@@ -1,4 +1,4 @@
-package com.example.paper_slide.textscannertranslate
+package com.example.paper_slide.ui.textscannertranslate
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

@@ -1,4 +1,4 @@
-package com.example.paper_slide.home
+package com.example.paper_slide.ui.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,7 +7,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.paper_slide.R
 import com.google.android.material.navigation.NavigationView
-import com.google.firebase.crashlytics.buildtools.reloc.javax.annotation.meta.When
+//import com.google.firebase.crashlytics.buildtools.reloc.javax.annotation.meta.When
 
 class Home : AppCompatActivity() {
     lateinit var toggle: ActionBarDrawerToggle

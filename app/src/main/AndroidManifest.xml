@@ -23,9 +23,7 @@
         <activity
             android:name=".ui.createasignature.CreateASignature"
             android:exported="false" />
-        <activity
-            android:name=".ui.Create_a_signature"
-            android:exported="false" />
+
         <activity
             android:name=".ui.signin.profile"
             android:exported="false" />
@@ -33,53 +31,58 @@
             android:name=".ui.pastelink.PasteLink"
             android:exported="false" />
         <activity
-            android:name=".signup.SignUp"
-            android:exported="false" />
-        <activity
-            android:name=".resetpassword.ResetPassword"
-            android:exported="false" />
-        <activity
-            android:name=".result.Result"
-            android:exported="false" />
-        <activity
-            android:name=".summarize.Summarize"
-            android:exported="false" />
-        <activity
-            android:name=".preview.preview"
+            android:name=".ui.signup.SignUp"
             android:exported="true" />
         <activity
-            android:name=".textscannertranslate.Text_Scanner_Translate"
-            android:exported="true" />
-        <activity
-            android:name=".scandocument.ScanDocument"
-            android:exported="false" />
-        <activity
-            android:name=".Signature.Signature"
-            android:exported="true" />
-        <activity
-            android:name=".ui.createpresentation.Presentation"
-            android:exported="false" />
-        <activity
-            android:name=".home.Home"
-            android:exported="true" />
-        <activity
-            android:name="ui.otp.Otp"
-            android:exported="false" />
-        <activity
-            android:name=".forgotpassword.ForgotPassword"
-            android:exported="false" />
-        <activity
-            android:name=".ui.signin.Login"
-            android:exported="true" />
-        <activity
-            android:name=".splash.Splash"
-            android:exported="true">
+            android:name=".ui.resetpassword.ResetPassword"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ui.result.Result"
+            android:exported="false" />
+        <activity
+            android:name=".ui.summarize.Summarize"
+            android:exported="false" />
+        <activity
+            android:name=".ui.preview.preview"
+            android:exported="true" />
+        <activity
+            android:name=".ui.textscannertranslate.Text_Scanner_Translate"
+            android:exported="true" />
+        <activity
+            android:name=".ui.scandocument.ScanDocument"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Signature.Signature"
+            android:exported="true" />
+        <activity
+            android:name=".ui.createpresentation.Presentation"
+            android:exported="false" />
+        <activity
+            android:name=".ui.home.Home"
+            android:exported="true" />
+        <activity
+            android:name=".ui.otp.Otp"
+            android:exported="false" />
+        <activity
+            android:name=".ui.forgotpassword.ForgotPassword"
+            android:exported="true"/>
+
+        <activity
+            android:name=".ui.signin.Login"
+            android:exported="true" />
+
+
+        <activity
+            android:name=".ui.splash.Splash"
+            android:exported="true" />
+
 
         <meta-data
             android:name="com.google.android.gms.version"

@@ -1,4 +1,4 @@
-package com.example.paper_slide.preview
+package com.example.paper_slide.ui.preview
 import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
