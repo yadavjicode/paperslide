@@ -15,26 +15,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.Paper_slide"
         tools:targetApi="31">
         <activity
-            android:name=".ui.uploadsignature.UploadSinature"
-            android:exported="false" />
-        <activity
-            android:name=".ui.createasignature.CreateASignature"
-            android:exported="false" />
-
-        <activity
-            android:name=".ui.signin.profile"
-            android:exported="false" />
-        <activity
-            android:name=".ui.pastelink.PasteLink"
-            android:exported="false" />
-        <activity
-            android:name=".ui.signup.SignUp"
-            android:exported="true" />
-        <activity
-            android:name=".ui.resetpassword.ResetPassword"
+            android:name=".ui.signin.Signin"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -43,6 +28,27 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".ui.uploadsignature.UploadSinature"
+            android:exported="false" />
+        <activity
+            android:name=".ui.createasignature.CreateASignature"
+            android:exported="false" />
+        <activity
+            android:name=".ui.signin.profile"
+            android:exported="true"/>
+
+        <activity
+            android:name=".ui.pastelink.PasteLink"
+            android:exported="false" />
+        <activity
+            android:name=".ui.signup.SignUpActivity"
+            android:exported="true"/>
+
+
+        <activity
+            android:name=".ui.resetpassword.ResetPassword"
+            android:exported="true" />
         <activity
             android:name=".ui.result.Result"
             android:exported="false" />
@@ -72,17 +78,13 @@
             android:exported="false" />
         <activity
             android:name=".ui.forgotpassword.ForgotPassword"
-            android:exported="true"/>
-
+            android:exported="true" />
         <activity
             android:name=".ui.signin.Login"
             android:exported="true" />
-
-
         <activity
             android:name=".ui.splash.Splash"
             android:exported="true" />
-
 
         <meta-data
             android:name="com.google.android.gms.version"

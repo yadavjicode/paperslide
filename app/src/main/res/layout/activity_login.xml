@@ -67,22 +67,20 @@
                 android:layout_width="match_parent"
                 android:id="@+id/email_container"
                 android:layout_marginHorizontal="10dp"
-                app:helperText="@string/invalid"
-                app:helperTextTextColor="#E91E63"
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/getEmail"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:drawableStart="@drawable/baseline_phone_android_24"
-                    android:ems="10"
-                    android:lines="1"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
+                    android:background="@color/white"
+                    android:drawableStart="@drawable/baseline_phone_android_24"
+                    android:ems="10"
                     android:hint="Email/mobile number"
-                    android:background="@drawable/roundcorner"
                     android:inputType="textEmailAddress"
+                    android:lines="1"
                     android:padding="12dp"
                     android:textColor="@color/black"
                     android:textSize="16sp"
@@ -108,9 +106,6 @@
                 android:layout_marginHorizontal="10dp"
                 android:singleLine="true"
                 android:hint="Password"
-
-                app:helperText="@string/invalid"
-                app:helperTextTextColor="#E91E63"
                 app:passwordToggleEnabled="true"
                 >
 
@@ -121,7 +116,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
-                    android:background="@drawable/roundcorner"
+                    android:background="@color/white"
                     android:drawableStart="@drawable/baseline_lock_24"
                     android:ems="15"
                     android:inputType="textPassword"

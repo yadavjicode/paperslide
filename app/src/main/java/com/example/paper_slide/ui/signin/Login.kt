@@ -40,7 +40,7 @@ class Login : AppCompatActivity() {
     private lateinit var googlebutton: ImageView
     private var TAG = "loginlogs"
     // private val REQ_ONE_TAP = 2  // Can be any integer unique to the Activity
-    // private var showOneTapUI = true
+     private var showOneTapUI = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,6 +64,7 @@ class Login : AppCompatActivity() {
             goToSignin()
         }
 
+
     }
 
     private fun initviews() {
@@ -76,26 +77,16 @@ class Login : AppCompatActivity() {
     private fun validateviews() {
         val email=binding.getEmail.text.toString()
         val password =binding.getPassword.text.toString()
-
-        val vaalidate =Validate ()
-
-
-
+        val validate = Validate()
        if(email.isEmpty()){
             binding.getEmail.error="Please Enter email"
         }else if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             binding.getPassword.error="Enter Valid Email Id"
-
-        }else if(password.isEmpty() || password.length <= 8 || !vaalidate.validatePassword(password)){
+        }else if(password.isEmpty() || password.length <= 8 ||!validate.validatePassword(password)){
             binding.getPassword.error="Enter valid password(password should contain lower case , upper case,numbers and symbols)"
         }else{
 
         }
-
-
-
-
-
 
 
     }
@@ -158,50 +149,6 @@ class Login : AppCompatActivity() {
         }
    }
 
-
-    /*
-        private fun initViews() {
-            binding.signInBtn.setOnClickListener {
-                validateViews()
-            }
-            binding.tvSignUp.setOnClickListener {
-               // signInViewModel.startNewActivity(SignUpActivity::class.java)
-            }
-
-            binding.forgotPasswordTV.setOnClickListener {
-              //  signInViewModel.startNewActivity(ForgotPasswordActivity::class.java)
-            }
-        }
-
-        private fun validateViews() {
-            val password = binding.getPassword.text
-            val email = binding.getEmail.text
-            if (email?.isNotEmpty()!! && password?.isNotEmpty()!!) {
-                lifecycleScope.launch {
-                 /*   signInViewModel.validateSignIn(
-                        email.toString(),
-                        password.toString(),
-                        binding.progressBar
-                    )  */
-                }
-            } else if (email.isEmpty()) {
-                binding.getEmail.error = "Please Enter Your Email"
-            } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                binding.getEmail.error = "Please Enter a Valid Email"
-            } else if (password?.isEmpty()!!) {
-                binding.getPassword.error = "Please Enter Your Password"
-            } else if (password.length <= 4) {
-                binding.getPassword.error = "Password cannot be shorter than 4 Alphabets"
-            }
-        }
-        suspend fun validateSignIn(
-            username: String,
-            password: String?,
-            progressBar: ProgressBar
-        ){
-           // viewModelScope.launch {
-              //  fetchData(username, password!!, progressBar)
-            }      */
     }
 
 

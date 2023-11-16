@@ -4,35 +4,45 @@
     xmlns:tools="http://schemas.android.com/tools">
 
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:background="@color/blue"
         android:layout_height="match_parent"
-        tools:context=".ui.signup.SignUpActivity">
+        android:background="@color/blue"
+        tools:context=".ui.signin.Signin">
 
         <TextView
             android:id="@+id/tvSignUp"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
-            android:text="Sign Up"
-            android:gravity="center"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="40dp"
+            android:text="Welcome"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Paper Slide Login"
+            android:layout_marginStart="30dp"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSignUp" />
+
         <LinearLayout
             android:id="@+id/ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@+id/tvSignUp">
+            app:layout_constraintTop_toBottomOf="@+id/textView2">
 
         </LinearLayout>
 
@@ -59,28 +69,6 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/tvName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Name"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@color/white"
-                        android:textSize="15sp" />
-
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etFName"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:ems="10"
-                        android:hint="Enter uour Name"
-                        android:inputType="text"
-                        android:maxLines="1"
-                        android:background="@color/white"
-                        android:padding="12dp"
-                        android:textColor="@color/black"
-                        android:textSize="18sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -98,20 +86,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
                 android:maxLines="1"
                 android:text="Email"
-                android:layout_marginBottom="10dp"
                 android:textColor="#FFFDFD"
                 android:textSize="15sp" />
 
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etEmail"
+                android:id="@+id/siEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:ems="10"
                 android:background="@color/white"
+                android:ems="10"
                 android:hint="Enter your email"
                 android:inputType="text"
                 android:maxLines="1"
@@ -119,38 +107,12 @@
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/tvMobileNumber"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="Mobile Number"
-                android:layout_marginBottom="10dp"
-
-                android:textColor="#FFFDFD"
-                android:textSize="15sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_weight="1"
-                    android:id="@+id/etMobile"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:background="@color/white"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:hint="Enter your phone number"
-                    android:maxLines="1"
-                    android:padding="12dp"
-                    android:maxLength="10"
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
 
             </LinearLayout>
 
@@ -159,8 +121,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Password"
                 android:layout_marginBottom="10dp"
+                android:text="Password"
                 android:textColor="#FFFDFD"
                 android:textSize="15sp" />
 
@@ -171,13 +133,13 @@
                 app:passwordToggleTint="@color/black">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etPassword"
+                    android:id="@+id/siPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+                    android:background="@color/white"
                     android:drawableStart="@drawable/baseline_lock_24"
                     android:ems="10"
-                    android:background="@color/white"
                     android:hint="Enter your password"
                     android:inputType="textPassword"
                     android:maxLines="1"
@@ -187,29 +149,18 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <Button
-                android:id="@+id/btnSignUp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="35dp"
-                android:padding="10dp"
-                android:text="Sign Up"
-                android:background="@color/black"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/llData" />
-
         </LinearLayout>
+
 
         <LinearLayout
             android:id="@+id/linearLayout4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="204dp"
             android:gravity="center"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/llData">
 
@@ -260,6 +211,21 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/btnforgot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forgat password ?"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/siSignin"
+            app:layout_constraintVertical_bias="0.285" />
+
+        <TextView
+            android:id="@+id/btnSignup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#B2043F6E"
@@ -275,6 +241,24 @@
             app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
             app:layout_constraintVertical_bias="1.0" />
 
+        <Button
+            android:id="@+id/siSignin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="52dp"
+            android:layout_marginEnd="10dp"
+            android:background="@color/black"
+            android:padding="10dp"
+            android:text="LOGIN"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/llData" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
