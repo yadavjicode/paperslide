@@ -1,8 +1,10 @@
 package com.example.paper_slide.network
 
 import android.content.Context
+import com.example.paper_slide.model.ForgotPasswordResponse
+import com.example.paper_slide.model.OTPResponse
+import com.example.paper_slide.model.SignInResponse
 import com.example.paper_slide.model.SignUpResponse
-import com.example.paper_slide.model.UserResponse
 import com.example.paper_slide.util.Constants
 import com.example.paper_slide.util.SharedPref
 import okhttp3.Interceptor
@@ -11,10 +13,8 @@ import okhttp3.Request
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.Body
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
-import retrofit2.http.Multipart
 import retrofit2.http.POST
 
 interface APIInterface {
@@ -25,9 +25,33 @@ fun getSignUp(
     @Field("email") email: String,
     @Field("phone") phone: String,
     @Field("password") password: String
-): Call<SignUpResponse>
+    ): Call<SignUpResponse>
 
+    @POST("login")
+    @FormUrlEncoded
+    fun getSignIn(
+        @Field("email") username: String,
+        @Field("password") password: String
+    ): Call<SignInResponse>
 
+    @POST("forgotpass")
+    @FormUrlEncoded
+    fun getForgotPassword(
+        @Field("email") email: String,
+    ): Call<ForgotPasswordResponse>
+
+    @POST("otpverify")
+    @FormUrlEncoded
+    fun getOTP(
+        @Field("email") email: String,
+        @Field("otp") otp: Int,
+    ): Call<ForgotPasswordResponse>
+
+    @POST("resetpass")
+    @FormUrlEncoded
+    fun getResetPassword(
+        @Field("password") password: String
+    ): Call<OTPResponse>
 
 
 
@@ -48,7 +72,7 @@ fun getSignUp(
                 .addInterceptor(Interceptor { chain ->
                     val originalRequest: Request = chain.request()
                     val newRequest: Request = originalRequest.newBuilder()
-                        .header("Authorization", "Bearer ${sharedPref.refreshToken}")
+                        .header("Authorization", "Bearer ${sharedPref.accessToken}")
                         .build()
                     chain.proceed(newRequest)
                 })

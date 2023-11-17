@@ -10,6 +10,18 @@
         android:background="@color/blue"
         tools:context=".ui.signin.Signin">
 
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loading..."
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/tvSignUp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
         <TextView
             android:id="@+id/tvSignUp"
             android:layout_width="wrap_content"
@@ -30,8 +42,8 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Paper Slide Login"
             android:layout_marginStart="30dp"
+            android:text="Paper Slide Login"
             android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"

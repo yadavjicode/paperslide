@@ -35,10 +35,14 @@ class SharedPref(context : Context) {
             editor.commit()
         }
 
+        var refreshToken: String?
+        get() = pref.getString("token", "")
+        set(token) {
+            editor.putString("token", token)
+            editor.commit()
+        }
 
-
-
-    var refreshToken: String?
+       var accessToken: String?
         get() = pref.getString("token", "")
         set(token) {
             editor.putString("token", token)
