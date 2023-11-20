@@ -1,0 +1,12 @@
+package com.example.paperslide.ui.Signature
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import com.example.paperslide.R
+
+class Signature : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_signature)
+    }
+}
