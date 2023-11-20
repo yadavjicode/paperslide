@@ -3,7 +3,7 @@ package com.example.paperslide.ui.preview
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewpager.widget.ViewPager
-import com.example.paperslide.R
+import com.example.paper_slide.R
 import com.google.android.material.tabs.TabLayout
 
 class preview : AppCompatActivity() {

@@ -7,15 +7,16 @@ import android.view.animation.ScaleAnimation
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
-import com.example.paperslide.R
-import com.example.paperslide.databinding.ActivitySplashBinding
+import com.example.paper_slide.R
+import com.example.paper_slide.databinding.ActivitySplashBinding
+
 //import com.example.paper_slide.signin.Login
 import com.example.paperslide.ui.signin.Login
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class Splash : AppCompatActivity() {
-    private lateinit var binding:ActivitySplashBinding
+    private lateinit var binding: ActivitySplashBinding
     private var context=this@Splash
 
 

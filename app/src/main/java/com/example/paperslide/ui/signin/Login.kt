@@ -9,8 +9,9 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import com.example.paperslide.R
-import com.example.paperslide.databinding.ActivityLoginBinding
+import com.example.paper_slide.R
+import com.example.paper_slide.databinding.ActivityLoginBinding
+
 import com.example.paperslide.util.Validate
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount

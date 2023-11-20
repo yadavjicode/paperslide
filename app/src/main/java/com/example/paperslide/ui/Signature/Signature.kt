@@ -2,7 +2,7 @@ package com.example.paperslide.ui.Signature
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.paperslide.R
+import com.example.paper_slide.R
 
 class Signature : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

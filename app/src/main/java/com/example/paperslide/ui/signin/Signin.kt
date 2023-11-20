@@ -6,8 +6,8 @@ import android.util.Patterns
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import com.example.paperslide.R
-import com.example.paperslide.databinding.ActivitySigninBinding
+import com.example.paper_slide.R
+import com.example.paper_slide.databinding.ActivitySigninBinding
 import com.example.paperslide.ui.forgotpassword.ForgotPassword
 import com.example.paperslide.ui.signup.SignUpActivity
 import com.example.paperslide.util.Validate
@@ -17,7 +17,7 @@ import kotlinx.coroutines.launch
 class Signin : AppCompatActivity() {
 
 
-    private lateinit var binding:ActivitySigninBinding
+    private lateinit var binding: ActivitySigninBinding
 
     private var context=this@Signin
     private lateinit var callbackManager: CallbackManager

@@ -2,7 +2,7 @@ package com.example.paperslide.ui.pastelink
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.paperslide.R
+import com.example.paper_slide.R
 
 class PasteLink : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

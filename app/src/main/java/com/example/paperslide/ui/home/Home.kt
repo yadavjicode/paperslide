@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
-import com.example.paperslide.R
+import com.example.paper_slide.R
 import com.google.android.material.navigation.NavigationView
 //import com.google.firebase.crashlytics.buildtools.reloc.javax.annotation.meta.When
 
