@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/opthomes"
+        android:title="Home"
+        android:icon="@drawable/baseline_home_24"
+        />
+
+    <item
+        android:id="@+id/optlanguage"
+        android:title="Language(EN)"
+        android:icon="@drawable/language"
+        />
+    <item
+        android:id="@+id/optdraft"
+        android:title="Draft"
+        android:icon="@drawable/draft"
+        />
+    <item
+        android:id="@+id/opthistory"
+        android:title="History"
+        android:icon="@drawable/baseline_history_24"
+        />
+    <item
+        android:id="@+id/optrateapp"
+        android:title="Rate App"
+        android:icon="@drawable/calculator"
+        />
+    <item
+        android:id="@+id/opttac"
+        android:title="Terms and condition"
+        android:icon="@drawable/tac"
+        />
+    <item
+        android:id="@+id/optprivacy"
+        android:title="Privacy"
+        android:icon="@drawable/privacy"
+        />
+    <item
+        android:id="@+id/optlogout"
+        android:title="Logout"
+        android:icon="@drawable/logout"
+        />
+
+</menu>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+   >
+<item
+    android:id="@+id/nav_home"
+    android:title="home"
+    android:icon="@drawable/icon_feather_home"/>
+    <item
+        android:id="@+id/message"
+        android:title="Term and Condition"
+        android:icon="@drawable/term_and_condition"/>
+
+    <item
+        android:id="@+id/syn"
+        android:title="Privacy Policy"
+        android:icon="@drawable/noun_privacy_policy_"/>
+    <item
+        android:id="@+id/logout"
+        android:title="Logout"
+        android:icon="@drawable/icon_feather_log_out"
+        />
+</menu>
