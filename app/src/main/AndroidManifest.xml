@@ -20,16 +20,13 @@
         tools:targetApi="31">
         <activity
             android:name=".ui.ocr.Ocr"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="true" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+
         <activity
             android:name=".ui.signin.Signin"
-            android:exported="true" />
+            android:exported="true"/>
+
 
         <activity
             android:name=".ui.uploadsignature.UploadSinature"
@@ -54,7 +51,13 @@
             android:exported="false" />
         <activity
             android:name=".ui.summarize.Summarize"
-            android:exported="false" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ui.preview.preview"
             android:exported="true" />
@@ -73,6 +76,7 @@
         <activity
             android:name=".ui.home.Home"
             android:exported="true" />
+
         <activity
             android:name=".ui.otp.Otp"
             android:exported="false" />
