@@ -7,6 +7,7 @@ import com.example.paper_slide.model.OTPResponse
 import com.example.paper_slide.model.ResetPasswordResponse
 import com.example.paper_slide.model.SignInResponse
 import com.example.paper_slide.model.SignUpResponse
+import com.example.paper_slide.model.SummeryResponse
 import com.example.paper_slide.util.Constants
 import com.example.paper_slide.util.SharedPref
 import okhttp3.Interceptor
@@ -17,7 +18,9 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
+import retrofit2.http.Header
 import retrofit2.http.POST
+import java.util.concurrent.TimeUnit
 
 interface APIInterface {
 @POST("register")
@@ -29,7 +32,7 @@ fun getSignUp(
     @Field("password") password: String
     ): Call<SignUpResponse>
 
-    @POST("login")
+    @POST("account/api/login")
     @FormUrlEncoded
     fun getSignIn(
         @Field("email") username: String,
@@ -58,23 +61,20 @@ fun getSignUp(
     @POST("logout")
     fun getLogout(
     ): Call<LogoutResponse>
-
-
-
-
-
-
-
-
-
-
-
-
+    @POST("summarization/api/summary")
+    @FormUrlEncoded
+    fun getSummary(
+        @Field("original_text") originalText :String,
+        @Field("summary_length") summaryLength:Int
+    ): Call<SummeryResponse>
 
     class APIClient(context: Context) {
         private var sharedPref = SharedPref(context)
         private fun getOkHttpClientWithBearerToken(): OkHttpClient {
             return OkHttpClient.Builder()
+                .connectTimeout(60, TimeUnit.SECONDS) // Set the connection timeout
+                .readTimeout(60, TimeUnit.SECONDS)    // Set the read timeout
+                .writeTimeout(60, TimeUnit.SECONDS)   // Set the write timeout
                 .addInterceptor(Interceptor { chain ->
                     val originalRequest: Request = chain.request()
                     val newRequest: Request = originalRequest.newBuilder()
@@ -84,6 +84,8 @@ fun getSignUp(
                 })
                 .build()
         }
+
+
 
         val apiInstance: APIInterface
 
