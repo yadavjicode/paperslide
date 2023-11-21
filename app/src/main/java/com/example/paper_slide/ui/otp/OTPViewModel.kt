@@ -36,6 +36,8 @@ class OTPViewModel(val context : Context) : ViewModel() {
 
             if (response.isSuccessful) {
 
+                sharedPref.accessToken = response.body()?.access_token.toString()
+
                 Log.d(TAG, "fetchData: success ${response.body()}")
                 Toast.makeText(
                     context,

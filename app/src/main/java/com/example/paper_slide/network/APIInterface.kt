@@ -78,7 +78,7 @@ fun getSignUp(
                 .addInterceptor(Interceptor { chain ->
                     val originalRequest: Request = chain.request()
                     val newRequest: Request = originalRequest.newBuilder()
-                        .header("Authorization", "Bearer ${sharedPref.refreshToken}")
+                        .header("Authorization", "Bearer ${sharedPref.accessToken}")
                         .build()
                     chain.proceed(newRequest)
                 })
