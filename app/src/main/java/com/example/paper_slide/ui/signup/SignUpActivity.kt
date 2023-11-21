@@ -9,6 +9,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.paper_slide.R
 import com.example.paper_slide.databinding.ActivitySignUpBinding
+import com.example.paper_slide.ui.signup.SignUpVMFactory
+import com.example.paper_slide.ui.signup.SignUpViewModel
 import com.example.paper_slide.util.Validate
 import com.facebook.CallbackManager
 import kotlinx.coroutines.launch
@@ -24,7 +26,7 @@ class SignUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
-        binding=DataBindingUtil.setContentView(context,R.layout.activity_sign_up)
+        binding=DataBindingUtil.setContentView(context, R.layout.activity_sign_up)
         callbackManager =CallbackManager.Factory.create()
 
 

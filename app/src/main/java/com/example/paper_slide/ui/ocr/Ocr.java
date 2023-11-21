@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import com.example.paper_slide.R;
 import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -39,8 +38,7 @@ TextRecognizer textRecognizer;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ocr);
 
-       //  camera =findViewById(R.id.ocrcamera);
-       // clearall=findViewById(R.id.ocrclear_all);
+
         camera =findViewById(R.id.ocrcopy);
         textview=findViewById(R.id.ocrtextview);
         textRecognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS);
@@ -90,6 +88,9 @@ TextRecognizer textRecognizer;
                             public void onSuccess(Text text) {
                                 String recognizeText =text.getText();
                                 textview.setText(recognizeText);
+                                Toast.makeText(Ocr.this, recognizeText
+
+                                        , Toast.LENGTH_SHORT).show();
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override

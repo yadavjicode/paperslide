@@ -12,7 +12,14 @@
         android:layout_height="match_parent"
         tools:context=".ui.summarize.Summarize">
 
-
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/summarizeBtn"
+            app:layout_constraintStart_toStartOf="parent" />
         <SeekBar
             android:id="@+id/seekBar"
             android:layout_width="match_parent"
@@ -52,14 +59,6 @@
                 android:textStyle="bold" />
         </RelativeLayout>
 
-        <ProgressBar
-            android:id="@+id/progress_bar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/summarizeBtn"
-            app:layout_constraintStart_toStartOf="parent" />
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
             android:layout_width="0dp"
@@ -77,8 +76,8 @@
             <EditText
                 android:id="@+id/summarizeText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="view" />
+                android:layout_height="match_parent"
+                android:text="view kdhdhdhdhdkdwhdhdwhidwhddhdhdfhfhfhfhfjkfkfk" />
         </androidx.cardview.widget.CardView>
 
         <TextView
@@ -132,8 +131,7 @@
             android:id="@+id/summarizeBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginBottom="36dp"
             android:text="Summarize"
             android:background="#2196F3"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -10,6 +10,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.example.paper_slide.R
 import com.example.paper_slide.databinding.ActivityOtpBinding
+import com.example.paper_slide.ui.otp.OTPVMFactory
+
 
 class Otp : AppCompatActivity() {
 
@@ -19,6 +21,7 @@ class Otp : AppCompatActivity() {
     private var TAG = "OTPLog"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_otp)
 
         binding = DataBindingUtil.setContentView(context, R.layout.activity_otp)
 

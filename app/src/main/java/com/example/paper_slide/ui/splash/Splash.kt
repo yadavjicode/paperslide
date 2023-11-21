@@ -9,13 +9,14 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
 import com.example.paper_slide.R
 import com.example.paper_slide.databinding.ActivitySplashBinding
+
 //import com.example.paper_slide.signin.Login
 import com.example.paper_slide.ui.signin.Login
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class Splash : AppCompatActivity() {
-    private lateinit var binding:ActivitySplashBinding
+    private lateinit var binding: ActivitySplashBinding
     private var context=this@Splash
 
 
@@ -40,7 +41,7 @@ class Splash : AppCompatActivity() {
 
         lifecycleScope.launch {
             delay(3000)
-            val iHome = Intent(this@Splash, Login::class.java)
+            val iHome = Intent(this@Splash, com.example.paper_slide.ui.signin.Login::class.java)
             startActivity(iHome)
             finish()
         }

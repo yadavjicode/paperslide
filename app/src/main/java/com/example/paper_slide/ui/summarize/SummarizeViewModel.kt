@@ -42,11 +42,16 @@ class SummarizeViewModel (val context : Context) : ViewModel() {
                 Log.d(TAG, "fetchSummery: ${response.body()?.summarized_text}")
 
             } else {
+                progressBar.visibility = View.GONE
+
                 Toast.makeText(context," ${response.errorBody()}", Toast.LENGTH_LONG).show()
             }
         }catch (e:Exception){
+            progressBar.visibility = View.GONE
+
             Toast.makeText(context, "${e.message}", Toast.LENGTH_SHORT).show()
             Log.d(TAG, "fetchSummery: ${e.message}")
+
         }
     }
     }

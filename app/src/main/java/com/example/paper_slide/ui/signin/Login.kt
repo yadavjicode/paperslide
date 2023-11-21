@@ -2,34 +2,23 @@ package com.example.paper_slide.ui.signin
 
 
 import android.content.Intent
-import android.content.IntentSender
 import android.os.Bundle
 import android.provider.ContactsContract.Profile
-import android.text.Editable
-import android.text.TextWatcher
-import android.util.Log
 import android.util.Patterns
-import android.widget.Button
 import android.widget.ImageView
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.lifecycleScope
 import com.example.paper_slide.R
 import com.example.paper_slide.databinding.ActivityLoginBinding
+
 import com.example.paper_slide.util.Validate
-import com.google.android.gms.auth.api.Auth
-import com.google.android.gms.auth.api.identity.BeginSignInRequest
-import com.google.android.gms.auth.api.identity.Identity
-import com.google.android.gms.auth.api.identity.SignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
-import kotlinx.coroutines.launch
 
 
 class Login : AppCompatActivity() {

@@ -13,7 +13,6 @@ import com.example.paper_slide.ui.resetpassword.ResetPassword
 import com.example.paper_slide.util.SharedPref
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -36,9 +35,6 @@ class OTPViewModel(val context : Context) : ViewModel() {
             }
 
             if (response.isSuccessful) {
-
-                sharedPref.refreshToken = response.body()?.access_token.toString()
-
 
                 Log.d(TAG, "fetchData: success ${response.body()}")
                 Toast.makeText(
