@@ -3,6 +3,7 @@ package com.example.paper_slide.ui.summarize
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.EditText
 import android.widget.SeekBar
 import android.widget.TextView
 import android.widget.Toast
@@ -12,6 +13,7 @@ class Summarize : AppCompatActivity() {
 
 
 
+    private lateinit var summariestext:EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,13 +21,14 @@ class Summarize : AppCompatActivity() {
         val seekBar:SeekBar =findViewById(R.id.seekBar)
         val value:TextView=findViewById(R.id.seekbarnum)
 
-       seekBar.max =100
+
+       seekBar.max =10
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            seekBar.min = 10
+            seekBar.min = 1
         }
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-              value.text =progress.toString() +"/100"
+              value.text ="${progress * 10} /100"
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
@@ -39,6 +42,12 @@ class Summarize : AppCompatActivity() {
 
 
         })
+
+        summariestext =findViewById(R.id.summarytext)
+
+        val ocrtext=intent.getStringExtra("ocrtext").toString()
+        summariestext.setText(ocrtext)
+
 
 
     }
