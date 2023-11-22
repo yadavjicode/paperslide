@@ -99,7 +99,6 @@
                 android:id="@+id/resulttext"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/custom_edit_text"
                 android:ems="10"
                 android:focusable="true"
                 android:focusableInTouchMode="true"

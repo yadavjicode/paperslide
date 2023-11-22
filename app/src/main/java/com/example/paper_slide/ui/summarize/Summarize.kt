@@ -45,6 +45,11 @@ class Summarize : AppCompatActivity() {
 
         }
         progressBar=binding.progressBar
+
+
+        val ocrtext=intent.getStringExtra("ocrtext").toString()
+        binding.summarizeText.setText(ocrtext)
+
     }
 
     private fun validateViews() {
@@ -63,15 +68,15 @@ class Summarize : AppCompatActivity() {
     }
 
     private fun seekBar() {
-        binding.seekBar.max = 100
+        binding.seekBar.max = 10
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            binding.seekBar.min = 10
+            binding.seekBar.min = 1
         }
         binding.seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                progressVal = progress
+                progressVal = progress*10
 
-                binding.seekbarnum.text = progress.toString() +"/100"
+                binding.seekbarnum.text = "${progress * 10} /100"
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
@@ -87,4 +92,5 @@ class Summarize : AppCompatActivity() {
             }
         })
     }
+
 }

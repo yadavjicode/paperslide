@@ -1,6 +1,7 @@
 package com.example.paper_slide.ui.summarize
 
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.View
 import android.widget.ProgressBar
@@ -8,6 +9,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.paper_slide.network.APIInterface
+import com.example.paper_slide.ui.result.Result
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -40,6 +42,8 @@ class SummarizeViewModel (val context : Context) : ViewModel() {
 
                 Toast.makeText(context, response.body()?.summarized_text , Toast.LENGTH_SHORT).show()
                 Log.d(TAG, "fetchSummery: ${response.body()?.summarized_text}")
+                        startNewActivity(response.body()?.summarized_text,
+                            Result::class.java)
 
             } else {
                 progressBar.visibility = View.GONE
@@ -54,4 +58,11 @@ class SummarizeViewModel (val context : Context) : ViewModel() {
 
         }
     }
+
+    private fun startNewActivity(summarizedText: String?, newActivity: Class<*>) {
+        val intent = Intent(context,newActivity)
+        intent.putExtra("summarizedText", summarizedText)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        context.startActivity(intent)
     }
+}
