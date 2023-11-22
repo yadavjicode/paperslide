@@ -39,10 +39,12 @@ class SummarizeViewModel (val context : Context) : ViewModel() {
 
             if (response.isSuccessful) {
                 progressBar.visibility = View.GONE
+                val original_text = response.body()?.original_text
 
                 Toast.makeText(context, response.body()?.summarized_text , Toast.LENGTH_SHORT).show()
                 Log.d(TAG, "fetchSummery: ${response.body()?.summarized_text}")
                         startNewActivity(response.body()?.summarized_text,
+                            response.body()?.original_text ,
                             Result::class.java)
 
             } else {
@@ -59,9 +61,14 @@ class SummarizeViewModel (val context : Context) : ViewModel() {
         }
     }
 
-    private fun startNewActivity(summarizedText: String?, newActivity: Class<*>) {
+    private fun startNewActivity(
+        summarizedText: String?,
+        originalText: String?,
+        newActivity: Class<*>
+    ) {
         val intent = Intent(context,newActivity)
         intent.putExtra("summarizedText", summarizedText)
+        intent.putExtra("originalText", originalText)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
         context.startActivity(intent)
     }

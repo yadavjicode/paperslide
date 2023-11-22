@@ -59,7 +59,7 @@ class Summarize : AppCompatActivity() {
         lifecycleScope.launch {
            summarizeViewModel.validateSummery(summarizeData.toString(),progressVal,binding.progressBar)
            // Toast.makeText(context, "$progressVal", Toast.LENGTH_SHORT).show()
-            Log.d("TAG", "validateViews: ${summarizeData}")
+            Log.d("SummeryData", "validateViews: ${summarizeData}")
 
         }
     }else{
