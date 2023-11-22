@@ -22,7 +22,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
 
-        <androidx.cardview.widget.CardView
+
+     <androidx.cardview.widget.CardView
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
@@ -37,9 +38,8 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textMultiLine"
-                android:text="Text" />
-
-        </androidx.cardview.widget.CardView>
+                android:text="" />
+    </androidx.cardview.widget.CardView>
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
