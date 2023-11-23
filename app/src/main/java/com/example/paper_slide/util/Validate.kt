@@ -1,6 +1,6 @@
 package com.example.paper_slide.util
 
-class Validate{
+class Validate {
     fun validateEmail(email: String): Boolean {
         val emailPattern = Regex("[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\\.[a-zA-Z0-9._-]+")
 

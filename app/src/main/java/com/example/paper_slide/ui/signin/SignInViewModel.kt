@@ -53,7 +53,7 @@ class SignInViewModel (val context: Context):ViewModel(){
             val response = withContext(Dispatchers.IO) {apiClient.getSignIn(username, password).execute()}
             if (response.isSuccessful) {
                 progressBar.visibility = View.GONE
-                sharedPref.refreshToken = response.body()?.refresh_token.toString()
+                sharedPref.refreshToken = response.body()?.access_token.toString()
                 sharedPref.login = "Yes"
                 startNewActivity(Home::class.java)
                 Log.d(TAG, "fetchData: ${response.body()} ${APIInterface.APIClient(context).apiInstance}")

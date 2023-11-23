@@ -3,6 +3,8 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
+
     <androidx.drawerlayout.widget.DrawerLayout
         android:layout_width="match_parent"
         android:id="@+id/drawerlayout"
@@ -11,8 +13,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/white">
+            android:background="@color/white"
+            android:layout_height="match_parent">
 
             <RelativeLayout
                 android:id="@+id/relativeLayout"
@@ -36,9 +38,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
                     android:layout_marginStart="160dp"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginBottom="4dp"
                     android:padding="10dp"
                     android:text="Home"
@@ -59,7 +61,7 @@
             </RelativeLayout>
 
             <ImageView
-                android:id="@+id/scan_image"
+                android:id="@+id/scan"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_marginStart="30dp"
@@ -69,13 +71,13 @@
                 app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
 
             <ImageView
-                android:id="@+id/importfile"
+                android:id="@+id/imageView2"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="15dp"
                 android:src="@drawable/impo"
-                app:layout_constraintStart_toEndOf="@+id/scan_image"
+                app:layout_constraintStart_toEndOf="@+id/scan"
                 app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
 
             <ImageView
@@ -86,7 +88,7 @@
                 android:layout_marginTop="10dp"
                 android:src="@drawable/paste"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/scan_image" />
+                app:layout_constraintTop_toBottomOf="@+id/scan" />
 
             <ImageView
                 android:id="@+id/imageView6"
@@ -96,7 +98,7 @@
                 android:layout_marginTop="12dp"
                 android:src="@drawable/write"
                 app:layout_constraintStart_toEndOf="@+id/imageView5"
-                app:layout_constraintTop_toBottomOf="@+id/importfile" />
+                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
             <ImageView
                 android:id="@+id/imageView8"
@@ -125,10 +127,14 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="10dp"
                 android:src="@drawable/sign"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+                app:layout_constraintTop_toBottomOf="@+id/imageView8"
+                app:layout_constraintVertical_bias="0.012" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.example.paper_slide.R
+import com.example.paper_slide.ui.signin.Login
 //import com.example.paper_slide.signin.Login
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -62,7 +64,7 @@ class profile : AppCompatActivity() {
     private fun gosignout() {
         gsc.signOut().addOnSuccessListener {
 
-           startActivity(Intent(this, com.example.paper_slide.ui.signin.Login::class.java))
+           startActivity(Intent(this, Login::class.java))
 
             finish()
         }

@@ -8,6 +8,15 @@
         android:layout_height="match_parent"
         tools:context=".ui.summarize.Summarize">
 
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
 
         <SeekBar
             android:id="@+id/seekBar"
@@ -65,10 +74,9 @@
 
 
             <EditText
-                android:id="@+id/summarytext"
+                android:id="@+id/summarizeText"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/custom_edit_text"
                 android:ems="10"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
@@ -82,10 +90,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="0/100"
+            android:text="10/100"
             android:layout_marginBottom="20dp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/button2"
+            app:layout_constraintBottom_toTopOf="@+id/summarizeBtn"
             app:layout_constraintStart_toStartOf="parent" />
 
         <RelativeLayout
@@ -127,7 +135,7 @@
         </RelativeLayout>
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/summarizeBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="36dp"

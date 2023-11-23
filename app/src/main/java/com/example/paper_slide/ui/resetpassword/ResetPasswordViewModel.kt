@@ -42,7 +42,7 @@ class ResetPasswordViewModel(val context : Context) : ViewModel() {
             if (response.isSuccessful) {
                 progressBar.visibility = View.GONE
 
-                sharedPref.accessToken = response.body()?.access_token.toString()
+
                 startNewActivity(Signin::class.java)
                 activity.finish()
                 Log.d(TAG, "fetchData: ${response.body()}")
@@ -51,8 +51,7 @@ class ResetPasswordViewModel(val context : Context) : ViewModel() {
             }
             else {
                 progressBar.visibility = View.GONE
-                Toast.makeText(context, response.body()?.access_token.toString(), Toast.LENGTH_SHORT)
-                    .show()
+
             }
         } catch (e: Exception) {
             progressBar.visibility = View.GONE

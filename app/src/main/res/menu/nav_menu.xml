@@ -16,7 +16,7 @@
         android:title="Privacy Policy"
         android:icon="@drawable/noun_privacy_policy_"/>
     <item
-        android:id="@+id/privacy"
+        android:id="@+id/logout"
         android:title="Logout"
         android:icon="@drawable/icon_feather_log_out"
         />

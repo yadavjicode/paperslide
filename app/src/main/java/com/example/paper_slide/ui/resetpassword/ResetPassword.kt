@@ -36,7 +36,7 @@ class ResetPassword : AppCompatActivity() {
       //  val email = intent.getStringExtra("email")
         val newPassword = binding.newPassword.text.toString()
         val confirmPassword = binding.newPassword1.text.toString()
-            if (confirmPassword != newPassword) {
+        if (confirmPassword != newPassword) {
                 binding.newPassword.error = "Password Does not Match"
             } else {
                 lifecycleScope.launch {

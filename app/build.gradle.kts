@@ -95,7 +95,7 @@ dependencies {
     implementation ("com.cloudinary:cloudinary-android:2.3.1")
     implementation ("com.squareup.picasso:picasso:2.8")
     implementation ("com.facebook.android:facebook-android-sdk:16.2.0")
-// image picker
+//ocr
     implementation ("com.github.dhaval2404:imagepicker:2.1")
     implementation ("com.google.android.gms:play-services-mlkit-text-recognition:19.0.0")
 }

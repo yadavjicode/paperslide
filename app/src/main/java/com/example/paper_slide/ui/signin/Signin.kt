@@ -17,11 +17,12 @@ import kotlinx.coroutines.launch
 class Signin : AppCompatActivity() {
 
 
-    private lateinit var binding: ActivitySigninBinding
+    private lateinit var binding:ActivitySigninBinding
 
     private var context=this@Signin
     private lateinit var callbackManager: CallbackManager
-   private lateinit var signInViewModel: SignInViewModel
+
+    private lateinit var signInViewModel: SignInViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +30,7 @@ class Signin : AppCompatActivity() {
 
       binding =  DataBindingUtil.setContentView(context,R.layout.activity_signin)
         callbackManager =CallbackManager.Factory.create()
+
         initViews()
 
            signInViewModel = ViewModelProvider(
