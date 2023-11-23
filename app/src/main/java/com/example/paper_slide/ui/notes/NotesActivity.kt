@@ -2,6 +2,7 @@ package com.example.paper_slide.ui.notes
 
 import android.os.Bundle
 import android.os.Handler
+import android.text.style.ParagraphStyle
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -40,13 +41,14 @@ class NotesActivity : AppCompatActivity() {
 
         // Start updating time
         handler.post(timeRunnable)
+
     }
     private fun updateDateTime() {
         // Get current date and time
         val currentDateTime = Date()
 
-        // Format the date and time
-        val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+        // Format the date and timeyyyy-MM-dd
+        val sdf = SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault())
         val formattedDateTime = sdf.format(currentDateTime)
 
         // Display the result in a TextView

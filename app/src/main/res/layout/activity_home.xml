@@ -20,6 +20,7 @@
                 android:id="@+id/relativeLayout"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+
                 android:background="@color/blue"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -71,7 +72,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/import_file"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_marginStart="30dp"
@@ -81,7 +82,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
 
             <ImageView
-                android:id="@+id/imageView5"
+                android:id="@+id/paste_a_link"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_marginStart="30dp"
@@ -91,39 +92,39 @@
                 app:layout_constraintTop_toBottomOf="@+id/scan" />
 
             <ImageView
-                android:id="@+id/imageView6"
+                android:id="@+id/write_notes"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="12dp"
                 android:src="@drawable/write"
-                app:layout_constraintStart_toEndOf="@+id/imageView5"
-                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+                app:layout_constraintStart_toEndOf="@+id/paste_a_link"
+                app:layout_constraintTop_toBottomOf="@+id/import_file" />
 
             <ImageView
-                android:id="@+id/imageView8"
+                android:id="@+id/create_presentation"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/create"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+                app:layout_constraintTop_toBottomOf="@+id/paste_a_link" />
 
             <ImageView
-                android:id="@+id/imageView7"
+                android:id="@+id/mind_maping"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="8dp"
                 android:src="@drawable/mind"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView8"
-                app:layout_constraintTop_toBottomOf="@+id/imageView6"
+                app:layout_constraintStart_toEndOf="@+id/create_presentation"
+                app:layout_constraintTop_toBottomOf="@+id/write_notes"
                 app:layout_constraintVertical_bias="0.0" />
 
             <ImageView
-                android:id="@+id/imageView9"
+                android:id="@+id/create_sign"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_marginStart="30dp"
@@ -133,7 +134,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView8"
+                app:layout_constraintTop_toBottomOf="@+id/create_presentation"
                 app:layout_constraintVertical_bias="0.012" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
