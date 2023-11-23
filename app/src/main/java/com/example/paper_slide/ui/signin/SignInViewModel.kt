@@ -59,11 +59,17 @@ class SignInViewModel (val context: Context):ViewModel(){
                 Log.d(TAG, "fetchData: ${response.body()} ${APIInterface.APIClient(context).apiInstance}")
                 Toast.makeText(context, response.body()?.message.toString(), Toast.LENGTH_SHORT)
                     .show()
-            } else {
+            } else if(response.code() == 403) {
+                progressBar.visibility = View.GONE
+
+
+                Toast.makeText(context, "${response.body()?.detail}", Toast.LENGTH_SHORT).show()
+
+            }else {
                 progressBar.visibility = View.GONE
                 Toast.makeText(context, response.body()?.message.toString(), Toast.LENGTH_SHORT)
                     .show()
-                Log.d(TAG, "validateSignIn Response not Successful: ${ response.body()}")
+                Log.d(TAG, "validateSignIn Response not Successful: ${ response.body() } , ${response.code()}")
             }
         } catch (e: Exception) {
             progressBar.visibility = View.GONE

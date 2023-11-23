@@ -40,12 +40,12 @@ class Home : AppCompatActivity() {
 
         } */
 
-       /* binding.scanImage.setOnClickListener {
+        binding.scan.setOnClickListener {
             val intent = Intent(this@Home, Ocr::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
             startActivity(intent)
             finish()
-        }*/
+        }
 
     }
 

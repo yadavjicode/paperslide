@@ -20,6 +20,7 @@ class Result : AppCompatActivity() {
     private  val context = this@Result
     private  var progressVal : Int = 10
     private lateinit var progressBar: ProgressBar
+    private var id :Int  =0
 
 
 
@@ -46,12 +47,15 @@ class Result : AppCompatActivity() {
         }
         progressBar=binding.progressBar
 
+
+
     }
 
     private fun validateViews() {
         val originalText = intent.getStringExtra("originalText")
         val regeneratedText = binding.resulttext
-
+        id = intent.getStringExtra("id")?.toInt()!!
+        val updatedSummery = binding.resulttext.text.toString()
 
         if(originalText != null) {
             lifecycleScope.launch {
@@ -62,6 +66,15 @@ class Result : AppCompatActivity() {
             }
         }else{
             Toast.makeText(context, "Provide Text", Toast.LENGTH_SHORT).show()
+        }
+
+        if(id != 0 && updatedSummery != null){
+            lifecycleScope.launch {
+                resultViewModel.validateUpdateSummery(id,updatedSummery)
+            }
+
+        }else{
+
         }
     }
 
