@@ -15,7 +15,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/button4" />
+            app:layout_constraintTop_toTopOf="@+id/saveBtn" />
 
         <RelativeLayout
             android:id="@+id/relativeLayout9"
@@ -105,7 +105,7 @@
 
 
             <EditText
-                android:id="@+id/resulttext"
+                android:id="@+id/resultET"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:ems="10"
@@ -113,7 +113,7 @@
                 android:focusableInTouchMode="true"
                 android:gravity="top"
                 android:inputType="textMultiLine"
-                android:text="view" />
+                 />
         </androidx.cardview.widget.CardView>
 
         <RelativeLayout
@@ -123,7 +123,7 @@
             android:layout_marginBottom="20dp"
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
-            app:layout_constraintBottom_toTopOf="@+id/button4"
+            app:layout_constraintBottom_toTopOf="@+id/saveBtn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent">
@@ -147,7 +147,7 @@
         </RelativeLayout>
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/saveBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/custom_button"
