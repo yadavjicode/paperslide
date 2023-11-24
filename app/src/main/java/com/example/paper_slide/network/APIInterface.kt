@@ -9,6 +9,7 @@ import com.example.paper_slide.model.SignInResponse
 import com.example.paper_slide.model.SignUpResponse
 import com.example.paper_slide.model.SummaryUpdateResponse
 import com.example.paper_slide.model.SummeryResponse
+import com.example.paper_slide.model.TranslateResponse
 import com.example.paper_slide.util.Constants
 import com.example.paper_slide.util.SharedPref
 import okhttp3.Interceptor
@@ -76,7 +77,7 @@ fun getSignUp(
     fun getTranslation(
         @Field("original_text")  originalText : String,
         @Field("target_lang") targetLang : String
-    )
+    ) : Call <TranslateResponse>
 
     @PATCH("summarization/api/summary/{id}")
     fun updateSummary(
