@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.createasignature.CreateSignatureActivity">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue"
+        android:paddingVertical="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/baseline_arrow_back_24"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Create a Signature"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/upload_icon" />
+    </RelativeLayout>
+
+    <com.kyanogen.signatureview.SignatureView
+        android:id="@+id/signature_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="20dp"
+        app:backgroundColor="#DFD9D9"
+        app:enableSignature="true"
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayout12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout9"
+        app:layout_constraintVertical_bias="0.0"
+        app:penColor="#000000"
+        app:penSize="5dp" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_button"
+            android:id="@+id/cancel_sign"
+            android:backgroundTint="#595F60"
+            android:paddingHorizontal="45dp"
+            android:text="Cancel"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/accept_sign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/custom_button"
+            android:backgroundTint="@color/skyblue"
+            android:paddingHorizontal="15dp"
+            android:text="Accept and Sign"
+            android:textAllCaps="false"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

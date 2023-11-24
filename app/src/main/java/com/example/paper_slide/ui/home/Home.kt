@@ -9,8 +9,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.paper_slide.R
 import com.example.paper_slide.databinding.ActivityHomeBinding
+import com.example.paper_slide.ui.createpresentation.Presentation
+import com.example.paper_slide.ui.notes.NotesActivity
 import com.example.paper_slide.ui.ocr.Ocr
+import com.example.paper_slide.ui.pastelink.PasteLink
 import com.google.android.material.navigation.NavigationView
+import java.security.Signature
+
 //import com.google.firebase.crashlytics.buildtools.reloc.javax.annotation.meta.When
 
 class Home : AppCompatActivity() {
@@ -40,12 +45,52 @@ class Home : AppCompatActivity() {
 
         } */
 
+       /* binding.scanImage.setOnClickListener {
+            val intent = Intent(this@Home, Ocr::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
+            startActivity(intent)
+            finish()
+        }*/
+        intview()
+
+    }
+
+
+    private fun intview(){
         binding.scan.setOnClickListener {
             val intent = Intent(this@Home, Ocr::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
             startActivity(intent)
             finish()
         }
+
+        binding.createSign.setOnClickListener {
+            val intent = Intent(this@Home, com.example.paper_slide.ui.Signature.Signature::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
+            startActivity(intent)
+            finish()
+
+        }
+        binding.writeNotes.setOnClickListener {
+            val intent = Intent(this@Home, NotesActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
+            startActivity(intent)
+            finish()
+        }
+
+        binding.createPresentation.setOnClickListener {
+            val intent = Intent(this@Home, Presentation::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
+            startActivity(intent)
+            finish()
+        }
+        binding.pasteALink.setOnClickListener {
+            val intent = Intent(this@Home, PasteLink::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
+            startActivity(intent)
+            finish()
+        }
+
 
     }
 

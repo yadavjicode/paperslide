@@ -38,10 +38,7 @@ android {
     }
     buildFeatures {
         dataBinding = true
-
-
-
-
+        viewBinding =true
 
     }
 
@@ -95,7 +92,17 @@ dependencies {
     implementation ("com.cloudinary:cloudinary-android:2.3.1")
     implementation ("com.squareup.picasso:picasso:2.8")
     implementation ("com.facebook.android:facebook-android-sdk:16.2.0")
-//ocr
+    //crop_image
     implementation ("com.github.dhaval2404:imagepicker:2.1")
+    //ocr
     implementation ("com.google.android.gms:play-services-mlkit-text-recognition:19.0.0")
+
+    //textedit
+    implementation("com.mohamedrejeb.richeditor:richeditor-compose:1.0.0-beta03")
+
+    //signature
+
+    implementation("com.kyanogen.signatureview:signature-view:1.2")
+
+
 }
