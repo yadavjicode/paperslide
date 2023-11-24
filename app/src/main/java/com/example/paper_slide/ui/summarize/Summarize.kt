@@ -47,8 +47,8 @@ class Summarize : AppCompatActivity() {
         progressBar=binding.progressBar
 
 
-        val ocrtext=intent.getStringExtra("ocrtext").toString()
-        binding.summarizeText.setText(ocrtext)
+        val ocrText=intent.getStringExtra("summaryData").toString()
+        binding.summarizeText.setText(ocrText)
 
     }
 
@@ -56,6 +56,7 @@ class Summarize : AppCompatActivity() {
         val summarizeData = binding.summarizeText.text
 
     if(summarizeData != null) {
+      //  Toast.makeText(context,"$summarizeData , $progressVal"  , Toast.LENGTH_SHORT).show()
         lifecycleScope.launch {
            summarizeViewModel.validateSummery(summarizeData.toString(),progressVal,binding.progressBar)
            // Toast.makeText(context, "$progressVal", Toast.LENGTH_SHORT).show()

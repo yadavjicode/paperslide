@@ -71,6 +71,13 @@ fun getSignUp(
         @Field("summary_length") summaryLength:Int
     ): Call<SummeryResponse>
 
+    @POST("translation/api/translate")
+    @FormUrlEncoded
+    fun getTranslation(
+        @Field("original_text")  originalText : String,
+        @Field("target_lang") targetLang : String
+    )
+
     @PATCH("summarization/api/summary/{id}")
     fun updateSummary(
         @Path("id") id: Int,

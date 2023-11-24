@@ -18,7 +18,7 @@ class Result : AppCompatActivity() {
     private lateinit var resultViewModel: ResultViewModel
     private lateinit var binding : ActivityResultBinding
     private  val context = this@Result
-    private  var progressVal : Int = 10
+    private  var progressVal : Int = 0
     private lateinit var progressBar: ProgressBar
     private var id :Int  =0
     private val TAG = "resultLog"
@@ -35,13 +35,13 @@ class Result : AppCompatActivity() {
         initViews()
     }
     private fun initViews() {
-        //binding.resulttext.setText(intent.getStringExtra("summarizedText"))
+        binding.resultET.setText(intent.getStringExtra("summarizedText"))
         binding.regenerateTV.setOnClickListener {
             validateViews()
         }
         progressBar=binding.progressBar
 
-        //id = intent.getStringExtra("id")?.toInt()!!
+//        id = intent.getStringExtra("id")?.toInt()!!
 
         binding.saveBtn.setOnClickListener {
             validateResultET()
@@ -52,7 +52,7 @@ class Result : AppCompatActivity() {
         updatedSummery  = resultET.text.toString()
         if(id !=0 && updatedSummery.isNotEmpty()){
             lifecycleScope.launch {
-                // resultViewModel.validateUpdateSummery(id,updatedSummery)
+                 resultViewModel.validateUpdateSummery(id,updatedSummery)
                 Toast.makeText(context, updatedSummery, Toast.LENGTH_SHORT).show()
                 Log.d(TAG, "initViews: $updatedSummery")
             }
@@ -66,7 +66,7 @@ class Result : AppCompatActivity() {
         val regeneratedText = binding.resultET
         if(originalText != null) {
             lifecycleScope.launch {
-            //    resultViewModel.validateSummery(originalText,progressVal,binding.progressBar,regeneratedText)
+                 resultViewModel.validateSummery(originalText,progressVal,binding.progressBar,regeneratedText)
                 // Toast.makeText(context, "$progressVal", Toast.LENGTH_SHORT).show()
                 Log.d("originalText", "validateViews: ${originalText}")
             }
