@@ -67,6 +67,8 @@ class Ocr : AppCompatActivity() {
                       //  textview!!.setText(recognizeText)
 
 
+
+
                         startActivity(Intent(this@Ocr, Preview::class.java)
 
                             .putExtra("ocrtext",recognizeText.toString())

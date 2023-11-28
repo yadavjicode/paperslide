@@ -104,8 +104,11 @@ dependencies {
 
     implementation("com.kyanogen.signatureview:signature-view:1.2")
 
-    implementation ("com.github.irshulx:laser-native-editor:3.0.3")
+  //  implementation("com.github.bumptech.glide:glide:4.9.0")
 
+
+    implementation("com.github.irshulx:laser-native-editor:3.0.3")
+ //   implementation("com.github.chinalwb:are:0.1.7")
 
 
 
