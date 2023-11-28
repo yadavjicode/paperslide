@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.paper_slide.R
+import com.example.paper_slide.ui.preview.Preview
 import com.example.paper_slide.ui.summarize.Summarize
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.mlkit.vision.common.InputImage
@@ -66,7 +67,7 @@ class Ocr : AppCompatActivity() {
                       //  textview!!.setText(recognizeText)
 
 
-                        startActivity(Intent(this@Ocr, Summarize::class.java)
+                        startActivity(Intent(this@Ocr, Preview::class.java)
 
                             .putExtra("ocrtext",recognizeText.toString())
 

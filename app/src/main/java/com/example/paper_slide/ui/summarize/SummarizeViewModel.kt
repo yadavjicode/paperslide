@@ -45,6 +45,7 @@ class SummarizeViewModel (val context : Context) : ViewModel() {
                 Log.d(TAG, "fetchSummery: ${response.body()?.summarized_text}")
                         startNewActivity(response.body()?.summarized_text,
                             response.body()?.original_text ,
+                            response.body()?.id,
                             Result::class.java)
 
             } else {
@@ -64,11 +65,13 @@ class SummarizeViewModel (val context : Context) : ViewModel() {
     private fun startNewActivity(
         summarizedText: String?,
         originalText: String?,
+        id: Int?,
         newActivity: Class<*>
     ) {
         val intent = Intent(context,newActivity)
         intent.putExtra("summarizedText", summarizedText)
         intent.putExtra("originalText", originalText)
+        intent.putExtra("id", id)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
         context.startActivity(intent)
     }

@@ -7,7 +7,9 @@ import com.example.paper_slide.model.OTPResponse
 import com.example.paper_slide.model.ResetPasswordResponse
 import com.example.paper_slide.model.SignInResponse
 import com.example.paper_slide.model.SignUpResponse
+import com.example.paper_slide.model.SummaryUpdateResponse
 import com.example.paper_slide.model.SummeryResponse
+import com.example.paper_slide.model.TranslateResponse
 import com.example.paper_slide.util.Constants
 import com.example.paper_slide.util.SharedPref
 import okhttp3.Interceptor
@@ -19,7 +21,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.Header
+import retrofit2.http.PATCH
 import retrofit2.http.POST
+import retrofit2.http.Path
 import java.util.concurrent.TimeUnit
 
 interface APIInterface {
@@ -67,6 +71,19 @@ fun getSignUp(
         @Field("original_text") originalText :String,
         @Field("summary_length") summaryLength:Int
     ): Call<SummeryResponse>
+
+    @POST("translation/api/translate")
+    @FormUrlEncoded
+    fun getTranslation(
+        @Field("original_text")  originalText : String,
+        @Field("target_lang") targetLang : String
+    ) : Call <TranslateResponse>
+
+    @PATCH("summarization/api/summary/{id}")
+    fun updateSummary(
+        @Path("id") id: Int,
+        @Field("summarized_text") summarizedText :String,
+    ): Call<SummaryUpdateResponse>
 
     class APIClient(context: Context) {
         private var sharedPref = SharedPref(context)

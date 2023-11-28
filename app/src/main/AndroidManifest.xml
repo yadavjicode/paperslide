@@ -61,10 +61,10 @@
             android:name=".ui.summarize.Summarize"
             android:exported="true" />
         <activity
-            android:name=".ui.preview.preview"
+            android:name=".ui.preview.Preview"
             android:exported="true" />
         <activity
-            android:name=".ui.textscannertranslate.Text_Scanner_Translate"
+            android:name=".ui.textTranslate.TextTranslateActivity"
             android:exported="true" />
         <activity
             android:name=".ui.scandocument.ScanDocument"

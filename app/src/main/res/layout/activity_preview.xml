@@ -1,102 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:background="@color/white"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ui.preview.preview">
+    xmlns:tools="http://schemas.android.com/tools">
 
-   <RelativeLayout
+   <data>
+
+   </data>
+
+   <androidx.constraintlayout.widget.ConstraintLayout
        android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:background="@color/blue"
-       android:paddingVertical="10dp"
-      >
+       android:layout_height="match_parent"
+       android:background="@color/white"
+       android:orientation="vertical"
+       tools:context=".ui.preview.Preview">
 
-      <ImageView
-          android:layout_width="wrap_content"
+      <RelativeLayout
+          android:id="@+id/relativeLayout13"
+          android:layout_width="0dp"
           android:layout_height="wrap_content"
-          android:src="@drawable/baseline_arrow_back_24"
-         />
-      <TextView
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="Preview"
-          android:textColor="@color/white"
-          android:layout_centerVertical="true"
-          android:layout_centerHorizontal="true"
-         android:textStyle="bold"
-         android:textSize="18dp" />
+          android:background="@color/blue"
+          android:paddingVertical="10dp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent">
 
-      <ImageView
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:src="@drawable/language"
-          android:layout_marginEnd="10dp"
-          android:layout_alignParentEnd="true"
-          />
-      <ImageView
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-         android:src="@drawable/material"
-          android:layout_alignParentEnd="true"
-          android:layout_marginEnd="70dp"
-         />
+         <ImageView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:src="@drawable/baseline_arrow_back_24" />
 
-   </RelativeLayout>
-   <com.google.android.material.tabs.TabLayout
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:id="@+id/tablayout"
-       android:background="@color/blue"
-       app:tabIndicatorColor="@color/white"
-       app:tabTextAppearance="@style/TabLayoutTextStyle"
-       app:tabSelectedTextColor="@color/white"
-       app:tabTextColor="@color/black"/>
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_centerHorizontal="true"
+             android:layout_centerVertical="true"
+             android:text="Preview"
+             android:textColor="@color/white"
+             android:textSize="18dp"
+             android:textStyle="bold" />
+
+         <ImageView
+             android:id="@+id/translateIconIV"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentEnd="true"
+             android:layout_marginEnd="10dp"
+             android:src="@drawable/language" />
+
+         <ImageView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentEnd="true"
+             android:layout_marginEnd="70dp"
+             android:src="@drawable/material" />
+
+      </RelativeLayout>
+
+      <com.google.android.material.tabs.TabLayout
+          android:id="@+id/tabLayout"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="@color/blue"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/relativeLayout13"
+          app:tabIndicatorColor="@color/white"
+          app:tabSelectedTextColor="@color/white"
+          app:tabTextAppearance="@style/TabLayoutTextStyle"
+          app:tabTextColor="@color/black" />
 
       <androidx.viewpager.widget.ViewPager
-          android:id="@+id/viewpage"
+          android:id="@+id/viewpager"
           android:layout_width="match_parent"
-          android:layout_height="600dp"
-         android:background="@color/white"
-          android:layout_marginStart="10dp"
-          android:layout_marginEnd="10dp"
-          android:layout_marginTop="15dp"
-        />
+          android:layout_height="550dp"
+          android:background="@color/white"
+          app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
 
-   <LinearLayout
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:orientation="horizontal"
-       android:paddingVertical="5dp"
-      >
-
-      <Button
-          android:layout_width="wrap_content"
+      <LinearLayout
+          android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:text="cancel"
-          android:layout_marginEnd="10dp"
-          android:layout_marginStart="5dp"
-          android:layout_gravity="start"
-          android:layout_weight="1"/>
+          android:orientation="horizontal"
+          android:paddingVertical="5dp"
+          android:layout_marginBottom="20dp"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/viewpager">
+
+         <Button
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_gravity="start"
+             android:layout_marginStart="5dp"
+             android:layout_marginEnd="10dp"
+             android:layout_weight="1"
+             android:text="cancel" />
 
 
-      <Button
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="Summarize"
-          android:layout_marginEnd="10dp"
-          android:layout_gravity="start"
-          android:layout_weight="1"
-          android:layout_marginStart="20dp"/>
+         <Button
+             android:id="@+id/summarizeBtn"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_gravity="start"
+             android:layout_marginStart="20dp"
+             android:layout_marginEnd="10dp"
+             android:layout_weight="1"
+             android:textAllCaps="false"
+             android:backgroundTint="#4CBAD1"
+             android:text="Summarize" />
 
 
-   </LinearLayout>
+      </LinearLayout>
 
 
-</LinearLayout>
+   </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
 
