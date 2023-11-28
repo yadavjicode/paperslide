@@ -36,7 +36,7 @@ class SignInViewModel (val context: Context):ViewModel(){
 
     fun startNewActivity(newActivity : Class<*>) {
         val intent = Intent(context, newActivity)
-        intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
+           intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
         context.startActivity(intent)
     }
 

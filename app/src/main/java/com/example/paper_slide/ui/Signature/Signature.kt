@@ -7,6 +7,7 @@ import androidx.databinding.DataBindingUtil
 import com.example.paper_slide.R
 import com.example.paper_slide.databinding.ActivitySignatureBinding
 import com.example.paper_slide.ui.createasignature.CreateSignatureActivity
+import com.example.paper_slide.ui.home.Home
 
 class Signature : AppCompatActivity() {
     private var context =this@Signature
@@ -30,5 +31,12 @@ class Signature : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+    }
+    override fun onBackPressed() {
+        // Explicitly navigate to the MainActivity (home screen)
+        val intent = Intent(this, Home::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
+        finish() // Optional: Call finish() to close the current activity if needed
     }
 }

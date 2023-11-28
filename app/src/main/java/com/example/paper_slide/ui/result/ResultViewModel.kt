@@ -65,7 +65,8 @@ class ResultViewModel (val context : Context) : ViewModel() {
     fun validateUpdateSummery(id: Int, updatedSummery: String) {
 
         viewModelScope.launch {
-            updatedSummery(id,updatedSummery)
+            Toast.makeText(context, "id is $id", Toast.LENGTH_SHORT).show()
+            //updatedSummery(id,updatedSummery)
         }
     }
 
@@ -80,10 +81,12 @@ class ResultViewModel (val context : Context) : ViewModel() {
 
             }else{
                 Toast.makeText(context, "${response.errorBody()}", Toast.LENGTH_LONG).show()
+                Log.d(TAG, "updatedSummery: ${response.errorBody()}")
             }
 
         }catch (e :Exception){
             Toast.makeText(context, "${e.message}", Toast.LENGTH_LONG).show()
+            Log.d(TAG, "updatedSummery: ${e.message}")
         }
     }
 }

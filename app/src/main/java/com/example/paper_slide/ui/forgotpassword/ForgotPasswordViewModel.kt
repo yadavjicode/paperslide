@@ -43,7 +43,7 @@ class ForgotPasswordViewModel(val context: Context) : ViewModel() {
             } else {
                 Toast.makeText(
                     context,
-                    "Error: ${response.body()?.message.toString()}",
+                    "Error: ${response.errorBody().toString()}",
                     Toast.LENGTH_SHORT
                 ).show()
                 Log.d(TAG, "fetchForgotData: ${response.body()}")

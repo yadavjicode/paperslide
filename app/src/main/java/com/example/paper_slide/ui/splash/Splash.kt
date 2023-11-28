@@ -41,7 +41,7 @@ class Splash : AppCompatActivity() {
 
         lifecycleScope.launch {
             delay(3000)
-            val iHome = Intent(this@Splash, com.example.paper_slide.ui.signin.Login::class.java)
+            val iHome = Intent(this@Splash, com.example.paper_slide.ui.signin.Signin::class.java)
             startActivity(iHome)
             finish()
         }
