@@ -31,7 +31,11 @@ public class TextEditor extends AppCompatActivity {
 
     Editor editor ;
     private HorizontalScrollView scrollView;
+    private HorizontalScrollView scrollView_color;
+    private HorizontalScrollView scrollView_textstyle;
     private ImageView  heading;
+    private ImageView  color;
+    private ImageView  textstyle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,13 +60,6 @@ public class TextEditor extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 editor.updateTextStyle(EditorTextStyle.H3);
-            }
-        });
-
-        findViewById(R.id.action_color).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editor.updateTextColor("#FF3333");
             }
         });
 
@@ -96,6 +93,14 @@ public class TextEditor extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.action_eraser).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editor.clearAllContents();
+            }
+        });
+
+
 
         editor.setEditorListener(new EditorListener() {
             @Override
@@ -116,8 +121,11 @@ public class TextEditor extends AppCompatActivity {
             }
         });
          scrollView =findViewById(R.id.scrollView_heading);
+         scrollView_color =findViewById(R.id.scrollView_color);
+         color =findViewById(R.id.action_color);
 
-           heading =findViewById(R.id.action_h1);
+
+           heading =findViewById(R.id.action_heding);
 
          heading.setOnClickListener(new View.OnClickListener() {
      @Override
@@ -126,8 +134,38 @@ public class TextEditor extends AppCompatActivity {
      }
  });
 
+        color.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toggleScrollViewcolor();
+            }
+        });
+
+        scrollView_textstyle =findViewById(R.id.scrollView_text_style);
+        textstyle =findViewById(R.id.action_text_style);
+        textstyle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toggleScrollViewtextstyle();
+            }
+        });
 
 
+        setcolor ();
+        textStyle();
+
+    }
+
+    private void toggleScrollViewcolor() {
+
+        if (scrollView_color.getVisibility() == View.VISIBLE) {
+            scrollView_color.setVisibility(View.GONE);
+
+        } else {
+            scrollView_color.setVisibility(View.VISIBLE);
+            scrollView.setVisibility(View.GONE);
+            scrollView_textstyle .setVisibility(View.GONE);
+        }
     }
 
     private void toggleScrollViewVisibility() {
@@ -135,8 +173,118 @@ public class TextEditor extends AppCompatActivity {
             scrollView.setVisibility(View.GONE);
         } else {
             scrollView.setVisibility(View.VISIBLE);
+            scrollView_color.setVisibility(View.GONE);
+            scrollView_textstyle .setVisibility(View.GONE);
         }
     }
+
+    private void toggleScrollViewtextstyle() {
+        if (scrollView_textstyle .getVisibility() == View.VISIBLE) {
+            scrollView_textstyle .setVisibility(View.GONE);
+        } else {
+            scrollView_textstyle .setVisibility(View.VISIBLE);
+            scrollView_color.setVisibility(View.GONE);
+            scrollView.setVisibility(View.GONE);
+        }
+    }
+
+    public void setcolor (){
+
+        findViewById(R.id.action_c1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editor.updateTextColor("#FFFFFFFF");
+            }
+        });
+        findViewById(R.id.action_c2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editor.updateTextColor("#8BC34A");
+            }
+        });
+        findViewById(R.id.action_c3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editor.updateTextColor("#FFEB3B");
+            }
+        });
+        findViewById(R.id.action_c4).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editor.updateTextColor("#131312");
+            }
+        });
+        findViewById(R.id.action_c5).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editor.updateTextColor("#FF5722");
+            }
+        });
+        findViewById(R.id.action_c6).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editor.updateTextColor("#E11C1C");
+            }
+        });
+        findViewById(R.id.action_c7).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editor.updateTextColor("#009688");
+            }
+        });
+        findViewById(R.id.action_c8).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editor.updateTextColor("#7C5A41");
+            }
+        });
+
+    }
+
+
+    public void textStyle(){
+
+        findViewById(R.id.action_text1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editor.updateTextStyle(EditorTextStyle.BOLD);
+            }
+        });
+
+        findViewById(R.id.action_text2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editor.updateTextStyle(EditorTextStyle.ITALIC);
+            }
+        });
+
+        findViewById(R.id.action_text3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editor.updateTextStyle(EditorTextStyle.INDENT);
+            }
+        });
+        findViewById(R.id.action_text4).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editor.updateTextStyle(EditorTextStyle.OUTDENT);
+            }
+        });
+
+        findViewById(R.id.action_text5).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editor.updateTextStyle(EditorTextStyle.BLOCKQUOTE);
+            }
+        });
+
+
+
+    }
+
+
+
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

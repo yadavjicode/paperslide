@@ -128,10 +128,91 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
+        <HorizontalScrollView
+            android:id="@+id/scrollView_color"
+            android:layout_width="match_parent"
+            android:background="#03A9F4"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+            android:visibility="gone"
+           > <!-- initially set visibility to gone -->
 
+            <!-- Content inside the ScrollView -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/action_c1"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/roundcorner"
+                    android:backgroundTint="@color/white"/>
+
+                <ImageView
+                    android:id="@+id/action_c2"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/roundcorner"
+                    android:backgroundTint="#8BC34A" />
+
+                <ImageView
+                    android:id="@+id/action_c3"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/roundcorner"
+                    android:backgroundTint="#FFEB3B"  />
+
+                <ImageView
+                    android:id="@+id/action_c4"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/roundcorner"
+                    android:backgroundTint="#131312"  />
+
+                <ImageView
+                    android:id="@+id/action_c5"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/roundcorner"
+                    android:backgroundTint="#FF5722"  />
+
+                <ImageView
+                    android:id="@+id/action_c6"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/roundcorner"
+                    android:backgroundTint="#E11C1C"  />
+
+                <ImageView
+                    android:id="@+id/action_c7"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/roundcorner"
+                    android:backgroundTint="#009688"  />
+
+                <ImageView
+                    android:id="@+id/action_c8"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/roundcorner"
+                    android:backgroundTint="#7C5A41"  />
+
+            </LinearLayout>
+        </HorizontalScrollView>
     <HorizontalScrollView
         android:id="@+id/scrollView_heading"
         android:layout_width="match_parent"
+        android:background="#FFC107"
         android:layout_height="match_parent"
         android:layout_marginTop="16dp"
         android:visibility="gone"> <!-- initially set visibility to gone -->
@@ -143,20 +224,20 @@
             android:orientation="horizontal">
 
             <ImageView
-
+                android:id="@+id/action_h1"
                 android:layout_width="30dp"
                 android:layout_height="40dp"
                 android:background="@drawable/heading_1_svgrepo_com" />
 
             <ImageView
-
+                android:id="@+id/action_h2"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="10dp"
                 android:background="@drawable/heading_2_svgrepo_com" />
 
             <ImageView
-
+                android:id="@+id/action_h3"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="10dp"
@@ -167,9 +248,60 @@
 
 
         <HorizontalScrollView
+            android:id="@+id/scrollView_text_style"
+            android:layout_width="match_parent"
+            android:background="#FFC107"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+           android:visibility="gone"> <!-- initially set visibility to gone -->
+
+            <!-- Content inside the ScrollView -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/action_text1"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/text" />
+
+                <ImageView
+                    android:id="@+id/action_text2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/text" />
+
+                <ImageView
+                    android:id="@+id/action_text3"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/text" />
+                <ImageView
+                    android:id="@+id/action_text4"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/text" />
+                <ImageView
+                    android:id="@+id/action_text5"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/text" />
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+
+        <HorizontalScrollView
             android:id="@+id/horizontal_scroll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#FF5722"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
@@ -179,21 +311,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/action_h1"
-                    android:layout_width="30dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/heading_1_svgrepo_com" />
+
+
+
 
                 <ImageView
-                    android:id="@+id/action_h2"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="10dp"
-                    android:background="@drawable/heading_2_svgrepo_com" />
-
-                <ImageView
-                    android:id="@+id/action_h3"
+                    android:id="@+id/action_heding"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="10dp"
@@ -234,6 +357,20 @@
                     android:layout_height="40dp"
                     android:layout_marginStart="10dp"
                     android:background="@drawable/baseline_broken_image_24" />
+
+                <ImageView
+                    android:id="@+id/action_text_style"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/text" />
+
+                <ImageView
+                    android:id="@+id/action_eraser"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/eraser" />
 
 
             </LinearLayout>
