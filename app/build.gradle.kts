@@ -55,7 +55,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
     testImplementation("junit:junit:4.13.2")
     testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
-    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
+   testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
 
     //Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.7.2")
@@ -104,6 +104,11 @@ dependencies {
 
     implementation("com.kyanogen.signatureview:signature-view:1.2")
 
+  //  implementation("com.github.bumptech.glide:glide:4.9.0")
+
+
+    implementation("com.github.irshulx:laser-native-editor:3.0.3")
+ //   implementation("com.github.chinalwb:are:0.1.7")
 
 
 

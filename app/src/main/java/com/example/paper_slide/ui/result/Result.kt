@@ -53,7 +53,7 @@ class Result : AppCompatActivity() {
         if(id !=0 && updatedSummery.isNotEmpty()){
             lifecycleScope.launch {
                  resultViewModel.validateUpdateSummery(id,updatedSummery)
-                Toast.makeText(context, updatedSummery, Toast.LENGTH_SHORT).show()
+              //  Toast.makeText(context, updatedSummery, Toast.LENGTH_SHORT).show()
                 Log.d(TAG, "initViews: $updatedSummery")
             }
         }else{
