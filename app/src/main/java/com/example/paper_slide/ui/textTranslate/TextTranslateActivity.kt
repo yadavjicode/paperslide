@@ -2,7 +2,6 @@ package com.example.paper_slide.ui.textTranslate
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -115,11 +114,28 @@ class TextTranslateActivity : AppCompatActivity() {
                 ) {
 
 
-                    selectedlanguage = parent?.selectedItem.toString()
-/*
-                    if (selectedlanguage == )
 
-                    Toast.makeText(applicationContext, selectedlanguage, Toast.LENGTH_SHORT).show()*/
+                    selectedlanguage = parent?.selectedItem.toString()
+                    if (selectedlanguage == "Select Language") {
+                        Toast.makeText(context, "Please Select the Language", Toast.LENGTH_SHORT)
+                            .show()
+                    }else if(selectedlanguage == "hin_Deva") {
+
+                        originalText = binding.originalText.text.toString()
+                        val translatedTV = binding.translatedText
+
+                        if (originalText != null && selectedlanguage != null) {
+                            lifecycleScope.launch {
+                                translateViewModel.validateTranslation(originalText, selectedlanguage,translatedTV)
+                            }
+                        } else{
+                            Toast.makeText(context, "originalText or langCode null", Toast.LENGTH_SHORT).show()
+                        }
+
+
+                    }else {
+                        Toast.makeText(context, selectedlanguage, Toast.LENGTH_SHORT).show()
+                    }
                 }
 
                 override fun onNothingSelected(p0: AdapterView<*>?) {

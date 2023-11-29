@@ -83,7 +83,7 @@ fun getSignUp(
     @FormUrlEncoded
     fun getTranslation(
         @Field("original_text") originalText: String,
-        @Field("target_lang") targetLang: List<String>
+        @Field("target_lang") targetLang: String
     ) : Call <TranslateResponse>
 
     @PATCH("summarization/api/summary/{id}")

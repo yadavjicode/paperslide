@@ -1,11 +1,7 @@
 package com.example.paper_slide.ui.textTranslate
 
-import android.R
 import android.content.Context
 import android.util.Log
-import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
@@ -17,17 +13,16 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class TranslateViewModel(val context: Context) : ViewModel() {
-    val languageArray = mutableListOf<String>()
+    val languageArray = mutableListOf("Select Language")
     val TAG = "translatedLog"
     var languageN : List<String> = emptyList()
-
 
     fun validateLanguages(languageNames: List<String>, languageSpinner: Spinner, langCode: List<String>) {
         viewModelScope.launch {
             //getLanguages(languageNames,languageSpinner,langCode)
         }
     }
-    fun validateTranslation(originalText: String, langCode: List<String>, translatedTV: EditText) {
+    fun validateTranslation(originalText: String, langCode: String, translatedTV: EditText) {
     viewModelScope.launch {
         //Toast.makeText(context, "$originalText and $langCode", Toast.LENGTH_LONG).show()
         fetchTranslated(originalText,langCode,translatedTV)
@@ -37,13 +32,11 @@ class TranslateViewModel(val context: Context) : ViewModel() {
 
     private suspend fun fetchTranslated(
         originalText: String,
-        langCode: List<String>,
+        langCode: String,
         translatedTV: EditText
     ) {
 
         try {
-
-
             val apiClient = APIInterface.APIClient(context).apiInstance
             val response = withContext(Dispatchers.IO) {
                 apiClient.getTranslation(originalText, langCode).execute()
