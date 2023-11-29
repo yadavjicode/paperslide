@@ -105,7 +105,7 @@ fun getSignUp(
                 .addInterceptor(Interceptor { chain ->
                     val originalRequest: Request = chain.request()
                     val newRequest: Request = originalRequest.newBuilder()
-                        .header("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAxNzc5OTI5LCJpYXQiOjE3MDExNzUxMjksImp0aSI6IjljN2Q5ZjQyNGEyNzQzN2FiYTJjNjRkODc1NWI0YWJjIiwidXNlcl9pZCI6MTB9.QlAf3iCQZMnk7FxHj6s1iMynAAe_op7ltftz9Yb9kJM")
+                        .header("Authorization", "Bearer ${sharedPref.accessToken}")
                         .build()
                     chain.proceed(newRequest)
                 })
