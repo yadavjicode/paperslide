@@ -3,6 +3,8 @@ package com.example.paper_slide.ui.textTranslate
 import android.R
 import android.content.Context
 import android.util.Log
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.Spinner
@@ -15,13 +17,14 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class TranslateViewModel(val context: Context) : ViewModel() {
+    val languageArray = mutableListOf<String>()
     val TAG = "translatedLog"
     var languageN : List<String> = emptyList()
 
 
     fun validateLanguages(languageNames: List<String>, languageSpinner: Spinner, langCode: List<String>) {
         viewModelScope.launch {
-            getLanguages(languageNames,languageSpinner,langCode)
+            //getLanguages(languageNames,languageSpinner,langCode)
         }
     }
     fun validateTranslation(originalText: String, langCode: List<String>, translatedTV: EditText) {
@@ -62,43 +65,64 @@ class TranslateViewModel(val context: Context) : ViewModel() {
         }
     }
 
-    private suspend fun getLanguages(
-        languageNames: List<String>,
-        languageSpinner: Spinner,
-        langCode: List<String>
-    ) {
-        
+    suspend fun getLanguages() {
         try {
-
-
             val apiClient = APIInterface.APIClient(context).apiInstance
             val response = withContext(Dispatchers.IO) {
                 apiClient.getLanguage().execute()
             }
-
             if (response.isSuccessful) {
-                val languageResponse = response.body()
-                languageResponse?.let {
-                    val languages = it.results
-
-                    // Extract language names
-                   languageN = languages.map { language -> language.name}
-
-                    // Set up the ArrayAdapter for the Spinner
-                    var spinnerAdapter =
-                        ArrayAdapter(context, R.layout.simple_spinner_item, languageNames)
-                    spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                    languageSpinner.adapter = spinnerAdapter
+                val responseBody = response.body()
+                Log.d(TAG, "language: $responseBody")
+                for (i in responseBody!!) {
+                    languageArray.addAll(listOf(i.code))
                 }
-            } else {
-
-                Toast.makeText(context, "${response.errorBody()}", Toast.LENGTH_SHORT).show()
-
+                Log.d(TAG, "language: $languageArray ${languageArray.size}")
             }
-        }catch (e:Exception){
-            Toast.makeText(context, "${e.message}", Toast.LENGTH_SHORT).show()
+        } catch (e: Exception) {
+            Log.d(TAG, "language: ${e.message}")
         }
-        
-}
+
+    }
+
+    /*   private suspend fun getLanguages(
+           languageNames: List<String>,
+           languageSpinner: Spinner,
+           langCode: List<String>
+       ) {
+
+           try {
+
+
+               val apiClient = APIInterface.APIClient(context).apiInstance
+               val response = withContext(Dispatchers.IO) {
+                   apiClient.getLanguage().execute()
+               }
+
+               if (response.isSuccessful) {
+                   val languageResponse = response.body()
+                   languageResponse?.let {
+                       val languages = it.
+
+                       // Extract language names
+                      languageN = languages.map { language -> language.name}
+
+                       // Set up the ArrayAdapter for the Spinner
+                       val spinnerAdapter =
+                           ArrayAdapter(context, R.layout.simple_spinner_item, languageN)
+                       spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                       languageSpinner.adapter = spinnerAdapter
+                   }
+               } else {
+
+                   Toast.makeText(context, "${response.errorBody()}", Toast.LENGTH_SHORT).show()
+
+               }
+           }catch (e:Exception){
+               Toast.makeText(context, "${e.message}", Toast.LENGTH_SHORT).show()
+           }
+
+   }*/
+
 
 }

@@ -69,7 +69,7 @@ fun getSignUp(
 
     @GET("/language/api/languages")
     fun getLanguage(
-    ): Call<LanguageResponse>
+    ): Call<List<LanguageResponse>>
 
 
     @POST("summarization/api/summary")

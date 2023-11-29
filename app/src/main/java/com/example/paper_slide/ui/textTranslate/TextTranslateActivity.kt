@@ -24,6 +24,11 @@ class TextTranslateActivity : AppCompatActivity() {
     private val dummyData = listOf("English", "Spanish", "French", "German", "Italian")
     val TAG ="translateActivityLog"
     private lateinit var languageNames: List<String>
+    private var selectedlanguage = ""
+    val languageArray = mutableListOf<String>()
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(context,
@@ -37,53 +42,96 @@ class TextTranslateActivity : AppCompatActivity() {
 
 
         initViews()
-        val spinnerAdapter =
+        initLang()
+       /* val spinnerAdapter =
             ArrayAdapter(this, android.R.layout.simple_spinner_item, dummyData)
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.languageSpinner.adapter = spinnerAdapter
-        initLang()
+        initLang()*/
+
     }
 
     private fun initLang() {
     lifecycleScope.launch {
-        translateViewModel.validateLanguages(languageNames,binding.languageSpinner,langCode)
+        /*languageNames= emptyList()
+        translateViewModel.validateLanguages(languageNames,binding.languageSpinner,langCode)*/
+        translateViewModel.getLanguages()
+        getSpinner()
+
+
 
     }
-        binding.languageSpinner.onItemSelectedListener = object :AdapterView.OnItemSelectedListener,
-            AdapterView.OnItemClickListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                val selectedLanguage = dummyData[position]
-                showToast("Selected Language: $selectedLanguage")
-                Log.d(TAG, "onItemSelected: $selectedLanguage")
-                // Handle item selection if needed
-                //val selectedLanguage = languageNames[position]
-                // Do something with the selected language name
-            }
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-                TODO("Not yet implemented")
+
+
+
+        /* binding.languageSpinner.onItemSelectedListener = object :AdapterView.OnItemSelectedListener,
+             AdapterView.OnItemClickListener {
+             override fun onItemSelected(
+                 parent: AdapterView<*>?,
+                 view: View?,
+                 position: Int,
+                 id: Long
+             ) {
+                 val selectedLanguage = dummyData[position]
+                 showToast("Selected Language: $selectedLanguage")
+                 Log.d(TAG, "onItemSelected: $selectedLanguage")
+                 // Handle item selection if needed
+                 //val selectedLanguage = languageNames[position]
+                 // Do something with the selected language name
+             }
+             override fun onNothingSelected(parent: AdapterView<*>?) {
+                 TODO("Not yet implemented")
+             }
+
+             override fun onItemClick(
+                 parent: AdapterView<*>?,
+                 view: View?,
+                 position: Int,
+                 id: Long
+             ) {
+                 val selectedLanguage = dummyData[position]
+                 Toast.makeText(context, selectedLanguage, Toast.LENGTH_SHORT).show()
+             }
+
+         }*/
+
+    }
+
+    private fun getSpinner() {
+        val arrayAdapter =ArrayAdapter(this, android.R.layout.simple_spinner_item,
+            translateViewModel.languageArray
+
+        )
+
+        binding.languageSpinner.adapter = arrayAdapter
+
+        binding.languageSpinner.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+
+
+                    selectedlanguage = parent?.selectedItem.toString()
+/*
+                    if (selectedlanguage == )
+
+                    Toast.makeText(applicationContext, selectedlanguage, Toast.LENGTH_SHORT).show()*/
+                }
+
+                override fun onNothingSelected(p0: AdapterView<*>?) {
+                    selectedlanguage = p0?.selectedItem.toString()
+                }
             }
 
-            override fun onItemClick(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                val selectedLanguage = dummyData[position]
-                Toast.makeText(context, selectedLanguage, Toast.LENGTH_SHORT).show()
-            }
-
-        }
     }
 
     private fun initViews() {
         binding.originalText.setText(summaryData)
-        binding.summarizeBtn.setOnClickListener {
+   /*     binding.summarizeBtn.setOnClickListener {
             originalText = binding.originalText.text.toString()
             val translatedTV = binding.translatedText
 
@@ -94,7 +142,7 @@ class TextTranslateActivity : AppCompatActivity() {
             } else{
                 Toast.makeText(context, "originalText or langCode null", Toast.LENGTH_SHORT).show()
         }
-        }
+        }*/
 
     }
 
