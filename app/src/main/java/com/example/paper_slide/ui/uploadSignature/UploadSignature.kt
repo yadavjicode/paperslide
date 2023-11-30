@@ -1,10 +1,10 @@
-package com.example.paper_slide.ui.uploadsignature
+package com.example.paper_slide.ui.uploadSignature
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.paper_slide.R
 
-class UploadSinature : AppCompatActivity() {
+class UploadSignature : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_upload_sinature)
