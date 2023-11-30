@@ -1,6 +1,7 @@
 package com.example.paper_slide.network
 
 import android.content.Context
+import android.net.Uri
 import com.example.paper_slide.model.ForgotPasswordResponse
 import com.example.paper_slide.model.LanguageResponse
 import com.example.paper_slide.model.LogoutResponse
@@ -8,12 +9,14 @@ import com.example.paper_slide.model.OTPResponse
 import com.example.paper_slide.model.ResetPasswordResponse
 import com.example.paper_slide.model.SignInResponse
 import com.example.paper_slide.model.SignUpResponse
+import com.example.paper_slide.model.SignatureResponse
 import com.example.paper_slide.model.SummaryUpdateResponse
 import com.example.paper_slide.model.SummeryResponse
 import com.example.paper_slide.model.TranslateResponse
 import com.example.paper_slide.util.Constants
 import com.example.paper_slide.util.SharedPref
 import okhttp3.Interceptor
+import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import retrofit2.Call
@@ -22,8 +25,10 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
+import retrofit2.http.Multipart
 import retrofit2.http.PATCH
 import retrofit2.http.POST
+import retrofit2.http.Part
 import retrofit2.http.Path
 import java.util.concurrent.TimeUnit
 
@@ -78,6 +83,12 @@ fun getSignUp(
         @Field("original_text") originalText :String,
         @Field("summary_length") summaryLength:Int
     ): Call<SummeryResponse>
+
+    @Multipart
+    @POST("signature/api/sign")
+    fun postSignature(
+        @Part sign: MultipartBody.Part
+    ): Call<SignatureResponse>
 
     @POST("translation/api/translate")
     @FormUrlEncoded
