@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <uses-permission
         android:name="com.google.android.gms.permission.AD_ID"
         tools:node="remove" />
@@ -19,7 +21,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".ui.texteditor.TextEditor"
+            android:name=".ui.texteditor2.TextEditor2"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,6 +29,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.texteditor.TextEditor"
+            android:exported="true" />
+
         <activity
             android:name=".ui.createasignature.CreateSignatureActivity"
             android:exported="true" />
@@ -78,7 +84,6 @@
         <activity
             android:name=".ui.home.Home"
             android:exported="true" />
-
         <activity
             android:name=".ui.otp.Otp"
             android:exported="false" />

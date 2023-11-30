@@ -104,11 +104,14 @@ dependencies {
 
     implementation("com.kyanogen.signatureview:signature-view:1.2")
 
-  //  implementation("com.github.bumptech.glide:glide:4.9.0")
+    //  implementation("com.github.bumptech.glide:glide:4.9.0")
 
-
+   // texteditor sdk
     implementation("com.github.irshulx:laser-native-editor:3.0.3")
- //   implementation("com.github.chinalwb:are:0.1.7")
+
+    implementation ("jp.wasabeef:richeditor-android:2.0.0")
+
+
 
 
 

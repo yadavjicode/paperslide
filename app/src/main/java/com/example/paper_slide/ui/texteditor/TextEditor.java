@@ -27,9 +27,13 @@ import com.github.irshulx.models.EditorTextStyle;
 import java.io.IOException;
 import java.util.Map;
 
+import jp.wasabeef.richeditor.RichEditor;
+
 public class TextEditor extends AppCompatActivity {
 
     Editor editor ;
+
+    private RichEditor mEditor;
     private HorizontalScrollView scrollView;
     private HorizontalScrollView scrollView_color;
     private HorizontalScrollView scrollView_textstyle;
@@ -42,6 +46,7 @@ public class TextEditor extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_text_editor);
        editor =  findViewById(R.id.editor);
+       mEditor = (RichEditor) findViewById(R.id.editor);
 
        findViewById(R.id.action_h1).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,6 +102,14 @@ public class TextEditor extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 editor.clearAllContents();
+            }
+        });
+
+
+        findViewById(R.id.action_newline).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mEditor.setUnderline();
             }
         });
 
@@ -240,6 +253,17 @@ public class TextEditor extends AppCompatActivity {
         });
 
     }
+
+    public void liveTime(){
+
+
+
+
+    }
+
+
+
+
 
 
     public void textStyle(){
