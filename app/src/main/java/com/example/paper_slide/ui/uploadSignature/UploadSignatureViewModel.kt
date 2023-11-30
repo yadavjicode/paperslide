@@ -1,7 +1,6 @@
 package com.example.paper_slide.ui.uploadSignature
 
 import android.content.Context
-import android.net.Uri
 import android.provider.MediaStore
 import android.util.Log
 import android.widget.Toast
@@ -13,31 +12,30 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
-import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import java.io.File
 
 class UploadSignatureViewModel(val context : Context) : ViewModel() {
     private val TAG = "signatureLog"
-    fun validateSignature(imageUri: Uri) {
+    fun validateSignature(imageUri: MultipartBody.Part) {
         viewModelScope.launch {
             uploadSignature(imageUri)
         }
     }
 
-    private suspend fun uploadSignature(imageUri: Uri) {
+    private suspend fun uploadSignature(imageUri: MultipartBody.Part) {
         try {
             // Convert URI to File
-            val imageFile = uriToFile(imageUri)
+           // val imageFile = uriToFile(imageUri)
 
             // Create a request body with the image file
-            val requestFile = imageFile.asRequestBody("image/*".toMediaTypeOrNull())
-            val body = MultipartBody.Part.createFormData("file", imageFile.name, requestFile)
+           // val requestFile = imageFile.asRequestBody("image/*".toMediaTypeOrNull())
+          //  val body = MultipartBody.Part.createFormData("file", imageFile.name, requestFile)
 
 
             val apiClient = APIInterface.APIClient(context).apiInstance
             val response = withContext(Dispatchers.IO) {
-                apiClient.postSignature(body).execute()
+                apiClient.postSignature(imageUri).execute()
             }
             if (response.isSuccessful)
             {
@@ -56,7 +54,8 @@ class UploadSignatureViewModel(val context : Context) : ViewModel() {
     }
 
     // Function to convert URI to File
-    private fun uriToFile(uri: Uri): File {
+/*
+    private fun uriToFile(uri: MultipartBody.Part): File {
         val projection = arrayOf(MediaStore.Images.Media.DATA)
         val cursor = context.contentResolver.query(uri, projection, null, null, null)
         val columnIndex = cursor?.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
@@ -65,4 +64,5 @@ class UploadSignatureViewModel(val context : Context) : ViewModel() {
         cursor?.close()
         return File(filePath)
     }
+*/
 }

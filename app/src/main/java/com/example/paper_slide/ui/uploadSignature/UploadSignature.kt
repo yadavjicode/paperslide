@@ -1,6 +1,5 @@
 package com.example.paper_slide.ui.uploadSignature
 
-import android.app.Activity
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.net.Uri
@@ -16,12 +15,22 @@ import androidx.lifecycle.lifecycleScope
 import com.example.paper_slide.R
 import com.example.paper_slide.databinding.ActivityUploadSignatureBinding
 import kotlinx.coroutines.launch
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import java.io.File
+import java.io.FileOutputStream
 
 class UploadSignature: AppCompatActivity() {
     private lateinit var binding: ActivityUploadSignatureBinding
     private lateinit var uploadSignatureViewModel: UploadSignatureViewModel
     private val  context = this@UploadSignature
-    private var selectedImageUri: Uri? = null
+    private lateinit var selectedImageUri: Uri
+    private lateinit var partSign :String
+    private val contract = registerForActivityResult(ActivityResultContracts.GetContent()){
+        binding.sigIV.setImageURI(it)
+        selectedImageUri=it!!
+    }
     private val loadImageLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
             if (result.resultCode == RESULT_OK) {
@@ -52,7 +61,8 @@ class UploadSignature: AppCompatActivity() {
 
 
         binding.uploadSigIV.setOnClickListener {
-            openGallery()
+           // openGallery()
+            contract.launch("image/*")
         }
 
         binding.sigSaveBtn.setOnClickListener {
@@ -62,10 +72,20 @@ class UploadSignature: AppCompatActivity() {
     }
 
     private fun uploadSig(){
-        if(selectedImageUri != null){
+        val filesDir = applicationContext.filesDir
+        val file = File(filesDir,"image.png")
+
+        val inputStream = contentResolver.openInputStream(selectedImageUri)
+        val outputStream = FileOutputStream(file)
+        inputStream!!.copyTo(outputStream)
+
+        val requestBody = file.asRequestBody("image/*".toMediaTypeOrNull())
+        val part = MultipartBody.Part.createFormData("sign",file.name,requestBody)
+        partSign= part.toString()
+        if(part != null){
 
             lifecycleScope.launch {
-                uploadSignatureViewModel.validateSignature(selectedImageUri!!)
+                uploadSignatureViewModel.validateSignature(part)
             }
         }
     }
@@ -115,6 +135,7 @@ class UploadSignature: AppCompatActivity() {
             val inputStream = contentResolver.openInputStream(selectedImageUri!!)
             val bitmap = BitmapFactory.decodeStream(inputStream)
             inputStream?.close()
+
             imageView.setImageBitmap(bitmap)
         } catch (e: Exception) {
             e.printStackTrace()
