@@ -1,5 +1,6 @@
 package com.example.paper_slide.ui.uploadSignature
 import android.adservices.common.AdSelectionSignals.EMPTY
+import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,6 +11,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.paper_slide.R
 import com.example.paper_slide.databinding.ActivityUploadSignatureBinding
+import com.example.paper_slide.ui.createasignature.CreateSignatureActivity
+import com.example.paper_slide.ui.home.Home
 import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
@@ -85,5 +88,9 @@ class UploadSignature: AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
+        val intent = Intent(this, UploadSignature::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
+        finish() // Optional: Call finish() to close the current activity if needed
     }
 }

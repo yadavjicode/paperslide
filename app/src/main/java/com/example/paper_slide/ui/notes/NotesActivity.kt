@@ -105,6 +105,7 @@ class NotesActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
+        super.onBackPressed()
         // Explicitly navigate to the MainActivity (home screen)
         val intent = Intent(this, Home::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)

@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
@@ -13,6 +14,7 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import com.example.paper_slide.R
@@ -38,65 +40,45 @@ class Signature : AppCompatActivity() {
         }
     }
     private lateinit var cropActivityResultLauncher: ActivityResultLauncher<Any?>
-   /* private lateinit var cameraLauncher: ActivityResultLauncher<Intent>
-    private lateinit var cropLauncher: ActivityResultLauncher<Intent>
-    private lateinit var requestCameraPermission: ActivityResultLauncher<String>*/
-
-
-
-
+    private val permissionId =14
+    private val permissionNameList = if(Build.VERSION.SDK_INT >=33) {
+        arrayListOf(
+            android.Manifest.permission.MANAGE_EXTERNAL_STORAGE,
+            android.Manifest.permission.CAMERA
+        )
+    } else{
+            arrayListOf(
+                android.Manifest.permission.READ_EXTERNAL_STORAGE,
+                android.Manifest.permission.CAMERA
+            )
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding =DataBindingUtil.setContentView(context,R.layout.activity_signature)
-       // setContentView(R.layout.activity_signature)
-        intview()
-        // Initialize cameraLauncher
-   /*     initCameraLauncher()
-
-        // Initialize cropLauncher
-        initCropLauncher()
-
-        // Initialize requestCameraPermission
-        requestCameraPermission =
-            registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
-                if (isGranted) {
-                    // Camera permission granted, proceed with opening the camera
-                    openCamera()
-                } else {
-                    // Camera permission denied, handle accordingly
-                    // You may want to show a message or request the permission again
-                    Toast.makeText(this, "Camera permission denied", Toast.LENGTH_SHORT).show()
-                }
-            }*/
-        cropActivityResultLauncher = registerForActivityResult(cropActivityResultContract){
-            it?.let { uri ->
-               // Toast.makeText(context, "$uri", Toast.LENGTH_SHORT).show()
-                if (uri != null) {
-                    // Image has been cropped, start the next activity
-                    startNextActivity(uri)
-                }
-            }
-        }
-
-        binding.cameraIV.setOnClickListener {
-            cropActivityResultLauncher.launch(null)
-        }
-
+        checkMultiplePermission()
+        intView()
     }
 
-    private fun intview() {
-
-
+    private fun intView() {
         binding.importSign.setOnClickListener {
             val intent = Intent(this@Signature, UploadSignature::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
             startActivity(intent)
             finish()
         }
-       /* binding.cameraIV.setOnClickListener {
-            //requestCameraPermission()
-        }*/
+
+        cropActivityResultLauncher = registerForActivityResult(cropActivityResultContract){
+            it?.let { uri ->
+                // Toast.makeText(context, "$uri", Toast.LENGTH_SHORT).show()
+                if (uri != null) {
+                    // Image has been cropped, start the next activity
+                    startNextActivity(uri)
+                }
+            }
+        }
+        binding.cameraIV.setOnClickListener {
+            cropActivityResultLauncher.launch(null)
+        }
     }
     override fun onBackPressed() {
         super.onBackPressed()
@@ -107,69 +89,32 @@ class Signature : AppCompatActivity() {
         finish() // Optional: Call finish() to close the current activity if needed
     }
 
-/*    private fun initCameraLauncher() {
-        cameraLauncher =
-            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-                if (result.resultCode == Activity.RESULT_OK) {
-                    // Camera activity result handling
-                    val imageUri = result.data?.data
-                    if (imageUri != null) {
-                        // Image has been captured, start cropping
-                        startCrop(imageUri)
-                    }
-                }
-            }
-    }
-
-    private fun initCropLauncher() {
-        cropLauncher =
-            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-                if (result.resultCode == Activity.RESULT_OK) {
-                    // Crop activity result handling
-                    val croppedImageUri = CropImage.getActivityResult(result.data)?.uri
-                    if (croppedImageUri != null) {
-                        // Image has been cropped, start the next activity
-                        startNextActivity(croppedImageUri)
-                    }
-                }
-            }
-    }
-
-    private fun openCamera() {
-        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        cameraLauncher.launch(intent)
-    }
-
-    private fun startCrop(imageUri: Uri) {
-        CropImage.activity(imageUri)
-            .setGuidelines(CropImageView.Guidelines.ON)
-            .setAspectRatio(1, 1)  // Set your desired aspect ratio
-            .setFixAspectRatio(true)  // Enable fixed aspect ratio
-            .setMultiTouchEnabled(true)
-            .start(this)
-    }
-
-
-
-    private fun requestCameraPermission() {
-        if (hasCameraPermission()) {
-            openCamera()
-        } else {
-            requestCameraPermission.launch(Manifest.permission.CAMERA)
-        }
-    }
-
-    private fun hasCameraPermission(): Boolean {
-        return ContextCompat.checkSelfPermission(
-            this,
-            Manifest.permission.CAMERA
-        ) == PackageManager.PERMISSION_GRANTED
-    }*/
 private fun startNextActivity(croppedImageUri: Uri) {
     val intent = Intent(this, UploadSignature::class.java)
     intent.putExtra("CROPPED_IMAGE_URI", croppedImageUri.toString())
     startActivity(intent)
 }
+
+    private fun checkMultiplePermission(): Boolean {
+        val listPermissionNeeded = arrayListOf<String>()
+        for (permission in permissionNameList) {
+            if (ContextCompat.checkSelfPermission(
+                    this,
+                    permission) != PackageManager.PERMISSION_GRANTED
+                        ) {
+                            listPermissionNeeded.add(permission)
+                        }
+                    }
+                    if (listPermissionNeeded.isNotEmpty()) {
+                        ActivityCompat.requestPermissions(
+                            this,
+                            listPermissionNeeded.toTypedArray(),
+                            permissionId
+                        )
+                        return false
+                    }
+        return true
+    }
 }
 
 
