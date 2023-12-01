@@ -1,7 +1,6 @@
 package com.example.paper_slide.network
 
 import android.content.Context
-import android.net.Uri
 import com.example.paper_slide.model.ForgotPasswordResponse
 import com.example.paper_slide.model.LanguageResponse
 import com.example.paper_slide.model.LogoutResponse

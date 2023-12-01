@@ -8,6 +8,7 @@ import com.example.paper_slide.R
 import com.example.paper_slide.databinding.ActivitySignatureBinding
 import com.example.paper_slide.ui.createasignature.CreateSignatureActivity
 import com.example.paper_slide.ui.home.Home
+import com.example.paper_slide.ui.uploadSignature.UploadSignature
 
 class Signature : AppCompatActivity() {
     private var context =this@Signature
@@ -26,7 +27,7 @@ class Signature : AppCompatActivity() {
 
     private fun intview() {
         binding.importSign.setOnClickListener {
-            val intent = Intent(this@Signature, CreateSignatureActivity::class.java)
+            val intent = Intent(this@Signature, UploadSignature::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
             startActivity(intent)
             finish()
