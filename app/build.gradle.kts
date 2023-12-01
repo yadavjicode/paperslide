@@ -116,4 +116,14 @@ dependencies {
 
     implementation ("com.karumi:dexter:6.2.2")
 
+    // CameraX
+    implementation ("androidx.camera:camera-camera2:1.3.0")
+    implementation ("androidx.camera:camera-lifecycle:1.3.0")
+    implementation ("androidx.camera:camera-view:1.4.0-alpha02")
+    
+    implementation ("androidx.activity:activity-ktx:1.8.1")
+
+// Android Image Cropper
+    implementation ("com.theartofdev.edmodo:android-image-cropper:2.8.0")
+
 }

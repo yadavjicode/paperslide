@@ -54,27 +54,29 @@
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:layout_margin="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/upSignatureCL" />
 
         <LinearLayout
+            android:id="@+id/linearLayout7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:weightSum="2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:weightSum="2"
             app:layout_constraintStart_toStartOf="parent">
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
                 android:backgroundTint="#636363"
                 android:text="Cancel"
-                android:layout_weight="1"
-                android:textColor="@color/white"
                 android:textAllCaps="false"
-                android:layout_marginRight="10dp"
+                android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
@@ -82,10 +84,10 @@
                 android:id="@+id/sigSaveBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
                 android:backgroundTint="#78BCDF"
                 android:text="Accept and Save"
-                android:layout_weight="1"
-                android:layout_marginLeft="10dp"
                 android:textAllCaps="false"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />

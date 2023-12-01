@@ -2,6 +2,8 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Paper_slide" parent="Theme.AppCompat.Light.NoActionBar">
     </style>
+    <style name="Base.Theme.Paper_slide2" parent="Theme.AppCompat.Light.NoActionBar">
+    </style>
 
     <style name="Theme.Paper_slide" parent="Base.Theme.Paper_slide" />
 
