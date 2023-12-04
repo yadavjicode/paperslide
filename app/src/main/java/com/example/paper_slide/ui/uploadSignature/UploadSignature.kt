@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.paper_slide.R
 import com.example.paper_slide.databinding.ActivityUploadSignatureBinding
+import com.example.paper_slide.ui.Signature.Signature
 import com.example.paper_slide.ui.createasignature.CreateSignatureActivity
 import com.example.paper_slide.ui.home.Home
 import kotlinx.coroutines.launch
@@ -43,17 +44,26 @@ class UploadSignature: AppCompatActivity() {
                                     UploadSignatureVMFactory(applicationContext)
                                     )[UploadSignatureViewModel::class.java]
 
-        val croppedImageUriString = intent.getStringExtra("CROPPED_IMAGE_URI")
 
-        if (croppedImageUriString != null){
-        val croppedImageUri = Uri.parse(croppedImageUriString)
-        binding.sigIV.setImageURI(croppedImageUri)
-            selectedImageUri=croppedImageUri
-        }
         initViews()
     }
 
     private fun initViews() {
+        val croppedImageUriString = intent.getStringExtra("CROPPED_IMAGE_URI")
+        val sigImgUri = intent.getStringExtra("SIG_IMAGE_URI")
+
+        if (croppedImageUriString != null){
+            val croppedImageUri = Uri.parse(croppedImageUriString)
+            binding.sigIV.setImageURI(croppedImageUri)
+            selectedImageUri=croppedImageUri
+        }
+
+        if (sigImgUri != null){
+            val croppedImageUri = Uri.parse(sigImgUri)
+            binding.sigIV.setImageURI(croppedImageUri)
+            selectedImageUri=croppedImageUri
+        }
+
         binding.upSignatureCL.setOnClickListener {
             contract.launch("image/*")
         }
@@ -88,7 +98,7 @@ class UploadSignature: AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        val intent = Intent(this, UploadSignature::class.java)
+        val intent = Intent(this, Signature::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(intent)
         finish() // Optional: Call finish() to close the current activity if needed

@@ -1,3 +1,4 @@
+/*
 package com.example.paper_slide.ui.createasignature;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -53,13 +54,15 @@ public class CreateSignatureActivity extends AppCompatActivity {
                 //  Toast.makeText(this,'makeText(CreateSignatureActivity, Bitmap, int)', Toast.LENGTH_SHORT).show();
 
             // Create an Intent to start the next activity
-          /*  Intent intent = new Intent(this, UploadSignature.class);
+          */
+/*  Intent intent = new Intent(this, UploadSignature.class);
 
             // Pass the image URI to the next activity
             intent.putExtra("imageUri", uri.toString());
 
             // Start the next activity
-            startActivity(intent);*/
+            startActivity(intent);*//*
+
 
           //  }
 
@@ -68,4 +71,4 @@ public class CreateSignatureActivity extends AppCompatActivity {
 
 
     }
-}
+}*/

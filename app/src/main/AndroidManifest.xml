@@ -29,18 +29,23 @@
         <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/AppTheme"
             />
+       <!-- <activity
+            android:name=".ui.texteditor2.TextEditor2"
+            android:exported="true" />-->
+
         <activity
             android:name=".ui.texteditor.TextEditor"
+            android:exported="true" />
+
+        <activity
+            android:name=".ui.createasignature.CreateSignatureActivity"
             android:exported="true" >
-          <!--  <intent-filter>
+           <!-- <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>-->
         </activity>
-        <activity
-            android:name=".ui.createasignature.CreateSignatureActivity"
-            android:exported="true" />
         <activity
             android:name=".ui.notes.NotesActivity"
             android:exported="true" />
@@ -103,9 +108,11 @@
         <activity
             android:name=".ui.home.Home"
 
+
             android:exported="true" >
 
         </activity>
+
 
         <activity
             android:name=".ui.otp.Otp"
