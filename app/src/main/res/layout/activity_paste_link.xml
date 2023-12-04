@@ -47,13 +47,15 @@
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout6"/>
 
     <EditText
-
+        android:id="@+id/link"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
-        android:hint="  Paste Link"
+        android:hint="Paste Link"
+        android:padding="10dp"
+        android:inputType="textUri"
         android:background="@drawable/roundcorner"
         android:paddingVertical="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,33 +63,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
-    <Button
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="40dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginBottom="36dp"
-        android:background="@drawable/custom_button"
-        android:paddingHorizontal="35dp"
-        android:text="Button"
+        android:layout_marginBottom="44dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/button3" />
+        app:layout_constraintStart_toStartOf="parent">
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginBottom="36dp"
-        android:textColor="@color/white"
-        android:background="@drawable/custom_button"
-        android:backgroundTint="#6C6464"
-        android:paddingHorizontal="40dp"
-        android:text="cancel"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="44dp"
+            android:background="@drawable/custom_button"
+            android:backgroundTint="#6C6464"
+            android:paddingHorizontal="35dp"
+            android:text="cancel"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/link_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginStart="68dp"
+            android:background="@drawable/custom_button"
+            android:paddingHorizontal="35dp"
+            android:text="Button" />
+
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,6 +17,7 @@ import android.widget.EditText;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +28,9 @@ import com.github.irshulx.EditorListener;
 import com.github.irshulx.models.EditorTextStyle;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Map;
 
 import jp.wasabeef.richeditor.RichEditor;
@@ -32,21 +38,27 @@ import jp.wasabeef.richeditor.RichEditor;
 public class TextEditor extends AppCompatActivity {
 
     Editor editor ;
-
-    private RichEditor mEditor;
+    TextView character;
+    EditText textdemo;
     private HorizontalScrollView scrollView;
     private HorizontalScrollView scrollView_color;
     private HorizontalScrollView scrollView_textstyle;
     private ImageView  heading;
     private ImageView  color;
+    EditText text;
     private ImageView  textstyle;
+    private Runnable timeRunnable;
+    private final Handler handler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_text_editor);
        editor =  findViewById(R.id.editor);
-       mEditor = (RichEditor) findViewById(R.id.editor);
+textdemo =findViewById(R.id.text_demo);
+
+       character =findViewById(R.id.character_c);
+
 
        findViewById(R.id.action_h1).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,7 +121,7 @@ public class TextEditor extends AppCompatActivity {
         findViewById(R.id.action_newline).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mEditor.setUnderline();
+                editor.insertDivider();
             }
         });
 
@@ -119,6 +131,7 @@ public class TextEditor extends AppCompatActivity {
             @Override
             public void onTextChanged(EditText editText, Editable text) {
                 // Toast.makeText(EditorTestActivity.this, text, Toast.LENGTH_SHORT).show();
+
             }
             @Override
             public void onUpload(Bitmap image, String uuid) {
@@ -166,8 +179,51 @@ public class TextEditor extends AppCompatActivity {
 
         setcolor ();
         textStyle();
+        liveTime();
 
+        editor.setEditorListener(new EditorListener() {
+            @Override
+            public void onTextChanged(EditText editText, Editable text) {
+                //Toast.makeText(TextEditor.this, text, Toast.LENGTH_SHORT).show();
+                textdemo.setText(text);
+            }
+
+            @Override
+            public void onUpload(Bitmap image, String uuid) {
+
+            }
+
+            @Override
+            public View onRenderMacro(String name, Map<String, Object> props, int index) {
+                return null;
+            }
+        });
+
+
+        textdemo.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Not needed for this example
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Not needed for this example
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // Counting the number of characters
+                int charCount = s != null ? s.toString().replace(" ", "").length() : 0;
+
+                // Display the result in the TextView
+              character.setText(charCount + " : characters ");
+            }
+        });
     }
+
+
+
 
     private void toggleScrollViewcolor() {
 
@@ -256,16 +312,33 @@ public class TextEditor extends AppCompatActivity {
 
     public void liveTime(){
 
-
-
+        timeRunnable = new Runnable() {
+            @Override
+            public void run() {
+                updateDateTime();
+                handler.postDelayed(this, 1000); // Update every 1000 milliseconds (1 second)
+            }
+        };
+        handler.post(timeRunnable);
 
     }
+    private void updateDateTime() {
+        // Get current date and time
+        Date currentDateTime = new Date();
 
+        // Format the date and time
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault());
+        String formattedDateTime = sdf.format(currentDateTime);
 
-
-
-
-
+        // Display the result in a TextView
+        TextView timeTextView = findViewById(R.id.time_t);
+        timeTextView.setText(formattedDateTime);
+    }
+    protected void onDestroy() {
+        super.onDestroy();
+        // Stop updating time when the activity is destroyed
+        handler.removeCallbacks(timeRunnable);
+    }
     public void textStyle(){
 
         findViewById(R.id.action_text1).setOnClickListener(new View.OnClickListener() {

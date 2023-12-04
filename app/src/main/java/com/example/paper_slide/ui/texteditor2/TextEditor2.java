@@ -75,6 +75,7 @@ public class TextEditor2 extends AppCompatActivity {
         initheading();
         initextstyle();
 
+
         scrollView =findViewById(R.id.scrollView_heading);
         scrollView_color =findViewById(R.id.scrollView_color);
         color =findViewById(R.id.action_color2);

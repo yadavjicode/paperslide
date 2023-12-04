@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/blue"
-        android:paddingVertical="20dp"
+        android:paddingVertical="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -43,14 +43,15 @@
             android:src="@drawable/material" />
     </RelativeLayout>
 
-    <TextView
+    <EditText
         android:id="@+id/textView8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="10dp"
-        android:text="Title"
+        android:text="Tittle"
+        android:background="@drawable/custom_edit_text"
         android:textColor="@color/black"
         android:textSize="20dp"
         android:textStyle="bold"
@@ -72,7 +73,7 @@
 
 
         <TextView
-            android:id="@+id/time"
+            android:id="@+id/time_t"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -80,12 +81,12 @@
             android:textSize="15dp" />
 
         <TextView
-            android:id="@+id/character"
+            android:id="@+id/character_c"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="10dp"
-            android:text="" />
+            android:text="0 Character" />
 
 
     </LinearLayout>
@@ -104,7 +105,7 @@
             android:id="@+id/editor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:lineSpacingExtra="-4dp"
+            android:lineSpacingExtra="0dp"
             android:maxLines="2147483647"
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
@@ -310,6 +311,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+<EditText
+    android:id="@+id/text_demo"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:visibility="gone"
+    />
 
 
 

@@ -115,6 +115,87 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
+        <HorizontalScrollView
+            android:id="@+id/scrollView_textbg_color"
+            android:layout_width="match_parent"
+            android:background="#03A9F4"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+            android:visibility="gone"
+            > <!-- initially set visibility to gone -->
+
+            <!-- Content inside the ScrollView -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/text_bg_white"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/roundcorner"
+                    android:backgroundTint="@color/white"/>
+
+                <ImageView
+                    android:id="@+id/text_bg_green"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/roundcorner"
+                    android:backgroundTint="#8BC34A" />
+
+                <ImageView
+                    android:id="@+id/text_bg_yellow"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/roundcorner"
+                    android:backgroundTint="#FFEB3B"  />
+
+                <ImageView
+                    android:id="@+id/text_bg_black"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/roundcorner"
+                    android:backgroundTint="#131312"  />
+
+                <ImageView
+                    android:id="@+id/text_bg_orange"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/roundcorner"
+                    android:backgroundTint="#FF5722"  />
+
+                <ImageView
+                    android:id="@+id/text_bg_red"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/roundcorner"
+                    android:backgroundTint="#E11C1C"  />
+
+                <ImageView
+                    android:id="@+id/text_bg_skyblue"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/roundcorner"
+                    android:backgroundTint="#009688"  />
+
+                <ImageView
+                    android:id="@+id/text_bg_brown"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/roundcorner"
+                    android:backgroundTint="#7C5A41"  />
+
+            </LinearLayout>
+        </HorizontalScrollView>
 
         <HorizontalScrollView
             android:id="@+id/scrollView_color"
@@ -132,7 +213,7 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/action_c1"
+                    android:id="@+id/action_white"
                     android:layout_width="30dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="20dp"
@@ -140,7 +221,7 @@
                     android:backgroundTint="@color/white"/>
 
                 <ImageView
-                    android:id="@+id/action_c2"
+                    android:id="@+id/action_green"
                     android:layout_width="30dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="20dp"
@@ -148,7 +229,7 @@
                     android:backgroundTint="#8BC34A" />
 
                 <ImageView
-                    android:id="@+id/action_c3"
+                    android:id="@+id/action_yellow"
                     android:layout_width="30dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="20dp"
@@ -156,7 +237,7 @@
                     android:backgroundTint="#FFEB3B"  />
 
                 <ImageView
-                    android:id="@+id/action_c4"
+                    android:id="@+id/action_black"
                     android:layout_width="30dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="20dp"
@@ -164,7 +245,7 @@
                     android:backgroundTint="#131312"  />
 
                 <ImageView
-                    android:id="@+id/action_c5"
+                    android:id="@+id/action_orange"
                     android:layout_width="30dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="20dp"
@@ -172,7 +253,7 @@
                     android:backgroundTint="#FF5722"  />
 
                 <ImageView
-                    android:id="@+id/action_c6"
+                    android:id="@+id/action_red"
                     android:layout_width="30dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="20dp"
@@ -180,7 +261,7 @@
                     android:backgroundTint="#E11C1C"  />
 
                 <ImageView
-                    android:id="@+id/action_c7"
+                    android:id="@+id/action_skyblue"
                     android:layout_width="30dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="20dp"
@@ -188,7 +269,7 @@
                     android:backgroundTint="#009688"  />
 
                 <ImageView
-                    android:id="@+id/action_c8"
+                    android:id="@+id/action_brown"
                     android:layout_width="30dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="20dp"
@@ -200,7 +281,7 @@
         <HorizontalScrollView
             android:id="@+id/scrollView_heading"
             android:layout_width="match_parent"
-            android:background="#FFC107"
+            android:background="#121315"
             android:layout_height="match_parent"
             android:layout_marginTop="16dp"
             android:visibility="gone"> <!-- initially set visibility to gone -->
@@ -212,24 +293,43 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/action_h1"
+                    android:id="@+id/action_head1"
                     android:layout_width="30dp"
                     android:layout_height="40dp"
-                    android:background="@drawable/heading_1_svgrepo_com" />
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/h1" />
 
                 <ImageView
-                    android:id="@+id/action_h2"
+                    android:id="@+id/action_head2"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_marginStart="10dp"
-                    android:background="@drawable/heading_2_svgrepo_com" />
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/h2" />
 
                 <ImageView
-                    android:id="@+id/action_h3"
+                    android:id="@+id/action_head3"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_marginStart="10dp"
-                    android:background="@drawable/heading_3_svgrepo_com" />
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/h3" />
+                <ImageView
+                    android:id="@+id/action_head4"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/h4" />
+                <ImageView
+                    android:id="@+id/action_head5"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/h5" />
+                <ImageView
+                    android:id="@+id/action_head6"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/h6" />
 
             </LinearLayout>
         </HorizontalScrollView>
@@ -253,33 +353,33 @@
                     android:id="@+id/action_text1"
                     android:layout_width="30dp"
                     android:layout_height="40dp"
-                    android:background="@drawable/text" />
+                    android:background="@drawable/strikethrough" />
 
                 <ImageView
                     android:id="@+id/action_text2"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="10dp"
-                    android:background="@drawable/text" />
+                    android:background="@drawable/subscript" />
 
                 <ImageView
                     android:id="@+id/action_text3"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="10dp"
-                    android:background="@drawable/text" />
+                    android:background="@drawable/block_quote_background" />
                 <ImageView
-                    android:id="@+id/action_text4"
+                    android:id="@+id/italic"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="10dp"
-                    android:background="@drawable/text" />
+                    android:background="@drawable/italic" />
                 <ImageView
                     android:id="@+id/action_text5"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="10dp"
-                    android:background="@drawable/text" />
+                    android:background="@drawable/indent" />
 
             </LinearLayout>
         </HorizontalScrollView>
@@ -299,62 +399,58 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-
-
-
-
                 <ImageView
-                    android:id="@+id/action_heding"
+                    android:id="@+id/action_heding_2"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="10dp"
                     android:background="@drawable/heading_3_svgrepo_com" />
 
                 <ImageView
-                    android:id="@+id/action_color"
+                    android:id="@+id/action_color2"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="10dp"
-                    android:background="@drawable/baseline_format_color_text_24" />
+                    android:background="@drawable/txt_color" />
 
                 <ImageView
-                    android:id="@+id/action_unorder_list"
+                    android:id="@+id/action_unorder_list2"
                     android:layout_width="50dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="10dp"
-                    android:background="@drawable/baseline_format_list_bulleted_24" />
+                    android:background="@drawable/bullets" />
 
                 <ImageView
-                    android:id="@+id/action_order_list"
+                    android:id="@+id/action_order_list2"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="10dp"
-                    android:background="@drawable/orderlist" />
+                    android:background="@drawable/numbers" />
 
                 <ImageView
-                    android:id="@+id/action_insert_link"
+                    android:id="@+id/insert_link2"
                     android:layout_width="50dp"
                     android:layout_height="40dp"
 
                     android:layout_marginStart="10dp"
-                    android:background="@drawable/link_1107_svgrepo_com" />
+                    android:background="@drawable/insert_link" />
 
                 <ImageView
                     android:id="@+id/action_insert_image2"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="10dp"
-                    android:background="@drawable/baseline_broken_image_24" />
+                    android:background="@drawable/insert_image" />
 
                 <ImageView
-                    android:id="@+id/action_text_style"
+                    android:id="@+id/action_text_style2"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="10dp"
                     android:background="@drawable/text" />
 
                 <ImageView
-                    android:id="@+id/action_eraser"
+                    android:id="@+id/action_eraser2"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="10dp"
@@ -366,6 +462,134 @@
                     android:layout_height="40dp"
                     android:layout_marginStart="10dp"
                     android:background="@drawable/newline" />
+                <ImageView
+                    android:id="@+id/undo"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/undo" />
+
+                <ImageView
+                    android:id="@+id/redo"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/redo" />
+
+                <ImageView
+                    android:id="@+id/justify_left"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/justify_left" />
+
+                <ImageView
+                    android:id="@+id/justify_center"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/justify_center" />
+                <ImageView
+                    android:id="@+id/justify_right"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/justify_right" />
+
+                <ImageView
+                    android:id="@+id/text_bg"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/bg_color" />
+
+                <ImageView
+                    android:id="@+id/action_bg"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/bg" />
+
+                <ImageView
+                    android:id="@+id/blockquote"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/blockquote" />
+                <ImageView
+                    android:id="@+id/html"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/html_edit" />
+
+                <ImageView
+                    android:id="@+id/indent"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/indent" />
+                <ImageView
+                    android:id="@+id/outdent"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/outdent" />
+
+                <ImageView
+                    android:id="@+id/music"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/music" />
+
+                <ImageView
+                    android:id="@+id/subscript"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/subscript" />
+
+                <ImageView
+                    android:id="@+id/superscript"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/superscript" />
+                <ImageView
+                    android:id="@+id/strikethrough"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/strikethrough" />
+
+                <ImageView
+                    android:id="@+id/underline"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/underline"/>
+
+                <ImageView
+                    android:id="@+id/youtube"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/youtube"/>
+
+                <ImageView
+                    android:id="@+id/bold"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/bold"/>
+
+
+
+
+
+
+
 
 
             </LinearLayout>
