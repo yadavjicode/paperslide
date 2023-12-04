@@ -22,6 +22,14 @@
         tools:targetApi="31">
         <activity
             android:name=".ui.texteditor2.TextEditor2"
+            android:exported="true" />
+
+        <activity
+            android:name=".ui.texteditor.TextEditor"
+            android:exported="true" />
+
+        <activity
+            android:name=".ui.createasignature.CreateSignatureActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,13 +37,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.texteditor.TextEditor"
-            android:exported="true" />
-
-        <activity
-            android:name=".ui.createasignature.CreateSignatureActivity"
-            android:exported="true" />
         <activity
             android:name=".ui.notes.NotesActivity"
             android:exported="true" />
