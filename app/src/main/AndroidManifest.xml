@@ -5,12 +5,11 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
-
     <uses-permission
         android:name="com.google.android.gms.permission.AD_ID"
         tools:node="remove" />
@@ -26,25 +25,31 @@
         android:theme="@style/Theme.Paper_slide"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
-            android:theme="@style/AppTheme"
-            />
-       <!-- <activity
+        <activity
+            android:name=".ui.ppt.PresentationActivityView"
+            android:exported="false" />
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/AppTheme" />
+        <!--
+ <activity
             android:name=".ui.texteditor2.TextEditor2"
-            android:exported="true" />-->
-
+            android:exported="true" />
+        -->
         <activity
             android:name=".ui.texteditor.TextEditor"
             android:exported="true" />
-
         <activity
             android:name=".ui.createasignature.CreateSignatureActivity"
-            android:exported="true" >
-           <!-- <intent-filter>
+            android:exported="true">
+
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
         <activity
             android:name=".ui.notes.NotesActivity"
@@ -55,17 +60,18 @@
         <activity
             android:name=".ui.signin.Signin"
             android:exported="true" />
-
         <activity
             android:name=".ui.uploadSignature.UploadSignature"
-            android:exported="true" >
-        <!--    <intent-filter>
+            android:exported="true">
+
+            <!--
+                <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
-
         <activity
             android:name=".ui.signin.profile"
             android:exported="true" />
@@ -86,13 +92,15 @@
             android:exported="true" />
         <activity
             android:name=".ui.preview.Preview"
-            android:exported="true" >
-       <!-- <intent-filter>
+            android:exported="true">
+
+            <!--
+    <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />
-    </intent-filter>-->
+    </intent-filter>
+            -->
         </activity>
-
         <activity
             android:name=".ui.textTranslate.TextTranslateActivity"
             android:exported="true" />
@@ -107,13 +115,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.home.Home"
-
-
-            android:exported="true" >
-
-        </activity>
-
-
+            android:exported="true"></activity>
         <activity
             android:name=".ui.otp.Otp"
             android:exported="false" />
@@ -125,12 +127,12 @@
             android:exported="true" />
         <activity
             android:name=".ui.splash.Splash"
-            android:exported="true" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <meta-data
@@ -143,8 +145,8 @@
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.example.paper_slide.fileprovider"
-            android:grantUriPermissions="true"
-            android:exported="false">
+            android:exported="false"
+            android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
