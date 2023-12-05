@@ -4,7 +4,6 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
     <uses-permission
         android:name="com.google.android.gms.permission.AD_ID"
         tools:node="remove" />
@@ -21,41 +20,45 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".ui.imortfile.FullScreenActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.imortfile.Import_file"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.importafile.Import_a_file"
+            android:exported="false" />
+        <activity
             android:name=".ui.texteditor2.TextEditor2"
             android:exported="true" />
-
         <activity
             android:name=".ui.texteditor.TextEditor"
-            android:exported="true"/>
-
-
+            android:exported="true" />
         <activity
             android:name=".ui.createasignature.CreateSignatureActivity"
             android:exported="true" />
-
         <activity
             android:name=".ui.notes.NotesActivity"
             android:exported="true" />
         <activity
             android:name=".ui.ocr.Ocr"
-            android:exported="true" />
+            android:exported="true"/>
+
         <activity
             android:name=".ui.signin.Signin"
             android:exported="true" />
-        <activity
-            android:name=".ui.uploadsignature.UploadSinature"
-            android:exported="false" />
         <activity
             android:name=".ui.signin.profile"
             android:exported="true" />
         <activity
             android:name=".ui.pastelink.PasteLink"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".ui.signup.SignUpActivity"
             android:exported="true" />

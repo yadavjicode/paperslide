@@ -6,44 +6,86 @@ import android.os.Bundle
 import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.paper_slide.R
+import com.example.paper_slide.ui.home.Home
+import com.example.paper_slide.ui.preview.Preview
+import com.github.dhaval2404.imagepicker.ImagePicker
+import com.google.mlkit.vision.common.InputImage
+import com.google.mlkit.vision.text.TextRecognition
+import com.google.mlkit.vision.text.TextRecognizer
+import com.google.mlkit.vision.text.latin.TextRecognizerOptions
+import java.io.IOException
+
+
+
 
 class PasteLink : AppCompatActivity() {
-
-    private lateinit var editTextUrl: EditText
+    var pasteLinkButton: Button? = null
+    var textRecognizer: TextRecognizer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_paste_link)
 
-        editTextUrl = findViewById(R.id.link)
-        val buttonOpenLink: Button = findViewById(R.id.link_button)
+        pasteLinkButton = findViewById(R.id.link_button)
+        textRecognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
 
-        buttonOpenLink.setOnClickListener {
-            openLink()
-        }
-    }
+        pasteLinkButton!!.setOnClickListener {
+            // Assuming you have an EditText for pasting the link
+            val linkEditText: EditText = findViewById(R.id.link)
+            val link = linkEditText.text.toString().trim()
 
-    private fun openLink() {
-        val url = editTextUrl.text.toString().trim()
-
-        if (url.isNotEmpty() && Patterns.WEB_URL.matcher(url).matches()) {
-            try {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-                if (intent.resolveActivity(packageManager) != null) {
-                    startActivity(intent)
-                    Toast.makeText(this, "Opening link: $url", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(this, "No app can handle this URL", Toast.LENGTH_SHORT).show()
-                }
-            } catch (e: Exception) {
-                e.printStackTrace()
-                Toast.makeText(this, "Error opening link", Toast.LENGTH_SHORT).show()
+            if (link.isNotEmpty()) {
+                // Assuming link is a valid URL
+                val imageUrl = Uri.parse(link)
+                Toast.makeText(this, imageUrl.toString(), Toast.LENGTH_SHORT).show()
+                // Crop the image after loading from the link
+                cropImage(imageUrl)
+            } else {
+                // If the link is empty, open the gallery to choose an image
+                ImagePicker.with(this)
+                    .crop() //Crop image(Optional), Check Customization for more options
+                    .compress(1024) //Final image size will be less than 1 MB(Optional)
+                    .maxResultSize(
+                        1080,
+                        1080
+                    ) //Final image resolution will be less than 1080 x 1080(Optional)
+                    .start()
             }
-        } else {
-            Toast.makeText(this, "Invalid URL", Toast.LENGTH_SHORT).show()
         }
     }
-}
+
+    private fun cropImage(imageUri: Uri) {
+        // Perform the cropping logic here
+        // Use an image cropping library or implement your own cropping mechanism
+        // After cropping, proceed with the text recognition
+        recognizeText(imageUri)
+    }
+
+    private fun recognizeText(imageUri: Uri) {
+        try {
+            val inputImage = InputImage.fromFilePath(this, imageUri)
+            val result = textRecognizer!!.process(inputImage)
+                .addOnSuccessListener { text ->
+                    val recognizeText = text.text
+                    startActivity(
+                        Intent(this, Preview::class.java)
+                            .putExtra("ocrtext", recognizeText.toString())
+                    )
+                }.addOnFailureListener { e ->
+                    Toast.makeText(
+                        this,
+                        e.message,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+    }
+
+
+    }

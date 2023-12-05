@@ -30,7 +30,6 @@ class Ocr : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ocr)
         camerad = findViewById(R.id.ocrcopy)
-      //  textview = findViewById(R.id.ocrtextview)
         textRecognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
         camerad!!.setOnClickListener(View.OnClickListener {
             ImagePicker.with(this@Ocr)
@@ -49,7 +48,7 @@ class Ocr : AppCompatActivity() {
         if (resultCode == RESULT_OK) {
             if (data != null) {
                 imageUrl = data.data
-                Toast.makeText(this, "Process.....", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "image selected", Toast.LENGTH_SHORT).show()
                 recognizeText()
 
             }
@@ -66,10 +65,6 @@ class Ocr : AppCompatActivity() {
                     .addOnSuccessListener { text ->
                         val recognizeText = text.text
                       //  textview!!.setText(recognizeText)
-
-
-
-
                         startActivity(Intent(this@Ocr, Preview::class.java)
 
                             .putExtra("ocrtext",recognizeText.toString())
@@ -91,6 +86,7 @@ class Ocr : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
+        super.onBackPressed()
         // Explicitly navigate to the MainActivity (home screen)
         val intent = Intent(this, Home::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
