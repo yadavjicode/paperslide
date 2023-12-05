@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.paper_slide.R
+import com.example.paper_slide.ui.home.Home
 import com.example.paper_slide.ui.preview.Preview
 import com.example.paper_slide.ui.summarize.Summarize
 import com.github.dhaval2404.imagepicker.ImagePicker
@@ -87,5 +88,13 @@ class Ocr : AppCompatActivity() {
                 e.printStackTrace()
             }
         }
+    }
+
+    override fun onBackPressed() {
+        // Explicitly navigate to the MainActivity (home screen)
+        val intent = Intent(this, Home::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
+        finish() // Optional: Call finish() to close the current activity if needed
     }
 }

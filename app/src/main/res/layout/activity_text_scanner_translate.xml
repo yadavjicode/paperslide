@@ -13,6 +13,17 @@
         android:background="@color/white"
         tools:context=".ui.textTranslate.TextTranslateActivity">
 
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Translating Text Please wait ...."
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+        </ProgressBar>
         <RelativeLayout
             android:id="@+id/relativeLayout5"
             android:layout_width="match_parent"
@@ -44,6 +55,7 @@
         </RelativeLayout>
 
         <LinearLayout
+            android:id="@+id/linearLayout6"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="vertical"
@@ -57,8 +69,8 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_marginTop="20dp"
                 android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="10dp"
                 android:padding="5dp">
 
@@ -66,17 +78,17 @@
                     android:id="@+id/originalText"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="5dp"
                     android:background="@drawable/custom_edit_text"
                     android:ems="10"
                     android:focusable="true"
                     android:focusableInTouchMode="true"
                     android:gravity="top"
                     android:inputType="textMultiLine"
+                    android:padding="5dp"
                     android:text="text" />
             </androidx.cardview.widget.CardView>
 
-            <EditText
+            <!--<EditText
                 android:id="@+id/languageCode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -86,16 +98,33 @@
                 android:padding="10dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:text="language name " />
+                android:text="language name " />-->
+
+            <Spinner
+                android:id="@+id/languageSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/roundcorner" />
 
 
-            <androidx.cardview.widget.CardView
+           <!-- <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_marginBottom="40dp"
                 android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp">
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="40dp">-->
 
+            <FrameLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="40dp">
                 <EditText
                     android:id="@+id/translatedText"
                     android:layout_width="match_parent"
@@ -108,22 +137,24 @@
                     android:gravity="top"
                     android:inputType="textMultiLine"
                     android:text="text" />
+            </FrameLayout>
 
-
+<!--
             </androidx.cardview.widget.CardView>
+-->
 
             <Button
                 android:id="@+id/summarizeBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Summarize"
-                android:textStyle="bold"
-                android:textAllCaps="false"
-                android:textSize="18dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
                 android:background="@drawable/custom_button"
                 android:backgroundTint="@color/skyblue"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp" />
+                android:text="Summarize"
+                android:textAllCaps="false"
+                android:textSize="18dp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 

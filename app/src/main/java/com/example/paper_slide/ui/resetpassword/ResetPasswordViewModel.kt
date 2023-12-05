@@ -51,11 +51,16 @@ class ResetPasswordViewModel(val context : Context) : ViewModel() {
             }
             else {
                 progressBar.visibility = View.GONE
+                Toast.makeText(context, "${response.errorBody()}", Toast.LENGTH_SHORT).show()
+                Log.d(TAG, "elseData: ${response.errorBody()}")
+
 
             }
         } catch (e: Exception) {
             progressBar.visibility = View.GONE
             Log.d(TAG, "validateResetPass: ${e.message}")
+            Toast.makeText(context, "${e.message}", Toast.LENGTH_SHORT).show()
+
         }
     }
 

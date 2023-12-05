@@ -1,5 +1,6 @@
 package com.example.paper_slide.ui.notes
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.text.Editable
@@ -10,6 +11,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.paper_slide.R
+import com.example.paper_slide.ui.home.Home
 import com.example.paper_slide.databinding.ActivityNotesBinding
 
 import java.text.DateFormat
@@ -100,5 +102,14 @@ class NotesActivity : AppCompatActivity() {
         super.onDestroy()
         // Stop updating time when the activity is destroyed
         handler.removeCallbacks(timeRunnable)
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        // Explicitly navigate to the MainActivity (home screen)
+        val intent = Intent(this, Home::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
+        finish() // Optional: Call finish() to close the current activity if needed
     }
 }

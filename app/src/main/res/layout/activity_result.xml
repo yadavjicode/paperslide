@@ -133,7 +133,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:text="0/100" />
+                android:text="10/100" />
 
             <TextView
                   android:id="@+id/regenerateTV"
@@ -180,7 +180,7 @@
                 android:layout_marginEnd="164dp"
                 android:paddingHorizontal="30dp"
                 android:background="@drawable/custom_button"
-                android:backgroundTint="#7E7777"
+                android:backgroundTint="#7C575252"
                 android:textStyle="bold"
                 android:textAllCaps="false"
                 android:text="Mind mapping" />

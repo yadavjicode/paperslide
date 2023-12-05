@@ -1,5 +1,6 @@
 package com.example.paper_slide.ui.createasignature
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
@@ -9,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.paper_slide.R
 import com.example.paper_slide.databinding.ActivityCreateSignatureBinding
+import com.example.paper_slide.ui.uploadSignature.UploadSignature
 import java.io.ByteArrayOutputStream
 
 class CreateSignatureActivity : AppCompatActivity() {
@@ -36,6 +38,10 @@ class CreateSignatureActivity : AppCompatActivity() {
             //Uri imageuri = FileProvider.getUriForFile(this,"vall",bitmap);
             val uri = Uri.parse(path)
             Toast.makeText(this, uri.toString(), Toast.LENGTH_SHORT).show()
+
+            val intent = Intent(this, UploadSignature::class.java)
+            intent.putExtra("SIG_IMAGE_URI", uri.toString())
+            startActivity(intent)
         }
     }
 }

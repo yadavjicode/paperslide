@@ -16,11 +16,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class SignInViewModel (val context: Context):ViewModel(){
-
     val TAG="SignInLogs"
     private val sharedPref = SharedPref(context)
-
-
 
     suspend fun validateSignIn(
         username :String,
@@ -31,16 +28,11 @@ class SignInViewModel (val context: Context):ViewModel(){
             fetchData(username, password!!, progressBar)
         }
     }
-
-
-
     fun startNewActivity(newActivity : Class<*>) {
         val intent = Intent(context, newActivity)
-        intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
+           intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
         context.startActivity(intent)
     }
-
-
 
     private suspend fun fetchData(
         username: String,
@@ -61,8 +53,6 @@ class SignInViewModel (val context: Context):ViewModel(){
                     .show()
             } else if(response.code() == 403) {
                 progressBar.visibility = View.GONE
-
-
                 Toast.makeText(context, "${response.body()?.detail}", Toast.LENGTH_SHORT).show()
 
             }else {
@@ -77,7 +67,4 @@ class SignInViewModel (val context: Context):ViewModel(){
             Log.d(TAG, "validateSignIn: ${e.message}")
         }
     }
-
-
-
 }
