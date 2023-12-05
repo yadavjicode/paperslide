@@ -1,8 +1,6 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-  
-
 }
 
 android {
@@ -47,28 +45,15 @@ android {
 dependencies {
 
     implementation("com.google.android.gms:play-services-auth:20.7.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     // implementation("com.facebook.android:facebook-login:latest.release")
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
-    implementation(files("../libs/itsrts-pptviewer.jar"))
-    implementation(files("../libs/itsrts-pptviewer.jar"))
-    implementation(files("../libs/android-support-v4.jar"))
-    implementation(files("../libs/android-support-v4.jar"))
-    implementation(files("../libs/android-support-v4.jar"))
-    implementation(files("../libs/android-support-v4.jar"))
-    implementation(files("../libs/itsrts-pptviewer.jar"))
-    implementation(files("../libs/android-support-v4.jar"))
-    implementation(files("../libs/itsrts-pptviewer.jar"))
-    implementation(files("../libs/android-support-v4.jar"))
-    implementation(files("../libs/itsrts-pptviewer.jar"))
-    implementation(files("../libs/android-support-v4.jar"))
-    implementation(files("../libs/itsrts-pptviewer.jar"))
-    implementation(files("../libs/android-support-v4.jar"))
-    implementation(files("../libs/itsrts-pptviewer.jar"))
-    implementation(files("../libs/itsrts-pptviewer.jar"))
+  /*  implementation(files("../libs/android-support-v4.jar"))
+    implementation(files("../libs/itsrts-pptviewer.jar"))*/
     testImplementation("junit:junit:4.13.2")
     testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
