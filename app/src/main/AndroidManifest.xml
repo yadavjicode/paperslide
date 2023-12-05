@@ -28,11 +28,11 @@
         <activity
             android:name=".ui.ppt.PPTThemesActivity"
             android:exported="true" >
-             <intent-filter>
+            <!-- <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
@@ -92,7 +92,14 @@
             android:exported="true" />
         <activity
             android:name=".ui.result.Result"
-            android:exported="true" />
+            android:exported="true" >
+
+           <!-- <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+        </activity>
         <activity
             android:name=".ui.summarize.Summarize"
             android:exported="true" />
@@ -134,11 +141,11 @@
         <activity
             android:name=".ui.splash.Splash"
             android:exported="true">
-           <!-- <intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
         </activity>
 
         <meta-data

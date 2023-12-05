@@ -1,5 +1,6 @@
 package com.example.paper_slide.ui.result
 
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.paper_slide.R
 import com.example.paper_slide.databinding.ActivityResultBinding
+import com.example.paper_slide.ui.ppt.PPTThemesActivity
 import kotlinx.coroutines.launch
 
 class Result : AppCompatActivity() {
@@ -45,6 +47,12 @@ class Result : AppCompatActivity() {
 
         binding.saveBtn.setOnClickListener {
             validateResultET()
+        }
+
+        binding.pptBtn.setOnClickListener {
+            val intent = Intent(context, PPTThemesActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
         }
     }
     private fun validateResultET() {

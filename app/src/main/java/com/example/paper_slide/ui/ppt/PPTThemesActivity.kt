@@ -1,18 +1,13 @@
 package com.example.paper_slide.ui.ppt
 
-import ImageAdapter
+import android.content.Context
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Adapter
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.GridView
 import android.widget.Toast
-import androidx.activity.result.ActivityResult
-import androidx.activity.result.ActivityResultCallback
-import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.GridLayoutManager
@@ -32,6 +27,10 @@ class PPTThemesActivity : AppCompatActivity() {
     private val getContent = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
        uri?.let {
            selectedImageUris.add(it)
+           // Save the updated list to SharedPreferences
+      /*     saveImageUris()
+           // Update the RecyclerView with the new list of image URIs
+           adapter.setData(selectedImageUris)*/
            adapter.notifyDataSetChanged()
        }
    }
@@ -47,7 +46,12 @@ class PPTThemesActivity : AppCompatActivity() {
         adapter = ImageAdapter(selectedImageUris)
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = GridLayoutManager(context, 3, RecyclerView.HORIZONTAL, false)
+/*
+        // Load saved image URIs from SharedPreferences
+        loadSavedImageUris()
 
+        // Set the data in the adapter
+        adapter.setData(selectedImageUris)*/
 
         binding.uploadImg.setOnClickListener {
             getContent.launch("image/*")
@@ -94,5 +98,24 @@ class PPTThemesActivity : AppCompatActivity() {
         }
     }
 
+   /* private fun saveImageUris() {
+        val sharedPreferences = getPreferences(Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        val uriSet = selectedImageUris.map { it.toString() }.toSet()
+        editor.putStringSet(KEY_IMAGE_URIS, uriSet)
+        editor.apply()
+    }
+
+    private fun loadSavedImageUris() {
+        val sharedPreferences = getPreferences(Context.MODE_PRIVATE)
+        val uriSet = sharedPreferences.getStringSet(KEY_IMAGE_URIS, null)
+        uriSet?.let {
+            selectedImageUris.addAll(it.map { Uri.parse(it) })
+        }
+    }
+
+    companion object {
+        private const val KEY_IMAGE_URIS = "key_image_uris"
+    }*/
 
 }

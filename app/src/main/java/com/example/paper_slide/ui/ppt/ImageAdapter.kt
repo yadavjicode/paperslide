@@ -1,16 +1,16 @@
-import android.content.Context
+package com.example.paper_slide.ui.ppt
+
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.paper_slide.R
-import com.example.paper_slide.model.ImageItem
 
 
-class ImageAdapter(private val imageUris: List<Uri>) : RecyclerView.Adapter<ImageAdapter.ImageViewHolder>() {
+class ImageAdapter(private var imageUris: List<Uri>) : RecyclerView.Adapter<ImageAdapter.ImageViewHolder>() {
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.theme_item, parent, false)
@@ -33,4 +33,10 @@ class ImageAdapter(private val imageUris: List<Uri>) : RecyclerView.Adapter<Imag
             imageView.setImageURI(imageUri)
         }
     }
+
+    /*fun setData(newData: List<Uri>) {
+        imageUris.clear()
+        imageUris.addAll(newData)
+        notifyDataSetChanged()
+    }*/
 }

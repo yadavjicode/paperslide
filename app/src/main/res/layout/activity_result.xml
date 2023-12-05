@@ -186,6 +186,7 @@
                 android:text="Mind mapping" />
 
             <Button
+                android:id="@+id/pptBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
