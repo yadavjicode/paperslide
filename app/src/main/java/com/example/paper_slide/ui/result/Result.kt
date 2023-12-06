@@ -13,7 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.paper_slide.R
 import com.example.paper_slide.databinding.ActivityResultBinding
-import com.example.paper_slide.ui.ppt_themes.PPTThemesActivity
+import com.example.paper_slide.ui.pptthemes.PPTThemesActivity
 import kotlinx.coroutines.launch
 
 class Result : AppCompatActivity() {

@@ -2,14 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-feature
-        android:name="android.hardware.camera"
-        android:required="false" />
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission
         android:name="com.google.android.gms.permission.AD_ID"
         tools:node="remove" />
@@ -26,7 +20,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".ui.ppt_themes.PPTThemesActivity"
+            android:name=".ui.pptthemes.PPTThemesActivity"
             android:exported="true" >
             <!-- <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,55 +29,52 @@
             </intent-filter>-->
         </activity>
         <activity
-            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
-            android:theme="@style/AppTheme" />
-        <!--
- <activity
+            android:name=".ui.imortfile.FullScreenActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.imortfile.Import_file"
+            android:exported="true" >
+            <!--<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+        </activity>
+        <activity
+            android:name=".ui.importafile.Import_a_file"
+            android:exported="false" />
+        <activity
             android:name=".ui.texteditor2.TextEditor2"
             android:exported="true" />
-        -->
         <activity
             android:name=".ui.texteditor.TextEditor"
-            android:exported="true" />
-        <activity
-            android:name=".ui.createasignature.CreateSignatureActivity"
-            android:exported="true">
+            android:exported="true" >
 
-            <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            -->
         </activity>
+        <activity
+            android:name=".ui.createasignature.CreateSignatureActivity"
+            android:exported="true" />
         <activity
             android:name=".ui.notes.NotesActivity"
             android:exported="true" />
         <activity
             android:name=".ui.ocr.Ocr"
-            android:exported="true" />
+            android:exported="true"/>
+
         <activity
             android:name=".ui.signin.Signin"
             android:exported="true" />
-        <activity
-            android:name=".ui.uploadSignature.UploadSignature"
-            android:exported="true">
-
-            <!--
-                <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
         <activity
             android:name=".ui.signin.profile"
             android:exported="true" />
         <activity
             android:name=".ui.pastelink.PasteLink"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".ui.signup.SignUpActivity"
             android:exported="true" />
@@ -105,15 +96,7 @@
             android:exported="true" />
         <activity
             android:name=".ui.preview.Preview"
-            android:exported="true">
-
-            <!--
-    <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
-        <category android:name="android.intent.category.LAUNCHER" />
-    </intent-filter>
-            -->
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".ui.textTranslate.TextTranslateActivity"
             android:exported="true" />
@@ -137,15 +120,17 @@
             android:exported="true" />
         <activity
             android:name=".ui.signin.Login"
-            android:exported="true" />
+            android:exported="false">
+
+        </activity>
         <activity
             android:name=".ui.splash.Splash"
-            android:exported="true">
-            <intent-filter>
+            android:exported="true" >
+        <!--    <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
 
         <meta-data
@@ -154,16 +139,6 @@
         <meta-data
             android:name="com.google.android.gms.auth.api.signin.CLIENT_ID"
             android:value="990156368364-heapt9j35b2cu3kgeh89u1jmd5ol6r95.apps.googleusercontent.com" />
-
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="com.example.paper_slide.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
-        </provider>
     </application>
 
 </manifest>

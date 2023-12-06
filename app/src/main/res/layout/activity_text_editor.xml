@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/blue"
-        android:paddingVertical="20dp"
+        android:paddingVertical="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -36,21 +36,23 @@
             android:textStyle="bold" />
 
         <ImageView
+            android:id="@+id/saveIV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="10dp"
-            android:src="@drawable/material" />
+            android:layout_marginEnd="30dp"
+            android:src="@drawable/icon_check" />
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/textView8"
+    <EditText
+        android:id="@+id/titleET"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="10dp"
-        android:text="Title"
+        android:hint="Tittle"
+        android:background="@drawable/custom_edit_text"
         android:textColor="@color/black"
         android:textSize="20dp"
         android:textStyle="bold"
@@ -68,11 +70,11 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8">
+        app:layout_constraintTop_toBottomOf="@+id/titleET">
 
 
         <TextView
-            android:id="@+id/time"
+            android:id="@+id/time_t"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -80,7 +82,7 @@
             android:textSize="15dp" />
 
         <TextView
-            android:id="@+id/character"
+            android:id="@+id/character_c"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -104,7 +106,7 @@
             android:id="@+id/editor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:lineSpacingExtra="-4dp"
+            android:lineSpacingExtra="0dp"
             android:maxLines="2147483647"
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
@@ -310,6 +312,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+<EditText
+    android:id="@+id/text_demo"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:visibility="gone"
+    />
 
 
 

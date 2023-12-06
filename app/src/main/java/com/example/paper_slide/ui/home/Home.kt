@@ -13,6 +13,7 @@ import com.example.paper_slide.ui.createpresentation.Presentation
 import com.example.paper_slide.ui.notes.NotesActivity
 import com.example.paper_slide.ui.ocr.Ocr
 import com.example.paper_slide.ui.pastelink.PasteLink
+import com.example.paper_slide.ui.texteditor.TextEditor
 import com.google.android.material.navigation.NavigationView
 import java.security.Signature
 
@@ -72,7 +73,7 @@ class Home : AppCompatActivity() {
 
         }
         binding.writeNotes.setOnClickListener {
-            val intent = Intent(this@Home, NotesActivity::class.java)
+            val intent = Intent(this@Home, TextEditor::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
             startActivity(intent)
             finish()

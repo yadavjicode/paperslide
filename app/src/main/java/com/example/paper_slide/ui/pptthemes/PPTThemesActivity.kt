@@ -1,4 +1,4 @@
-package com.example.paper_slide.ui.ppt_themes
+package com.example.paper_slide.ui.pptthemes
 
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity

@@ -1,4 +1,4 @@
-/*
+
 package com.example.paper_slide.ui.texteditor2;
 
 import androidx.annotation.NonNull;
@@ -75,6 +75,7 @@ public class TextEditor2 extends AppCompatActivity {
         textbackground();
         initheading();
         initextstyle();
+
 
         scrollView =findViewById(R.id.scrollView_heading);
         scrollView_color =findViewById(R.id.scrollView_color);
@@ -650,4 +651,4 @@ public class TextEditor2 extends AppCompatActivity {
         return uri.getPath(); // Fallback to URI.getPath() if cursor is null
     }
 }
-*/
+

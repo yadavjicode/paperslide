@@ -5,50 +5,84 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.text.Editable;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.text.Html;
+import android.text.Spanned;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.widget.EditText;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
-import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.paper_slide.R;
+import com.example.paper_slide.model.NoteResponse;
+import com.example.paper_slide.network.APIInterface;
 import com.github.irshulx.Editor;
 import com.github.irshulx.EditorListener;
 import com.github.irshulx.models.EditorTextStyle;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Map;
 
-import jp.wasabeef.richeditor.RichEditor;
+import retrofit2.Response;
 
 public class TextEditor extends AppCompatActivity {
 
     Editor editor ;
-
-    private RichEditor mEditor;
+    TextView character;
+    EditText textdemo;
     private HorizontalScrollView scrollView;
     private HorizontalScrollView scrollView_color;
     private HorizontalScrollView scrollView_textstyle;
     private ImageView  heading;
     private ImageView  color;
+    EditText text;
     private ImageView  textstyle;
+    private Runnable timeRunnable;
+
+    private ImageView saveIV;
+    private EditText titleET;
+    private final Handler handler = new Handler();
+    String TAG = "editorLog";
+
+    private String editorText="";
+    private String titleNote="";
+    private  TextEditorViewModel textEditorVM;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_text_editor);
-       editor =  findViewById(R.id.editor);
-       mEditor = (RichEditor) findViewById(R.id.editor);
 
-       findViewById(R.id.action_h1).setOnClickListener(new View.OnClickListener() {
+        editor =  findViewById(R.id.editor);
+        textdemo =findViewById(R.id.text_demo);
+        character =findViewById(R.id.character_c);
+        saveIV =findViewById(R.id.saveIV);
+        titleET =findViewById(R.id.titleET);
+
+        textEditorVM = new ViewModelProvider(
+                this,
+                new TextEditorVMFactory(getApplicationContext())
+        ).get(TextEditorViewModel.class);
+
+
+        // Display the result in the TextView
+
+        findViewById(R.id.action_h1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 editor.updateTextStyle(EditorTextStyle.H1);
@@ -109,7 +143,7 @@ public class TextEditor extends AppCompatActivity {
         findViewById(R.id.action_newline).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mEditor.setUnderline();
+                editor.insertDivider();
             }
         });
 
@@ -119,6 +153,8 @@ public class TextEditor extends AppCompatActivity {
             @Override
             public void onTextChanged(EditText editText, Editable text) {
                 // Toast.makeText(EditorTestActivity.this, text, Toast.LENGTH_SHORT).show();
+              //  textE = text.toString();
+
             }
             @Override
             public void onUpload(Bitmap image, String uuid) {
@@ -166,8 +202,83 @@ public class TextEditor extends AppCompatActivity {
 
         setcolor ();
         textStyle();
+        liveTime();
 
+        editor.setEditorListener(new EditorListener() {
+            @Override
+            public void onTextChanged(EditText editText, Editable text) {
+                //Toast.makeText(TextEditor.this, text, Toast.LENGTH_SHORT).show();
+                textdemo.setText(text);
+            //    editorText=text.toString();
+
+            }
+
+            @Override
+            public void onUpload(Bitmap image, String uuid) {
+
+            }
+
+            @Override
+            public View onRenderMacro(String name, Map<String, Object> props, int index) {
+                return null;
+            }
+        });
+
+
+        textdemo.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Not needed for this example
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Not needed for this example
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // Counting the number of characters
+                /*int charCount = s != null ? s.toString().replace(" ", "").length() : 0;
+
+                // Display the result in the TextView
+              character.setText(charCount + " : characters ");*/
+                String htmlContent = editor.getContentAsHTML();
+                Spanned spanned = Html.fromHtml(htmlContent);
+                String plainText = spanned.toString();
+
+
+                int charCount = plainText.replaceAll("\\s", "")
+                        .replaceAll("•", "").length();
+                character.setText( charCount + " : characters ");
+
+            }
+        });
+
+        saveIV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                titleNote=titleET.getText().toString();
+                editorText=editor.getContentAsHTML();
+                /*String htmlContent = editor.getContentAsHTML();
+                Spanned spanned = Html.fromHtml(htmlContent);
+                String plainText = spanned.toString();*/
+                //Toast.makeText(TextEditor.this, editorText +""+titleNote, Toast.LENGTH_SHORT).show();
+                Log.d(TAG, editorText);
+
+                validateViews(editorText,titleNote);
+            }
+        });
     }
+
+    private void validateViews(String editorText, String titleNote) {
+        if((editorText != null && titleNote != null )){
+
+            textEditorVM.validateNote(titleNote,editorText);
+
+        }
+    }
+
 
     private void toggleScrollViewcolor() {
 
@@ -256,22 +367,40 @@ public class TextEditor extends AppCompatActivity {
 
     public void liveTime(){
 
-
-
+        timeRunnable = new Runnable() {
+            @Override
+            public void run() {
+                updateDateTime();
+                handler.postDelayed(this, 1000); // Update every 1000 milliseconds (1 second)
+            }
+        };
+        handler.post(timeRunnable);
 
     }
+    private void updateDateTime() {
+        // Get current date and time
+        Date currentDateTime = new Date();
 
+        // Format the date and time
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault());
+        String formattedDateTime = sdf.format(currentDateTime);
 
-
-
-
-
+        // Display the result in a TextView
+        TextView timeTextView = findViewById(R.id.time_t);
+        timeTextView.setText(formattedDateTime);
+    }
+    protected void onDestroy() {
+        super.onDestroy();
+        // Stop updating time when the activity is destroyed
+        handler.removeCallbacks(timeRunnable);
+    }
     public void textStyle(){
 
         findViewById(R.id.action_text1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 editor.updateTextStyle(EditorTextStyle.BOLD);
+
             }
         });
 

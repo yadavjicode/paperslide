@@ -4,6 +4,7 @@ import android.content.Context
 import com.example.paper_slide.model.ForgotPasswordResponse
 import com.example.paper_slide.model.LanguageResponse
 import com.example.paper_slide.model.LogoutResponse
+import com.example.paper_slide.model.NoteResponse
 import com.example.paper_slide.model.OTPResponse
 import com.example.paper_slide.model.ResetPasswordResponse
 import com.example.paper_slide.model.SignInResponse
@@ -95,6 +96,13 @@ fun getSignUp(
         @Field("original_text") originalText: String,
         @Field("target_lang") targetLang: String
     ) : Call <TranslateResponse>
+
+    @POST("notes/api/notes")
+    @FormUrlEncoded
+    fun postNote(
+        @Field("name") name : String,
+        @Field("body") body : String
+    ) : Call <NoteResponse>
 
     @PATCH("summarization/api/summary/{id}")
     @FormUrlEncoded
