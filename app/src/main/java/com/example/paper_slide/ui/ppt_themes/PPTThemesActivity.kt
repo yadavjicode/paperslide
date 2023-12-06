@@ -1,6 +1,5 @@
-package com.example.paper_slide.ui.ppt
+package com.example.paper_slide.ui.ppt_themes
 
-import android.content.Context
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,12 +10,9 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.paper_slide.R
 import com.example.paper_slide.databinding.ActivityPptthemesBinding
-import com.example.paper_slide.model.ImageItem
-import com.example.paper_slide.util.GetImageContract
 
 class PPTThemesActivity : AppCompatActivity() {
     private lateinit var binding : ActivityPptthemesBinding

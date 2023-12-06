@@ -1,4 +1,4 @@
-package com.example.paper_slide.ui.ppt
+package com.example.paper_slide.ui.ppt_themes
 
 import android.net.Uri
 import android.view.LayoutInflater

@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#EFEEF4"
-        tools:context=".ui.ppt.PPTThemesActivity">
+        tools:context=".ui.ppt_themes.PPTThemesActivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout2"
