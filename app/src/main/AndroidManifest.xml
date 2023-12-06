@@ -24,22 +24,19 @@
             android:exported="false" />
         <activity
             android:name=".ui.imortfile.Import_file"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="true"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".ui.importafile.Import_a_file"
             android:exported="false" />
         <activity
             android:name=".ui.texteditor2.TextEditor2"
             android:exported="true" />
+
         <activity
             android:name=".ui.texteditor.TextEditor"
             android:exported="true" />
+
         <activity
             android:name=".ui.createasignature.CreateSignatureActivity"
             android:exported="true" />
@@ -52,7 +49,14 @@
 
         <activity
             android:name=".ui.signin.Signin"
-            android:exported="true" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".ui.signin.profile"
             android:exported="true" />
@@ -97,17 +101,13 @@
             android:exported="true" />
         <activity
             android:name=".ui.signin.Login"
-            android:exported="true" />
+            android:exported="true"/>
+
+
         <activity
             android:name=".ui.splash.Splash"
             android:exported="true" />
 
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-        <meta-data
-            android:name="com.google.android.gms.auth.api.signin.CLIENT_ID"
-            android:value="990156368364-heapt9j35b2cu3kgeh89u1jmd5ol6r95.apps.googleusercontent.com" />
     </application>
 
 </manifest>

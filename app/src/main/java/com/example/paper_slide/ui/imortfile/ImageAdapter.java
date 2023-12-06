@@ -46,8 +46,8 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.viewHolder> 
           holder.imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    String parseData = list.get(position).getPath().toString();
-                    context.startActivity(new Intent(context,FullScreenActivity.class)
+                    String parseData = list.get(holder.getAdapterPosition()).getPath().toString();
+                    context.startActivity(new Intent(context, FullScreenActivity.class)
                             .putExtra("parseData", parseData));
                 }
             });

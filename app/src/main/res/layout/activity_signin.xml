@@ -197,6 +197,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/tvSocialMedia">
 
                 <ImageView
+                    android:id="@+id/google_signin"
                     android:layout_width="54dp"
                     android:layout_height="64dp"
                     android:layout_weight="1"

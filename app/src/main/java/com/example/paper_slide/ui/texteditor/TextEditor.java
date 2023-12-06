@@ -185,7 +185,7 @@ textdemo =findViewById(R.id.text_demo);
             @Override
             public void onTextChanged(EditText editText, Editable text) {
                 //Toast.makeText(TextEditor.this, text, Toast.LENGTH_SHORT).show();
-                textdemo.setText(text);
+                textdemo.setText(text.toString());
             }
 
             @Override
