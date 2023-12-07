@@ -43,6 +43,7 @@ class SignInViewModel (val context: Context):ViewModel(){
         try {
             val apiClient = APIInterface.APIClient(context).apiInstance
             val response = withContext(Dispatchers.IO) {apiClient.getSignIn(username, password).execute()}
+            Log.d(TAG, "fetchData: ${response.code()}")
             if (response.isSuccessful) {
                 progressBar.visibility = View.GONE
                 sharedPref.accessToken = response.body()?.access_token.toString()
@@ -51,16 +52,16 @@ class SignInViewModel (val context: Context):ViewModel(){
                 Log.d(TAG, "fetchData: ${response.body()} ${APIInterface.APIClient(context).apiInstance}")
                 Toast.makeText(context, response.body()?.message.toString(), Toast.LENGTH_SHORT)
                     .show()
-            } else if(response.code() == 403) {
-                progressBar.visibility = View.GONE
-                Toast.makeText(context, "${response.body()?.detail}", Toast.LENGTH_SHORT).show()
-
             }else {
-                progressBar.visibility = View.GONE
-                Toast.makeText(context, response.body()?.message.toString(), Toast.LENGTH_SHORT)
-                    .show()
-                Log.d(TAG, "validateSignIn Response not Successful: ${ response.body() } , ${response.code()}")
-            }
+                if(response.code() == 403) {
+                    progressBar.visibility = View.GONE
+                    Toast.makeText(context, "Invalid Credentials!", Toast.LENGTH_SHORT).show()
+
+                    Log.d(
+                        TAG,
+                        "validateSignIn Response not Successful: ${response.message()} , ${response.code()}"
+                    )
+                }}
         } catch (e: Exception) {
             progressBar.visibility = View.GONE
             Toast.makeText(context, "${e.message}", Toast.LENGTH_SHORT).show()

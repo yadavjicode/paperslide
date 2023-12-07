@@ -107,6 +107,14 @@ public class TextEditor extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 editor.insertList(false);
+                String htmlContent = editor.getContentAsHTML();
+                Spanned spanned = Html.fromHtml(htmlContent);
+                String plainText = spanned.toString();
+
+
+                int charCount = plainText.replaceAll("\\s", "")
+                        .replaceAll("•", "").length();
+                character.setText( charCount + " : characters ");
             }
         });
 
