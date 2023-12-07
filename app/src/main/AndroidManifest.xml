@@ -84,16 +84,23 @@
         <activity
             android:name=".ui.result.Result"
             android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.summarize.Summarize"
+            android:exported="true" >
 
            <!-- <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+-->
         </activity>
-        <activity
-            android:name=".ui.summarize.Summarize"
-            android:exported="true" />
         <activity
             android:name=".ui.preview.Preview"
             android:exported="true" />
@@ -111,7 +118,14 @@
             android:exported="false" />
         <activity
             android:name=".ui.home.Home"
-            android:exported="true" />
+            android:exported="true" >
+
+           <!-- <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+        </activity>
         <activity
             android:name=".ui.otp.Otp"
             android:exported="false" />
@@ -126,11 +140,11 @@
         <activity
             android:name=".ui.splash.Splash"
             android:exported="true" >
-            <intent-filter>
+           <!-- <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
 
         <meta-data

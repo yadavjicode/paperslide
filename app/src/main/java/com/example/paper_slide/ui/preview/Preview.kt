@@ -1,8 +1,12 @@
 package com.example.paper_slide.ui.preview
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.example.paper_slide.R
@@ -48,16 +52,25 @@ class Preview : AppCompatActivity() {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 viewPager.currentItem =tab!!.position
             }
-
             override fun onTabUnselected(tab: TabLayout.Tab?) {
             }
             override fun onTabReselected(tab: TabLayout.Tab?) {
             }
         })
 
-
+        binding.previewCopy.setOnClickListener {
+            Toast.makeText(context, "Copied", Toast.LENGTH_SHORT).show()
+            copyToClipboard(summeryText)
+        }
     }
-
+    private fun copyToClipboard(summeryText: String) {
+        val clipboardManager =
+            getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        // Create a new ClipData with the text to copy
+        val clipData = ClipData.newPlainText("text", summeryText)
+        // Set the created ClipData to the clipboard
+        clipboardManager.setPrimaryClip(clipData)
+    }
     private fun initViews() {
         binding.summarizeBtn.setOnClickListener {
             val intent = Intent(context,Summarize ::class.java)

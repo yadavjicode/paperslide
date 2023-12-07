@@ -1,5 +1,8 @@
 package com.example.paper_slide.ui.result
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -25,6 +28,7 @@ class Result : AppCompatActivity() {
     private var id :Int  =0
     private val TAG = "resultLog"
     private lateinit var   updatedSummery : String
+    private lateinit var copyText : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,19 +46,32 @@ class Result : AppCompatActivity() {
             validateViews()
         }
         progressBar=binding.progressBar
-
         id = intent.getIntExtra("id",82)
-
         binding.saveBtn.setOnClickListener {
             validateResultET()
         }
-
         binding.pptBtn.setOnClickListener {
             val intent = Intent(context, PPTThemesActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
         }
+        binding.copyResult.setOnClickListener {
+            copyText = binding.resultET.text.toString()
+            Toast.makeText(context, "Copied", Toast.LENGTH_SHORT).show()
+            copyToClipboard(copyText)
+        }
     }
+
+    private fun copyToClipboard(summarizeData: String) {
+        val clipboardManager =
+            getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        // Create a new ClipData with the text to copy
+        val clipData = ClipData.newPlainText("text", summarizeData)
+        // Set the created ClipData to the clipboard
+        clipboardManager.setPrimaryClip(clipData)
+    }
+
+
     private fun validateResultET() {
         val resultET = binding.resultET
         updatedSummery  = resultET.text.toString()
