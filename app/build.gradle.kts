@@ -114,10 +114,10 @@ dependencies {
 
 // Android Image Cropper
     implementation ("com.theartofdev.edmodo:android-image-cropper:2.8.0")
-
     implementation ("com.karumi:dexter:6.2.3")
     implementation ("com.github.bumptech.glide:glide:4.12.0")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
     implementation ("com.google.android.gms:play-services-auth:20.7.0")
+    implementation ("com.facebook.android:facebook-android-sdk:16.2.0")
 
 }

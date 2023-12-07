@@ -206,6 +206,7 @@
                     tools:ignore="HardcodedText" />
 
                 <ImageView
+                    android:id="@+id/facebook_signin"
                     android:layout_width="54dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"

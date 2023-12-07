@@ -3,8 +3,10 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
-    <string name="web_client_id">363277440322-ohvo9feiu5jpc5lua18qk59v68ho5ut7.apps.googleusercontent.com</string>
-    <string name="server_client_id">363277440322-n4mbdrct7gs1h1hjs3o4h1bedo0eqtms.apps.googleusercontent.com</string>
+    <string name="Android_client_id">363277440322-ohvo9feiu5jpc5lua18qk59v68ho5ut7.apps.googleusercontent.com</string>
+    <string name="server_client_id">363277440322-ohvo9feiu5jpc5lua18qk59v68ho5ut7.apps.googleusercontent.com</string>
+    <string name="facebook_app_id">897925658030021</string>
+    <string name="facebook_client_token">56789</string>
     <string name="required" />
     <string name="invalid">"inavalid "</string>
 </resources>
