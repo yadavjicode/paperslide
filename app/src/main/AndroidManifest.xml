@@ -64,7 +64,13 @@
             android:exported="true" />
         <activity
             android:name=".ui.ocr.Ocr"
-            android:exported="true"/>
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".ui.signin.Signin"
@@ -84,11 +90,11 @@
         <activity
             android:name=".ui.result.Result"
             android:exported="true" >
-            <intent-filter>
+         <!--   <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
         <activity
             android:name=".ui.summarize.Summarize"

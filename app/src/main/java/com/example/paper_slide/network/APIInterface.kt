@@ -41,7 +41,6 @@ fun getSignUp(
     @Field("phone") phone: String,
     @Field("password") password: String
     ): Call<SignUpResponse>
-
     @POST("account/api/login")
     @FormUrlEncoded
     fun getSignIn(
@@ -110,9 +109,6 @@ fun getSignUp(
         @Path("id") id: Int,
         @Field("summarized_text") summarizedText :String,
     ): Call<SummaryUpdateResponse>
-
-
-
     class APIClient(context: Context) {
         private var sharedPref = SharedPref(context)
         private fun getOkHttpClientWithBearerToken(): OkHttpClient {
@@ -129,11 +125,7 @@ fun getSignUp(
                 })
                 .build()
         }
-
-
-
         val apiInstance: APIInterface
-
         init {
             val retrofit = Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
@@ -144,10 +136,4 @@ fun getSignUp(
             apiInstance = retrofit.create(APIInterface::class.java)
         }
     }
-
-
-
-
-
-
 }

@@ -4,6 +4,7 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -20,6 +21,7 @@ class Preview : AppCompatActivity() {
     private lateinit var previewViewModel: PreviewViewModel
     private  val context = this@Preview
     private lateinit var summeryText :String
+    private lateinit var imageUri : Uri
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,12 +41,14 @@ class Preview : AppCompatActivity() {
         val viewPager=binding.viewpager
 
         summeryText = intent.getStringExtra("ocrtext").toString()
+        imageUri = intent.getParcelableExtra("imageUri")!!
+
 
         tabLayout.addTab(tabLayout.newTab().setText("Text"))
         tabLayout.addTab(tabLayout.newTab().setText("Image"))
         tabLayout.tabGravity=TabLayout.GRAVITY_FILL
 
-        val adapter =FragmentAdapter(this,supportFragmentManager,tabLayout.tabCount,summeryText)
+        val adapter =FragmentAdapter(this,supportFragmentManager,tabLayout.tabCount,summeryText,imageUri)
 
         viewPager.adapter= adapter
         viewPager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabLayout))
@@ -84,6 +88,10 @@ class Preview : AppCompatActivity() {
             intent.putExtra("summaryData",summeryText)
             intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
             context.startActivity(intent)
+        }
+
+        binding.cancelBtn.setOnClickListener {
+            finish()
         }
     }
 }

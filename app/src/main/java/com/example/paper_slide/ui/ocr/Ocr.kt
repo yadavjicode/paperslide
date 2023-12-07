@@ -26,6 +26,7 @@ class Ocr : AppCompatActivity() {
     var textview: EditText? = null
     var imageUrl: Uri? = null
     var textRecognizer: TextRecognizer? = null
+    private lateinit var scanUri : Uri
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ocr)
@@ -48,6 +49,8 @@ class Ocr : AppCompatActivity() {
         if (resultCode == RESULT_OK) {
             if (data != null) {
                 imageUrl = data.data
+                scanUri = Uri.parse(imageUrl.toString())
+
                 Toast.makeText(this, "image selected", Toast.LENGTH_SHORT).show()
                 recognizeText()
 
@@ -68,6 +71,7 @@ class Ocr : AppCompatActivity() {
                         startActivity(Intent(this@Ocr, Preview::class.java)
 
                             .putExtra("ocrtext",recognizeText.toString())
+                            .putExtra("imageUri",scanUri)
 
                         )
 
