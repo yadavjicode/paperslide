@@ -49,13 +49,8 @@
 
         <activity
             android:name=".ui.signin.Signin"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="true"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
 
         <activity
             android:name=".ui.signin.profile"
@@ -92,7 +87,13 @@
             android:exported="false" />
         <activity
             android:name=".ui.home.Home"
-            android:exported="true" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ui.otp.Otp"
             android:exported="false" />

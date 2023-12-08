@@ -25,7 +25,9 @@ import com.example.paper_slide.ui.uploadSignature.UploadSignature
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
 
-class Signature : AppCompatActivity() {
+class
+
+Signature : AppCompatActivity() {
     private var context =this@Signature
     private lateinit var binding :ActivitySignatureBinding
     private val cropActivityResultContract = object : ActivityResultContract<Any?,Uri?>(){

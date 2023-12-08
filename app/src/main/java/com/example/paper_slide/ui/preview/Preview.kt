@@ -33,9 +33,7 @@ class Preview : AppCompatActivity() {
     private fun initViewPager() {
         val tabLayout=binding.tabLayout
         val viewPager=binding.viewpager
-
         summeryText = intent.getStringExtra("ocrtext").toString()
-
         tabLayout.addTab(tabLayout.newTab().setText("Text"))
         tabLayout.addTab(tabLayout.newTab().setText("Image"))
         tabLayout.tabGravity=TabLayout.GRAVITY_FILL
