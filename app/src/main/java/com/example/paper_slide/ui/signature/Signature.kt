@@ -1,7 +1,5 @@
-package com.example.paper_slide.ui.Signature
+package com.example.paper_slide.ui.signature
 
-import android.Manifest
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -9,21 +7,16 @@ import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.MediaStore
-import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContract
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import com.example.paper_slide.R
 import com.example.paper_slide.databinding.ActivitySignatureBinding
-import com.example.paper_slide.ui.createasignature.CreateSignatureActivity
 import com.example.paper_slide.ui.home.Home
 import com.example.paper_slide.ui.uploadSignature.UploadSignature
 import com.theartofdev.edmodo.cropper.CropImage
-import com.theartofdev.edmodo.cropper.CropImageView
 
 class Signature : AppCompatActivity() {
     private var context =this@Signature

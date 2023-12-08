@@ -28,6 +28,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>-->
         </activity>
+
+        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/AppTheme"/>
         <activity
             android:name=".ui.imortfile.FullScreenActivity"
             android:exported="false" />
@@ -65,11 +68,11 @@
         <activity
             android:name=".ui.ocr.Ocr"
             android:exported="true">
-            <intent-filter>
+           <!-- <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
 
         <activity
@@ -87,6 +90,11 @@
         <activity
             android:name=".ui.resetpassword.ResetPassword"
             android:exported="true" />
+
+        <activity android:name=".ui.uploadSignature.UploadSignature"
+            android:exported="false">
+
+        </activity>
         <activity
             android:name=".ui.result.Result"
             android:exported="true" >
@@ -117,7 +125,7 @@
             android:name=".ui.scandocument.ScanDocument"
             android:exported="false" />
         <activity
-            android:name=".ui.Signature.Signature"
+            android:name=".ui.signature.Signature"
             android:exported="true" />
         <activity
             android:name=".ui.createpresentation.Presentation"
@@ -146,12 +154,14 @@
         <activity
             android:name=".ui.splash.Splash"
             android:exported="true" >
-           <!-- <intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
         </activity>
+
+
 
         <meta-data
             android:name="com.google.android.gms.version"

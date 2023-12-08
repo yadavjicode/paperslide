@@ -10,12 +10,10 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.example.paper_slide.R
 import com.example.paper_slide.databinding.ActivityHomeBinding
 import com.example.paper_slide.ui.createpresentation.Presentation
-import com.example.paper_slide.ui.notes.NotesActivity
 import com.example.paper_slide.ui.ocr.Ocr
 import com.example.paper_slide.ui.pastelink.PasteLink
 import com.example.paper_slide.ui.texteditor.TextEditor
 import com.google.android.material.navigation.NavigationView
-import java.security.Signature
 
 //import com.google.firebase.crashlytics.buildtools.reloc.javax.annotation.meta.When
 
@@ -66,7 +64,7 @@ class Home : AppCompatActivity() {
         }
 
         binding.createSign.setOnClickListener {
-            val intent = Intent(this@Home, com.example.paper_slide.ui.Signature.Signature::class.java)
+            val intent = Intent(this@Home, com.example.paper_slide.ui.signature.Signature::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
             startActivity(intent)
             finish()

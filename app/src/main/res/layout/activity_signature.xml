@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        tools:context=".ui.Signature.Signature">
+        tools:context=".ui.signature.Signature">
 
         <RelativeLayout
             android:id="@+id/relativeLayout3"
