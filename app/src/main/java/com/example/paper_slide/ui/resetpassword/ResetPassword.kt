@@ -8,6 +8,7 @@ import androidx.lifecycle.lifecycleScope
 import com.example.paper_slide.R
 import com.example.paper_slide.databinding.ActivityResetPasswordBinding
 import com.example.paper_slide.ui.resetpassword.ResetPasswordVMFactory
+import com.example.paper_slide.ui.signin.Signin
 import kotlinx.coroutines.launch
 
 class ResetPassword : AppCompatActivity() {
@@ -32,6 +33,11 @@ class ResetPassword : AppCompatActivity() {
 
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        resetPasswordViewModel.startNewActivity(Signin::class.java)
+    }
+
     private fun initViews() {
       //  val email = intent.getStringExtra("email")
         val newPassword = binding.newPassET.text.toString()
@@ -49,8 +55,6 @@ class ResetPassword : AppCompatActivity() {
                 }
             }
 
-        binding.btnBack.setOnClickListener {
-            finish()
-        }
+
     }
 }
