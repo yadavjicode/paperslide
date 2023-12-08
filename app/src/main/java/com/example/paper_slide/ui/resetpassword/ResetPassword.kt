@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.paper_slide.R
 import com.example.paper_slide.databinding.ActivityResetPasswordBinding
+import com.example.paper_slide.ui.forgotpassword.ForgotPassword
 import com.example.paper_slide.ui.resetpassword.ResetPasswordVMFactory
 import com.example.paper_slide.ui.signin.Signin
 import kotlinx.coroutines.launch
@@ -35,7 +36,7 @@ class ResetPassword : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        resetPasswordViewModel.startNewActivity(Signin::class.java)
+        resetPasswordViewModel.startNewActivity(ForgotPassword::class.java)
     }
 
     private fun initViews() {
