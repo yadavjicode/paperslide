@@ -60,6 +60,10 @@ class Result : AppCompatActivity() {
             Toast.makeText(context, "Copied", Toast.LENGTH_SHORT).show()
             copyToClipboard(copyText)
         }
+
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
     }
 
     private fun copyToClipboard(summarizeData: String) {

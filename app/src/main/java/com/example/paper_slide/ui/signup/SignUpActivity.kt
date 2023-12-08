@@ -39,6 +39,11 @@ class SignUpActivity : AppCompatActivity() {
 
             validateViews()
         }
+
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
+
         signUpViewModel = ViewModelProvider(
             context,
             SignUpVMFactory(applicationContext)

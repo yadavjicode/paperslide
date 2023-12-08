@@ -30,6 +30,10 @@ class ForgotPassword : AppCompatActivity() {
         binding.fpButton.setOnClickListener {
             validateviews()
         }
+
+        binding.btnBack.setOnClickListener{
+            finish()
+        }
     }
 
     private fun validateviews() {

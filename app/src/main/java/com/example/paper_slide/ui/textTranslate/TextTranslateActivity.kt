@@ -96,6 +96,10 @@ class TextTranslateActivity : AppCompatActivity() {
 
     private fun initViews() {
         binding.originalText.setText(summaryData)
+
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
     }
     private fun fetchLanguages() {
         lifecycleScope.launch {

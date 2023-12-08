@@ -35,7 +35,9 @@ class NotesActivity : AppCompatActivity() {
 
 
 
-
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
 
     /*    val calender =Calendar.getInstance().time
        val dateFormat =DateFormat.getDateInstance().format(calender)

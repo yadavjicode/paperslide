@@ -12,10 +12,10 @@
         tools:context=".ui.otp.Otp">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/btnBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="40dp"
             android:src="@drawable/baseline_arrow_back_24"
             app:layout_constraintStart_toStartOf="parent"
@@ -28,10 +28,10 @@
             android:text="OTP"
             android:textColor="@color/white"
             android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView"
+            app:layout_constraintBottom_toBottomOf="@+id/btnBack"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="@+id/imageView" />
+            app:layout_constraintStart_toStartOf="@+id/btnBack"
+            app:layout_constraintTop_toTopOf="@+id/btnBack" />
 
         <TextView
             android:id="@+id/tvSub"
@@ -41,7 +41,7 @@
             android:layout_marginTop="30dp"
             android:text="Enter the 4 digit code that you received\non your email."
             android:textColor="@color/white"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintStart_toEndOf="@+id/btnBack"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <LinearLayout

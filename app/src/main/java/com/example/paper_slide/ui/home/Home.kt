@@ -12,6 +12,7 @@ import com.example.paper_slide.databinding.ActivityHomeBinding
 import com.example.paper_slide.ui.createpresentation.Presentation
 import com.example.paper_slide.ui.ocr.Ocr
 import com.example.paper_slide.ui.pastelink.PasteLink
+import com.example.paper_slide.ui.signatureoptions.SignatureActivity
 import com.example.paper_slide.ui.texteditor.TextEditor
 import com.google.android.material.navigation.NavigationView
 
@@ -60,34 +61,30 @@ class Home : AppCompatActivity() {
             val intent = Intent(this@Home, Ocr::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
             startActivity(intent)
-            finish()
         }
 
         binding.createSign.setOnClickListener {
-            val intent = Intent(this@Home, com.example.paper_slide.ui.signature.Signature::class.java)
+
+            val intent = Intent(this@Home, SignatureActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
             startActivity(intent)
-            finish()
 
         }
         binding.writeNotes.setOnClickListener {
             val intent = Intent(this@Home, TextEditor::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
             startActivity(intent)
-            finish()
         }
 
         binding.createPresentation.setOnClickListener {
             val intent = Intent(this@Home, Presentation::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
             startActivity(intent)
-            finish()
         }
         binding.pasteALink.setOnClickListener {
             val intent = Intent(this@Home, PasteLink::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
             startActivity(intent)
-            finish()
         }
 
 

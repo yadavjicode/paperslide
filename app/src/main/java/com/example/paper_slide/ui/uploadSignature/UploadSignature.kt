@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.paper_slide.R
 import com.example.paper_slide.databinding.ActivityUploadSignatureBinding
-import com.example.paper_slide.ui.signature.Signature
+import com.example.paper_slide.ui.signatureoptions.SignatureActivity
 import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
@@ -66,6 +66,10 @@ class UploadSignature: AppCompatActivity() {
         binding.sigSaveBtn.setOnClickListener {
                 uploadSig()
         }
+
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
     }
 
     private fun uploadSig(){
@@ -94,7 +98,7 @@ class UploadSignature: AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        val intent = Intent(this, Signature::class.java)
+        val intent = Intent(this, SignatureActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(intent)
         finish() // Optional: Call finish() to close the current activity if needed

@@ -10,6 +10,8 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.paper_slide.R
+import com.example.paper_slide.databinding.ActivityPasteLinkBinding
+import com.example.paper_slide.databinding.ActivityPresentationBinding
 import com.example.paper_slide.ui.home.Home
 import com.example.paper_slide.ui.preview.Preview
 import com.github.dhaval2404.imagepicker.ImagePicker
@@ -23,17 +25,16 @@ import java.io.IOException
 
 
 class PasteLink : AppCompatActivity() {
-    var pasteLinkButton: Button? = null
+    private lateinit var binding: ActivityPasteLinkBinding
     var textRecognizer: TextRecognizer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_paste_link)
 
-        pasteLinkButton = findViewById(R.id.link_button)
         textRecognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
 
-        pasteLinkButton!!.setOnClickListener {
+        binding.linkButton.setOnClickListener {
             // Assuming you have an EditText for pasting the link
             val linkEditText: EditText = findViewById(R.id.link)
             val link = linkEditText.text.toString().trim()
@@ -55,6 +56,10 @@ class PasteLink : AppCompatActivity() {
                     ) //Final image resolution will be less than 1080 x 1080(Optional)
                     .start()
             }
+        }
+
+        binding.btnBack.setOnClickListener {
+            finish()
         }
     }
 

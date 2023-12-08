@@ -66,6 +66,10 @@ class Preview : AppCompatActivity() {
             Toast.makeText(context, "Copied", Toast.LENGTH_SHORT).show()
             copyToClipboard(summeryText)
         }
+
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
     }
     private fun copyToClipboard(summeryText: String) {
         val clipboardManager =

@@ -36,6 +36,13 @@ class PPTThemesActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(context,R.layout.activity_pptthemes)
         initSpinner()
         initRecyclerView()
+        initViews()
+    }
+
+    private fun initViews() {
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
     }
 
     private fun initRecyclerView() {

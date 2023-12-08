@@ -35,16 +35,29 @@ class OTPViewModel(val context : Context) : ViewModel() {
             }
 
             if (response.isSuccessful) {
+                when (response.body()!!.status) {
+                    "1" -> {
+                        sharedPref.accessToken = response.body()?.access_token.toString()
 
-                sharedPref.accessToken = response.body()?.access_token.toString()
-
-                Log.d(TAG, "fetchData: success ${response.body()}")
-                Toast.makeText(
-                    context,
-                    "Success :${response.body()?.message.toString()}",
-                    Toast.LENGTH_SHORT
-                ).show()
-                launchActivity(ResetPassword::class.java, email)
+                        Log.d(TAG, "fetchData: success ${response.body()}")
+                        Toast.makeText(
+                            context,
+                            "Success :${response.body()?.message.toString()}",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        launchActivity(ResetPassword::class.java, email)
+                    }
+                    "0" -> {
+                        Toast.makeText(
+                            context,
+                            "Success :${response.body()?.message.toString()}",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                    else -> {
+                        Toast.makeText(context, "something went wrong", Toast.LENGTH_SHORT).show()
+                    }
+                }
             } else {
                 Toast.makeText(
                     context,

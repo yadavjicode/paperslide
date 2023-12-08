@@ -21,6 +21,10 @@ class CreateSignatureActivity : AppCompatActivity() {
         mainbinding = ActivityCreateSignatureBinding.inflate(
             layoutInflater
         )
+
+        mainbinding!!.btnBack.setOnClickListener {
+            finish()
+        }
         setContentView(mainbinding!!.root)
         mainbinding!!.cancelSign.setOnClickListener { view: View? -> mainbinding!!.signatureView.clearCanvas() }
         mainbinding!!.acceptSign.setOnClickListener { view: View? ->

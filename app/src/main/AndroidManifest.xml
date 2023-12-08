@@ -125,7 +125,7 @@
             android:name=".ui.scandocument.ScanDocument"
             android:exported="false" />
         <activity
-            android:name=".ui.signature.Signature"
+            android:name=".ui.signatureoptions.SignatureActivity"
             android:exported="true" />
         <activity
             android:name=".ui.createpresentation.Presentation"

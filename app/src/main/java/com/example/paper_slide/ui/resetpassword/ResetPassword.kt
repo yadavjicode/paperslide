@@ -49,6 +49,8 @@ class ResetPassword : AppCompatActivity() {
                 }
             }
 
-
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
     }
 }

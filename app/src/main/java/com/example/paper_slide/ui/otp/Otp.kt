@@ -48,6 +48,11 @@ class Otp : AppCompatActivity() {
                 override fun afterTextChanged(p0: Editable?) {}
             })
         }
+
+        binding.btnBack.setOnClickListener{
+            finish()
+        }
+
         otpViewModel.jobSchedule(binding.CountDownText, this@Otp)
 
         binding.otpButton.setOnClickListener {

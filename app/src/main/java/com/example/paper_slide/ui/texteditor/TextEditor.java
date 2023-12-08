@@ -60,6 +60,8 @@ public class TextEditor extends AppCompatActivity {
     private String titleNote="";
     private  TextEditorViewModel textEditorVM;
 
+    private ImageView backButton;
+
 
 
 
@@ -73,11 +75,19 @@ public class TextEditor extends AppCompatActivity {
         character =findViewById(R.id.character_c);
         saveIV =findViewById(R.id.saveIV);
         titleET =findViewById(R.id.titleET);
+        backButton = findViewById(R.id.btnBack);
 
         textEditorVM = new ViewModelProvider(
                 this,
                 new TextEditorVMFactory(getApplicationContext())
         ).get(TextEditorViewModel.class);
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
 
         // Display the result in the TextView

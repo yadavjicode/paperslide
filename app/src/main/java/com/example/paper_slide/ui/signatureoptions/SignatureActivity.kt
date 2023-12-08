@@ -1,4 +1,4 @@
-package com.example.paper_slide.ui.signature
+package com.example.paper_slide.ui.signatureoptions
 
 import android.content.Context
 import android.content.Intent
@@ -18,8 +18,8 @@ import com.example.paper_slide.ui.home.Home
 import com.example.paper_slide.ui.uploadSignature.UploadSignature
 import com.theartofdev.edmodo.cropper.CropImage
 
-class Signature : AppCompatActivity() {
-    private var context =this@Signature
+class SignatureActivity : AppCompatActivity() {
+    private var context =this@SignatureActivity
     private lateinit var binding :ActivitySignatureBinding
     private val cropActivityResultContract = object : ActivityResultContract<Any?,Uri?>(){
         override fun createIntent(context: Context, input: Any?): Intent {
@@ -54,7 +54,7 @@ class Signature : AppCompatActivity() {
 
     private fun intView() {
         binding.importSign.setOnClickListener {
-            val intent = Intent(this@Signature, UploadSignature::class.java)
+            val intent = Intent(this@SignatureActivity, UploadSignature::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
             startActivity(intent)
             finish()
@@ -71,6 +71,10 @@ class Signature : AppCompatActivity() {
         }
         binding.cameraIV.setOnClickListener {
             cropActivityResultLauncher.launch(null)
+        }
+
+        binding.btnBack.setOnClickListener {
+            finish()
         }
     }
     override fun onBackPressed() {

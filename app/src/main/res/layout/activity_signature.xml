@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        tools:context=".ui.signature.Signature">
+        tools:context=".ui.signatureoptions.SignatureActivity">
 
         <RelativeLayout
             android:id="@+id/relativeLayout3"
@@ -19,6 +19,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
+                android:id="@+id/btnBack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
