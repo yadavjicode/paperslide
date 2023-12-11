@@ -7,12 +7,12 @@
     android:title="home"
     android:icon="@drawable/icon_feather_home"/>
     <item
-        android:id="@+id/message"
+        android:id="@+id/T_C"
         android:title="Term and Condition"
         android:icon="@drawable/term_and_condition"/>
 
     <item
-        android:id="@+id/syn"
+        android:id="@+id/policy"
         android:title="Privacy Policy"
         android:icon="@drawable/noun_privacy_policy_"/>
     <item

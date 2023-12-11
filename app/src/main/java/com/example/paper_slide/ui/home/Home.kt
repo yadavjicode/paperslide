@@ -11,10 +11,10 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.ViewModelProvider
 import com.example.paper_slide.R
 import com.example.paper_slide.databinding.ActivityHomeBinding
 import com.example.paper_slide.ui.createpresentation.Presentation
-import com.example.paper_slide.ui.ocr.Ocr
 import com.example.paper_slide.ui.pastelink.PasteLink
 import com.example.paper_slide.ui.signatureoptions.SignatureActivity
 import com.example.paper_slide.ui.texteditor.TextEditor
@@ -24,21 +24,24 @@ import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.TextRecognizer
 import java.io.IOException
-import java.security.Signature
 
 //import com.google.firebase.crashlytics.buildtools.reloc.javax.annotation.meta.When
 
-class Home : AppCompatActivity() {
+class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     lateinit var toggle: ActionBarDrawerToggle
     private lateinit var binding  : ActivityHomeBinding
     private var context =this@Home
     var imageUrl: Uri? = null
     var textRecognizer: TextRecognizer? = null
+    private lateinit var homeViewModel: HomeViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         binding = DataBindingUtil.setContentView(context , R.layout.activity_home)
+        homeViewModel = ViewModelProvider(context,
+            HomeVMFactory(applicationContext)
+        )[HomeViewModel::class.java]
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawerlayout)
         val navview: NavigationView = findViewById(R.id.nav_view)
@@ -49,6 +52,10 @@ class Home : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         intview()
        // binding.navigatDrawer
+
+        navview.setNavigationItemSelectedListener(this)
+
+
 
     }
 
@@ -102,15 +109,34 @@ class Home : AppCompatActivity() {
             drawerLayout.openDrawer(GravityCompat.START)
         }
 
+       /* binding.navView.setNavigationItemSelectedListener(this)
+
+        supportFragmentManager.beginTransaction()*/
 
     }
 
+
+/*
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (toggle.onOptionsItemSelected(item)) {
 
+            val id = item.itemId
+
+            if (id == R.id.nav_home) {
+                Toast.makeText(context, "home", Toast.LENGTH_SHORT).show()
+
+            } else if (id == R.id.logout){
+
+                homeViewModel.validateLogout()
+             } else if (id == R.id.T_C){
+                Toast.makeText(context, "T&C", Toast.LENGTH_SHORT).show()
+             } else if (id == R.id.policy){
+                Toast.makeText(context, "poly", Toast.LENGTH_SHORT).show()
+             }
         }
         return true
     }
+*/
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == RESULT_OK) {
@@ -151,4 +177,25 @@ class Home : AppCompatActivity() {
             }
         }
     }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+
+        if (id == R.id.nav_home) {
+            Toast.makeText(context, "home", Toast.LENGTH_SHORT).show()
+
+        }else if (id == R.id.logout){
+
+            homeViewModel.validateLogout(this@Home)
+
+        } else if (id == R.id.T_C){
+            Toast.makeText(context, "T&C", Toast.LENGTH_SHORT).show()
+        } else if (id == R.id.policy){
+            Toast.makeText(context, "poly", Toast.LENGTH_SHORT).show()
+        }
+
+        return true
+    }
+
+
 }
