@@ -115,6 +115,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="nkjhbkknknknknknbk"
+            android:id="@+id/preview"
+            />
         <HorizontalScrollView
             android:id="@+id/scrollView_textbg_color"
             android:layout_width="match_parent"
@@ -597,5 +603,6 @@
 
 
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

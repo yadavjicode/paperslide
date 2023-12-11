@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="30dp"
             android:text="Welcome"
             android:textColor="@color/white"
             android:textSize="30sp"
@@ -168,7 +168,7 @@
             android:id="@+id/linearLayout4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="204dp"
+            android:layout_marginTop="120dp"
             android:gravity="center"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
@@ -197,6 +197,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/tvSocialMedia">
 
                 <ImageView
+                    android:id="@+id/google_signin"
                     android:layout_width="54dp"
                     android:layout_height="64dp"
                     android:layout_weight="1"
@@ -205,6 +206,7 @@
                     tools:ignore="HardcodedText" />
 
                 <ImageView
+                    android:id="@+id/facebook_signin"
                     android:layout_width="54dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -226,7 +228,7 @@
             android:id="@+id/btnforgot"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Forgat password ?"
+            android:text="Forgot password ?"
             android:textColor="@color/white"
             android:textSize="20dp"
             android:textStyle="bold"
@@ -248,21 +250,18 @@
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/siSignin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="52dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="30dp"
             android:background="@drawable/custom_button"
-            android:padding="10dp"
             android:backgroundTint="@color/skyblue"
+            android:padding="10dp"
             android:text="LOGIN"
             android:textColor="@color/black"
             android:textSize="20sp"

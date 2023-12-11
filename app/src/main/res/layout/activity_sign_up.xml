@@ -4,11 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:background="@color/blue"
         android:layout_height="match_parent"
+        android:background="@color/blue"
         tools:context=".ui.signup.SignUpActivity">
 
         <ImageView
@@ -27,8 +26,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="20dp"
-            android:text="Sign Up"
             android:gravity="center"
+            android:text="Sign Up"
             android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -52,7 +51,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="30dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
@@ -73,8 +72,8 @@
                         android:id="@+id/tvName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Name"
                         android:layout_marginBottom="10dp"
+                        android:text="Name"
                         android:textColor="@color/white"
                         android:textSize="15sp" />
 
@@ -83,11 +82,11 @@
                         android:id="@+id/etFName"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@color/white"
                         android:ems="10"
                         android:hint="Enter uour Name"
                         android:inputType="text"
                         android:maxLines="1"
-                        android:background="@color/white"
                         android:padding="12dp"
                         android:textColor="@color/black"
                         android:textSize="18sp" />
@@ -108,9 +107,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
                 android:maxLines="1"
                 android:text="Email"
-                android:layout_marginBottom="10dp"
                 android:textColor="#FFFDFD"
                 android:textSize="15sp" />
 
@@ -120,8 +119,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:ems="10"
                 android:background="@color/white"
+                android:ems="10"
                 android:hint="Enter your email"
                 android:inputType="text"
                 android:maxLines="1"
@@ -134,8 +133,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Mobile Number"
                 android:layout_marginBottom="10dp"
+                android:text="Mobile Number"
 
                 android:textColor="#FFFDFD"
                 android:textSize="15sp" />
@@ -147,18 +146,18 @@
 
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:layout_weight="1"
                     android:id="@+id/etMobile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+                    android:layout_weight="1"
                     android:background="@color/white"
                     android:ems="10"
-                    android:inputType="number"
                     android:hint="Enter your phone number"
+                    android:inputType="number"
+                    android:maxLength="10"
                     android:maxLines="1"
                     android:padding="12dp"
-                    android:maxLength="10"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
 
@@ -169,8 +168,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Password"
                 android:layout_marginBottom="10dp"
+                android:text="Password"
                 android:textColor="#FFFDFD"
                 android:textSize="15sp" />
 
@@ -185,9 +184,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+                    android:background="@color/white"
                     android:drawableStart="@drawable/baseline_lock_24"
                     android:ems="10"
-                    android:background="@color/white"
                     android:hint="Enter your password"
                     android:inputType="textPassword"
                     android:maxLines="1"
@@ -202,11 +201,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="35dp"
+                android:background="@drawable/custom_button"
+                android:backgroundTint="@color/skyblue"
                 android:padding="10dp"
                 android:text="Sign Up"
                 android:textAllCaps="false"
-                android:background="@drawable/custom_button"
-                android:backgroundTint="@color/skyblue"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -282,10 +281,8 @@
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

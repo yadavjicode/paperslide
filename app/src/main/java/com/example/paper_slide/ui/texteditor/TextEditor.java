@@ -229,6 +229,7 @@ public class TextEditor extends AppCompatActivity {
                 textdemo.setText(text);
             //    editorText=text.toString();
 
+
             }
 
             @Override

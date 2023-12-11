@@ -20,6 +20,7 @@ import com.theartofdev.edmodo.cropper.CropImage
 
 class SignatureActivity : AppCompatActivity() {
     private var context =this@SignatureActivity
+
     private lateinit var binding :ActivitySignatureBinding
     private val cropActivityResultContract = object : ActivityResultContract<Any?,Uri?>(){
         override fun createIntent(context: Context, input: Any?): Intent {

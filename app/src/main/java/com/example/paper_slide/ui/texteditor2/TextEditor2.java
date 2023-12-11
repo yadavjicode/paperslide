@@ -76,6 +76,13 @@ public class TextEditor2 extends AppCompatActivity {
         initheading();
         initextstyle();
 
+        mPreview = (TextView) findViewById(R.id.preview);
+        mEditor.setOnTextChangeListener(new RichEditor.OnTextChangeListener() {
+            @Override
+            public void onTextChange(String text) {
+                mPreview.setText(text);
+            }
+        });
 
         scrollView =findViewById(R.id.scrollView_heading);
         scrollView_color =findViewById(R.id.scrollView_color);
@@ -166,6 +173,7 @@ public class TextEditor2 extends AppCompatActivity {
         }
     }
 
+
     private void initConfig() {
         Map<String, String> config = new HashMap<>();
         config.put("cloud_name", "du7ulzgcl");
@@ -194,9 +202,12 @@ public class TextEditor2 extends AppCompatActivity {
         });
         findViewById(R.id.action_order_list2).setOnClickListener(new View.OnClickListener() {
             @Override
+
             public void onClick(View v) {
                 mEditor.setNumbers();
+
             }
+
         });
 
         findViewById(R.id.undo).setOnClickListener(new View.OnClickListener() {
