@@ -13,6 +13,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.ViewModelProvider
 import com.example.paper_slide.R
+import com.example.paper_slide.TandCActivity
 import com.example.paper_slide.databinding.ActivityHomeBinding
 import com.example.paper_slide.ui.createpresentation.Presentation
 import com.example.paper_slide.ui.pastelink.PasteLink
@@ -189,6 +190,9 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
             homeViewModel.validateLogout(this@Home)
 
         } else if (id == R.id.T_C){
+            val intent = Intent(this@Home, TandCActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
+            startActivity(intent)
             Toast.makeText(context, "T&C", Toast.LENGTH_SHORT).show()
         } else if (id == R.id.policy){
             Toast.makeText(context, "poly", Toast.LENGTH_SHORT).show()

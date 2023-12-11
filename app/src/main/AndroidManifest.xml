@@ -21,28 +21,37 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".TandCActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.pptthemes.PPTThemesActivity"
-            android:exported="true" >
-            <!-- <intent-filter>
+            android:exported="true">
+
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
-
-        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
-            android:theme="@style/AppTheme"/>
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.imortfile.FullScreenActivity"
             android:exported="false" />
         <activity
             android:name=".ui.imortfile.Import_file"
-            android:exported="true" >
-            <!--<intent-filter>
+            android:exported="true">
+
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
         <activity
             android:name=".ui.importafile.Import_a_file"
@@ -52,13 +61,15 @@
             android:exported="true" />
         <activity
             android:name=".ui.texteditor.TextEditor"
-            android:exported="true" >
+            android:exported="true">
 
-           <!-- <intent-filter>
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
         <activity
             android:name=".ui.createasignature.CreateSignatureActivity"
@@ -69,13 +80,15 @@
         <activity
             android:name=".ui.ocr.Ocr"
             android:exported="true">
-           <!-- <intent-filter>
+
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
-
         <activity
             android:name=".ui.signin.Signin"
             android:exported="true" />
@@ -91,30 +104,32 @@
         <activity
             android:name=".ui.resetpassword.ResetPassword"
             android:exported="true" />
-
-        <activity android:name=".ui.uploadSignature.UploadSignature"
-            android:exported="false">
-
-        </activity>
+        <activity
+            android:name=".ui.uploadSignature.UploadSignature"
+            android:exported="false"></activity>
         <activity
             android:name=".ui.result.Result"
-            android:exported="true" >
-         <!--   <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="true">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
-        </activity>
-        <activity
-            android:name=".ui.summarize.Summarize"
-            android:exported="true" >
-
-           <!-- <intent-filter>
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
--->
+            -->
+        </activity>
+        <activity
+            android:name=".ui.summarize.Summarize"
+            android:exported="true">
+
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            -->
         </activity>
         <activity
             android:name=".ui.preview.Preview"
@@ -133,13 +148,15 @@
             android:exported="false" />
         <activity
             android:name=".ui.home.Home"
-            android:exported="true" >
+            android:exported="true">
 
-           <!-- <intent-filter>
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
         <activity
             android:name=".ui.otp.Otp"
@@ -149,27 +166,23 @@
             android:exported="true" />
         <activity
             android:name=".ui.signin.Login"
-            android:exported="false">
-
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".ui.splash.Splash"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".officebuddy.MainActivity"
-            android:exported="true" >
-        </activity>
-
+            android:exported="true"></activity>
         <activity
             android:name=".officebuddy.ppt.pptActivity"
             android:exported="false" />
+
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
@@ -187,7 +200,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
         </provider>
-
     </application>
 
 </manifest>
