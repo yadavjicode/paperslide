@@ -179,6 +179,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".mindmapweb.d3.MainActivity"
+            android:exported="true">
+
+
+        </activity>
         <activity
             android:name=".officebuddy.MainActivity"
             android:exported="true" />
