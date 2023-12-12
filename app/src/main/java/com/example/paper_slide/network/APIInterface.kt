@@ -6,12 +6,14 @@ import com.example.paper_slide.model.LanguageResponse
 import com.example.paper_slide.model.LogoutResponse
 import com.example.paper_slide.model.NoteResponse
 import com.example.paper_slide.model.OTPResponse
+import com.example.paper_slide.model.PolicyResponse
 import com.example.paper_slide.model.ResetPasswordResponse
 import com.example.paper_slide.model.SignInResponse
 import com.example.paper_slide.model.SignUpResponse
 import com.example.paper_slide.model.SignatureResponse
 import com.example.paper_slide.model.SummaryUpdateResponse
 import com.example.paper_slide.model.SummeryResponse
+import com.example.paper_slide.model.TCResponse
 import com.example.paper_slide.model.TranslateResponse
 import com.example.paper_slide.util.Constants
 import com.example.paper_slide.util.SharedPref
@@ -75,6 +77,15 @@ fun getSignUp(
     fun getLanguage(
     ): Call<List<LanguageResponse>>
 
+    @GET("/policies/service ")
+    fun getTC(
+
+    ): Call<TCResponse>
+
+    @GET("/policies/privacy")
+    fun getPrivacy(
+
+    ): Call<PolicyResponse>
 
     @POST("summarization/api/summary")
     @FormUrlEncoded

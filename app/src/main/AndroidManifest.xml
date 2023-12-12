@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -19,13 +19,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Paper_slide"
         android:usesCleartextTraffic="true"
-        tools:targetApi="31">
+        tools:targetApi="31" >
         <activity
-            android:name=".TandCActivity"
+            android:name=".ui.policy.PolicyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.tc.TCActivity"
             android:exported="false" />
         <activity
             android:name=".ui.pptthemes.PPTThemesActivity"
-            android:exported="true">
+            android:exported="true" >
 
             <!--
             <intent-filter>
@@ -43,7 +46,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.imortfile.Import_file"
-            android:exported="true">
+            android:exported="true" >
 
             <!--
             <intent-filter>
@@ -61,7 +64,7 @@
             android:exported="true" />
         <activity
             android:name=".ui.texteditor.TextEditor"
-            android:exported="true">
+            android:exported="true" >
 
             <!--
             <intent-filter>
@@ -79,7 +82,7 @@
             android:exported="true" />
         <activity
             android:name=".ui.ocr.Ocr"
-            android:exported="true">
+            android:exported="true" >
 
             <!--
             <intent-filter>
@@ -106,10 +109,10 @@
             android:exported="true" />
         <activity
             android:name=".ui.uploadSignature.UploadSignature"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".ui.result.Result"
-            android:exported="true">
+            android:exported="true" >
 
             <!--
             <intent-filter>
@@ -121,7 +124,7 @@
         </activity>
         <activity
             android:name=".ui.summarize.Summarize"
-            android:exported="true">
+            android:exported="true" >
 
             <!--
             <intent-filter>
@@ -148,7 +151,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.home.Home"
-            android:exported="true">
+            android:exported="true" >
 
             <!--
             <intent-filter>
@@ -166,10 +169,10 @@
             android:exported="true" />
         <activity
             android:name=".ui.signin.Login"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".ui.splash.Splash"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -178,7 +181,7 @@
         </activity>
         <activity
             android:name=".officebuddy.MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".officebuddy.ppt.pptActivity"
             android:exported="false" />
@@ -195,7 +198,7 @@
             android:authorities="${applicationId}.provider"
             android:exported="false"
             android:grantUriPermissions="true"
-            tools:ignore="WrongManifestParent">
+            tools:ignore="WrongManifestParent" >
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
