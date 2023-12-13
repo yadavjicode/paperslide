@@ -50,6 +50,8 @@ public class pptActivity extends AppCompatActivity {
                 Uri theUri =  FileProvider.getUriForFile(Objects.requireNonNull(getApplicationContext()),
                         BuildConfig.APPLICATION_ID + ".provider", file);
 
+
+
                 Intent intent = new Intent();
 
                 intent.setAction(android.content.Intent.ACTION_VIEW);

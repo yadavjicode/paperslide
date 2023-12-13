@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
         ButterKnife.inject( this );
+        WebView myWebView = (WebView) findViewById(R.id.webview);
     }
 
     @Override
