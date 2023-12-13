@@ -14,7 +14,9 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import com.example.paper_slide.R
 import com.example.paper_slide.databinding.ActivitySignatureBinding
+import com.example.paper_slide.ui.createasignature.CreateSignatureActivity
 import com.example.paper_slide.ui.home.Home
+import com.example.paper_slide.ui.signaturelink.PasteSigActivity
 import com.example.paper_slide.ui.uploadSignature.UploadSignature
 import com.theartofdev.edmodo.cropper.CropImage
 
@@ -58,7 +60,13 @@ class SignatureActivity : AppCompatActivity() {
             val intent = Intent(this@SignatureActivity, UploadSignature::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
             startActivity(intent)
-            finish()
+            //finish()
+        }
+
+        binding.pastSig.setOnClickListener {
+            val intent = Intent(this@SignatureActivity, PasteSigActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
+            startActivity(intent)
         }
 
         cropActivityResultLauncher = registerForActivityResult(cropActivityResultContract){
@@ -75,6 +83,13 @@ class SignatureActivity : AppCompatActivity() {
         }
 
         binding.btnBack.setOnClickListener {
+            finish()
+        }
+
+        binding.createSigIV.setOnClickListener {
+            val intent = Intent(this@SignatureActivity, CreateSignatureActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
+            startActivity(intent)
             finish()
         }
     }

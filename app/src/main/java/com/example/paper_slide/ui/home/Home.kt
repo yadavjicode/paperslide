@@ -29,7 +29,8 @@ import java.io.IOException
 
 //import com.google.firebase.crashlytics.buildtools.reloc.javax.annotation.meta.When
 
-class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener,LogoutConfirmationDialogFragment.LogoutConfirmationListener
+{
 
     lateinit var toggle: ActionBarDrawerToggle
     private lateinit var binding  : ActivityHomeBinding
@@ -187,9 +188,7 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
             Toast.makeText(context, "home", Toast.LENGTH_SHORT).show()
 
         }else if (id == R.id.logout){
-
-            homeViewModel.validateLogout(this@Home)
-
+            showLogoutConfirmationDialog()
         } else if (id == R.id.T_C){
             val intent = Intent(this@Home, TCActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
@@ -201,6 +200,20 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
         }
 
         return true
+    }
+
+    private fun showLogoutConfirmationDialog() {
+        val dialogFragment = LogoutConfirmationDialogFragment()
+        dialogFragment.show(supportFragmentManager, "LogoutConfirmationDialog")
+    }
+
+
+    override fun onLogoutConfirmed() {
+        homeViewModel.validateLogout(this@Home)
+    }
+
+    override fun onLogoutCancelled() {
+       // Toast.makeText(context, "Cancelled", Toast.LENGTH_SHORT).show()
     }
 
 

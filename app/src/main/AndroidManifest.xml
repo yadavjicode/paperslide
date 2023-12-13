@@ -21,16 +21,22 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".ui.signaturelink.PasteSigActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.mindmapview.MindMapShowActivity"
             android:exported="false" />
         <activity
             android:name=".ui.mindmap.MindmapActivity"
             android:exported="true">
-          <!--  <intent-filter>
+
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
         <activity
             android:name=".ui.policy.PolicyActivity"
@@ -88,7 +94,15 @@
         </activity>
         <activity
             android:name=".ui.createasignature.CreateSignatureActivity"
-            android:exported="true" />
+            android:exported="true">
+
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            -->
+        </activity>
         <activity
             android:name=".ui.notes.NotesActivity"
             android:exported="true" />
@@ -121,7 +135,16 @@
             android:exported="true" />
         <activity
             android:name=".ui.uploadSignature.UploadSignature"
-            android:exported="false" />
+            android:exported="true">
+
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            -->
+
+        </activity>
         <activity
             android:name=".ui.result.Result"
             android:exported="true">
@@ -164,14 +187,11 @@
         <activity
             android:name=".ui.home.Home"
             android:exported="true">
-
-            <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            -->
         </activity>
         <activity
             android:name=".ui.otp.Otp"
@@ -197,20 +217,26 @@
         <activity
             android:name=".mindmapweb.d3.MainActivity"
             android:exported="true">
-       <!--     <intent-filter>
+
+            <!--
+                <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
         <activity
             android:name=".officebuddy.MainActivity"
-            android:exported="true" >
+            android:exported="true">
+
+            <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            -->
 
         </activity>
         <activity

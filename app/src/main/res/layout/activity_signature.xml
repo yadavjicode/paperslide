@@ -23,8 +23,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:src="@drawable/baseline_arrow_back_24"
-                />
+                android:src="@drawable/baseline_arrow_back_24" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -41,9 +40,9 @@
             android:id="@+id/cameraIV"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:src="@drawable/scan"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
+            android:src="@drawable/scan"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/relativeLayout3" />
 
@@ -51,20 +50,31 @@
             android:id="@+id/import_sign"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:src="@drawable/impo"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
+            android:src="@drawable/impo"
             app:layout_constraintStart_toEndOf="@+id/cameraIV"
             app:layout_constraintTop_toBottomOf="@+id/relativeLayout3" />
 
         <ImageView
+            android:id="@+id/pastSig"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:src="@drawable/paste"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
+            android:src="@drawable/paste"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cameraIV" />
+
+        <ImageView
+            android:id="@+id/createSigIV"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/sign"
+            android:layout_marginVertical="20dp"
+            android:layout_marginHorizontal="20dp"
+            app:layout_constraintStart_toEndOf="@+id/pastSig"
+            app:layout_constraintTop_toBottomOf="@+id/import_sign" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

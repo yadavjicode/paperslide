@@ -36,6 +36,7 @@ class MindmapActivity : AppCompatActivity() {
 
 
 
+
     override fun onBackPressed() {
         val webView: WebView = findViewById(R.id.webview)
         if (webView.canGoBack()) {
