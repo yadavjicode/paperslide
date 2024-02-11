@@ -16,22 +16,20 @@ import com.example.paper_slide.R
 import com.example.paper_slide.ui.tc.TCActivity
 import com.example.paper_slide.databinding.ActivityHomeBinding
 import com.example.paper_slide.ui.createpresentation.Presentation
+import com.example.paper_slide.ui.ocr.Ocr
 import com.example.paper_slide.ui.pastelink.PasteLink
 import com.example.paper_slide.ui.policy.PolicyActivity
 import com.example.paper_slide.ui.signatureoptions.SignatureActivity
 import com.example.paper_slide.ui.texteditor.TextEditor
 import com.google.android.material.navigation.NavigationView
 import com.example.paper_slide.ui.preview.Preview
+import com.example.paper_slide.ui.texteditor2.TextEditor2
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.TextRecognizer
 import java.io.IOException
-
-//import com.google.firebase.crashlytics.buildtools.reloc.javax.annotation.meta.When
-
 class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener,LogoutConfirmationDialogFragment.LogoutConfirmationListener
 {
-
     lateinit var toggle: ActionBarDrawerToggle
     private lateinit var binding  : ActivityHomeBinding
     private var context =this@Home
@@ -54,34 +52,17 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
         toggle.syncState()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         intview()
-       // binding.navigatDrawer
-
         navview.setNavigationItemSelectedListener(this)
-
-
-
     }
 
-
     private fun intview(){
-/*<<<<<<< HEAD
-        binding.scan.setOnClickListener {
-            val intent = Intent(this@Home, Ocr::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
-            startActivity(intent)
-        }
-=======*/
 
-            binding.scan!!.setOnClickListener(View.OnClickListener {
-                ImagePicker.with(this@Home)
-                    .crop() //Crop image(Optional), Check Customization for more option
-                    .compress(1024) //Final image size will be less than 1 MB(Optional)
-                    .maxResultSize(
-                        1080,
-                        1080
-                    ) //Final image resolution will be less than 1080 x 1080(Optional)
-                    .start()
-            })
+
+            binding.scan!!.setOnClickListener {
+                val intent = Intent(this@Home, Ocr::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
+                startActivity(intent)
+            }
 
 
         binding.createSign.setOnClickListener {
@@ -92,7 +73,7 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
 
         }
         binding.writeNotes.setOnClickListener {
-            val intent = Intent(this@Home, TextEditor::class.java)
+            val intent = Intent(this@Home, TextEditor2::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
             startActivity(intent)
         }
@@ -112,34 +93,10 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
             drawerLayout.openDrawer(GravityCompat.START)
         }
 
-       /* binding.navView.setNavigationItemSelectedListener(this)
-
-        supportFragmentManager.beginTransaction()*/
-
     }
 
 
-/*
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (toggle.onOptionsItemSelected(item)) {
 
-            val id = item.itemId
-
-            if (id == R.id.nav_home) {
-                Toast.makeText(context, "home", Toast.LENGTH_SHORT).show()
-
-            } else if (id == R.id.logout){
-
-                homeViewModel.validateLogout()
-             } else if (id == R.id.T_C){
-                Toast.makeText(context, "T&C", Toast.LENGTH_SHORT).show()
-             } else if (id == R.id.policy){
-                Toast.makeText(context, "poly", Toast.LENGTH_SHORT).show()
-             }
-        }
-        return true
-    }
-*/
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == RESULT_OK) {
